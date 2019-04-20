@@ -99,7 +99,7 @@ namespace GraphicBuilder
 
                 FlatStyle = FlatStyle.Flat,
                 Image = Properties.Resources.Newcross_20px,
-                Location = new Point(preX + func.Length + 70, preY - 5),
+                Location = new Point(preX + func.Length + 70, preY),
                 Size = new Size(21, 22),
                 UseVisualStyleBackColor = true
             });

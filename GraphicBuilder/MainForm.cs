@@ -27,5 +27,18 @@ namespace GraphicBuilder
         {
             graph = new PointsGraphic(pictureBox1, AxesMode.Static, AxesPosition.AllQuarters);
         }
+
+        private void btn_AddNewGraph_Click(object sender, EventArgs e)
+        {
+            pnl_Windows.Controls.Clear();
+            AddGraph addGraph = new AddGraph()
+            {
+                Location = new Point(0,0),
+                BackColor = Color.White,
+                Dock = DockStyle.Right
+        };
+            pnl_Windows.Controls.Add(addGraph);
+            
+        }
     }
 }

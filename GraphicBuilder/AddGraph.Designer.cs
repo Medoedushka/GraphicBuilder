@@ -42,7 +42,6 @@
             this.txb_RightLim = new System.Windows.Forms.TextBox();
             this.txb_LeftLim = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label6
@@ -180,23 +179,10 @@
             this.label12.TabIndex = 40;
             this.label12.Text = "Интервал построения:";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::GraphicBuilder.Properties.Resources.Newcross_20px;
-            this.button1.Location = new System.Drawing.Point(231, 384);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(21, 22);
-            this.button1.TabIndex = 49;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // AddGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.txb_CurveColor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_AddGraphic);
@@ -232,6 +218,5 @@
         private System.Windows.Forms.TextBox txb_RightLim;
         private System.Windows.Forms.TextBox txb_LeftLim;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button1;
     }
 }
