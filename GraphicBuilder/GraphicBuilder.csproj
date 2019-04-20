@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MathParser">
+      <HintPath>..\..\Mathos-Parser\MathParser\bin\Debug\net461\MathParser.dll</HintPath>
+    </Reference>
+    <Reference Include="MyDrawing">
+      <HintPath>..\..\Библиотеки\DiagramLibrary\MyDrawing\bin\Debug\MyDrawing.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddGraph.Designer.cs">
+      <DependentUpon>AddGraph.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddGraph.resx">
+      <DependentUpon>AddGraph.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +112,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\newpears_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newCross_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross_20px.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Newcross_20px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

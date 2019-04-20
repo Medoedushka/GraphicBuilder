@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MyDrawing;
+using Mathos;
 
 namespace GraphicBuilder
 {
     public partial class MainForm : Form
     {
+        public static PointsGraphic graph;
+
+
         public MainForm()
         {
             InitializeComponent();
@@ -20,6 +21,11 @@ namespace GraphicBuilder
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            graph = new PointsGraphic(pictureBox1, AxesMode.Static, AxesPosition.AllQuarters);
         }
     }
 }
