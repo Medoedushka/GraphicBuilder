@@ -14,12 +14,24 @@ namespace GraphicBuilder
 {
     public partial class AddGraph : UserControl
     {
-        List<Label> labelList = new List<Label>();
-        List<TextBox> textBoxList = new List<TextBox>();
-        List<Button> buttonList = new List<Button>();
+        public List<Label> labelList = new List<Label>();
+        public List<TextBox> textBoxList = new List<TextBox>();
+        public List<Button> buttonList = new List<Button>();
+        int brightness;
+        Panel EmtyTxb;
 
         Mathos.Parser.MathParser parser;
         int preX, preY = 5;
+
+        public void ResetParams()
+        {
+            labelList.Clear();
+            textBoxList.Clear();
+            buttonList.Clear();
+            RefreshPanel();
+            preX = 0; preY = 5;
+        }
+
 
         public PointF[] GetPoints(double a, double b, int numberOfPoints, string func)
         {
@@ -67,15 +79,24 @@ namespace GraphicBuilder
                 }
                 else curve1 = new Curves(pt, Color.Red, Legend: txb_UsersFunc.Text);
 
-                MainForm.graph.AddCurve(curve1);
-                AddGraphToList(txb_UsersFunc.Text, curve1.CurveColor);
+                try
+                {
+                    MainForm.graph.AddCurve(curve1);
+                    AddGraphToList(txb_UsersFunc.Text, curve1.CurveColor);
+                    RefreshPanel();
+                }
+                catch(ArgumentException ex)
+                {
+                    MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
             }
             else
             {
-                MessageBox.Show("Не все поля заполнены для построения графика!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
                 return;
             }
-            RefreshPanel();
+            
         }
 
         private void AddGraphToList(string func, Color color)
@@ -92,7 +113,8 @@ namespace GraphicBuilder
                 BackColor = color,
                 Size = new Size(29, 20),
                 ReadOnly = true,
-                Enabled = false
+                Enabled = false,
+                BorderStyle = BorderStyle.None
             });
             buttonList.Add(new Button()
             {
@@ -106,7 +128,7 @@ namespace GraphicBuilder
             preY += 50;
         }
 
-        private void RefreshPanel()
+        public void RefreshPanel()
         {
             pnl_CreatedCurves.Controls.Clear();
 
@@ -124,7 +146,7 @@ namespace GraphicBuilder
             }
         }
 
-
+        
 
         public AddGraph()
         {

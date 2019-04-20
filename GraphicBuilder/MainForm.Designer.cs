@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_BuildGraph = new System.Windows.Forms.Button();
+            this.btn_DeleteCurves = new System.Windows.Forms.Button();
             this.btn_AddNewGraph = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.lbl_StepOY = new System.Windows.Forms.Label();
@@ -43,6 +46,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ControlNote = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.pnl_Windows.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -52,6 +56,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(220)))), ((int)(((byte)(130)))));
+            this.panel1.Controls.Add(this.btn_BuildGraph);
+            this.panel1.Controls.Add(this.btn_DeleteCurves);
             this.panel1.Controls.Add(this.btn_AddNewGraph);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.lbl_StepOY);
@@ -68,16 +74,47 @@
             this.panel1.Size = new System.Drawing.Size(1052, 41);
             this.panel1.TabIndex = 0;
             // 
+            // btn_BuildGraph
+            // 
+            this.btn_BuildGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_BuildGraph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_BuildGraph.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_BuildGraph.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_BuildGraph.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_BuildGraph.Location = new System.Drawing.Point(603, 2);
+            this.btn_BuildGraph.Name = "btn_BuildGraph";
+            this.btn_BuildGraph.Size = new System.Drawing.Size(119, 37);
+            this.btn_BuildGraph.TabIndex = 37;
+            this.btn_BuildGraph.Text = "Построить";
+            this.btn_BuildGraph.UseVisualStyleBackColor = false;
+            this.btn_BuildGraph.Click += new System.EventHandler(this.btn_BuildGraph_Click);
+            // 
+            // btn_DeleteCurves
+            // 
+            this.btn_DeleteCurves.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_DeleteCurves.FlatAppearance.BorderSize = 0;
+            this.btn_DeleteCurves.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_DeleteCurves.Image = global::GraphicBuilder.Properties.Resources.dustBin_25px;
+            this.btn_DeleteCurves.Location = new System.Drawing.Point(926, 2);
+            this.btn_DeleteCurves.Name = "btn_DeleteCurves";
+            this.btn_DeleteCurves.Size = new System.Drawing.Size(41, 41);
+            this.btn_DeleteCurves.TabIndex = 35;
+            this.ControlNote.SetToolTip(this.btn_DeleteCurves, "Очистить ВСЕ добавленные построения");
+            this.btn_DeleteCurves.UseVisualStyleBackColor = true;
+            this.btn_DeleteCurves.Click += new System.EventHandler(this.btn_DeleteCurves_Click);
+            // 
             // btn_AddNewGraph
             // 
             this.btn_AddNewGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_AddNewGraph.FlatAppearance.BorderSize = 0;
             this.btn_AddNewGraph.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AddNewGraph.Image = global::GraphicBuilder.Properties.Resources.plus25px;
-            this.btn_AddNewGraph.Location = new System.Drawing.Point(968, 0);
+            this.btn_AddNewGraph.Location = new System.Drawing.Point(968, 2);
             this.btn_AddNewGraph.Name = "btn_AddNewGraph";
             this.btn_AddNewGraph.Size = new System.Drawing.Size(41, 41);
             this.btn_AddNewGraph.TabIndex = 35;
+            this.ControlNote.SetToolTip(this.btn_AddNewGraph, "Добавить новое построение");
             this.btn_AddNewGraph.UseVisualStyleBackColor = true;
             this.btn_AddNewGraph.Click += new System.EventHandler(this.btn_AddNewGraph_Click);
             // 
@@ -87,10 +124,11 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = global::GraphicBuilder.Properties.Resources.newpears_25px;
-            this.button2.Location = new System.Drawing.Point(1010, 1);
+            this.button2.Location = new System.Drawing.Point(1010, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(41, 41);
             this.button2.TabIndex = 34;
+            this.ControlNote.SetToolTip(this.button2, "Настройки");
             this.button2.UseVisualStyleBackColor = true;
             // 
             // lbl_StepOY
@@ -242,6 +280,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Построение графика функции";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnl_Windows.ResumeLayout(false);
@@ -269,6 +308,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btn_BuildGraph;
+        private System.Windows.Forms.Button btn_DeleteCurves;
+        private System.Windows.Forms.ToolTip ControlNote;
     }
 }
 
