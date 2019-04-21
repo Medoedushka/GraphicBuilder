@@ -125,5 +125,11 @@
   <ItemGroup>
     <None Include="Resources\dustBin_25px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newInfo_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lineChart_25px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

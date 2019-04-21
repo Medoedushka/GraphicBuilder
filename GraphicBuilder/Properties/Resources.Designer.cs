@@ -123,6 +123,16 @@ namespace GraphicBuilder.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lineChart_25px {
+            get {
+                object obj = ResourceManager.GetObject("lineChart_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Newcross_20px {
             get {
                 object obj = ResourceManager.GetObject("Newcross_20px", resourceCulture);
@@ -136,6 +146,16 @@ namespace GraphicBuilder.Properties {
         internal static System.Drawing.Bitmap newCross_25px {
             get {
                 object obj = ResourceManager.GetObject("newCross_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap newInfo_25px {
+            get {
+                object obj = ResourceManager.GetObject("newInfo_25px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

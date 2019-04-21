@@ -58,7 +58,7 @@ namespace GraphicBuilder
         {
             graph.GraphCurves.Clear();
             graph.g?.Clear(pictureBox1.BackColor);
-            addGraph.ResetParams();
+            addGraph?.ResetParams();
         }
 
         private void MainForm_SizeChanged(object sender, EventArgs e)

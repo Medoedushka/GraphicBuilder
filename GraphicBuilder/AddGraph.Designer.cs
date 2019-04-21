@@ -42,6 +42,7 @@
             this.txb_RightLim = new System.Windows.Forms.TextBox();
             this.txb_LeftLim = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.btn_Info = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label6
@@ -110,9 +111,9 @@
             // btn_AddGraphic
             // 
             this.btn_AddGraphic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_AddGraphic.Location = new System.Drawing.Point(362, 228);
+            this.btn_AddGraphic.Location = new System.Drawing.Point(324, 227);
             this.btn_AddGraphic.Name = "btn_AddGraphic";
-            this.btn_AddGraphic.Size = new System.Drawing.Size(83, 23);
+            this.btn_AddGraphic.Size = new System.Drawing.Size(83, 30);
             this.btn_AddGraphic.TabIndex = 46;
             this.btn_AddGraphic.Text = "Добавить";
             this.btn_AddGraphic.UseVisualStyleBackColor = true;
@@ -179,10 +180,23 @@
             this.label12.TabIndex = 40;
             this.label12.Text = "Интервал построения:";
             // 
+            // btn_Info
+            // 
+            this.btn_Info.FlatAppearance.BorderSize = 0;
+            this.btn_Info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Info.Image = global::GraphicBuilder.Properties.Resources.newInfo_25px;
+            this.btn_Info.Location = new System.Drawing.Point(413, 225);
+            this.btn_Info.Name = "btn_Info";
+            this.btn_Info.Size = new System.Drawing.Size(33, 32);
+            this.btn_Info.TabIndex = 49;
+            this.btn_Info.UseVisualStyleBackColor = true;
+            this.btn_Info.Click += new System.EventHandler(this.btn_Info_Click);
+            // 
             // AddGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_Info);
             this.Controls.Add(this.txb_CurveColor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_AddGraphic);
@@ -218,5 +232,6 @@
         private System.Windows.Forms.TextBox txb_RightLim;
         private System.Windows.Forms.TextBox txb_LeftLim;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btn_Info;
     }
 }
