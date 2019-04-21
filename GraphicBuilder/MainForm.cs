@@ -75,5 +75,11 @@ namespace GraphicBuilder
                 
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RT_Graphic rT_Graphic = new RT_Graphic();
+            rT_Graphic.Show();
+        }
     }
 }
