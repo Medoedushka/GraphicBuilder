@@ -16,10 +16,9 @@ namespace GraphicBuilder
 {
     public partial class RT_Graphic : Form
     {
-        private delegate void DrawDel();
         PointsGraphic RTgraph;
-        PointF[] RTPoints = new PointF[Int16.MaxValue];
         public List<double> YValues = new List<double>();
+
         int Time { get; set; }
         public string PathTxt { get; set; }
         bool ActiveConnection { get; set; }
@@ -32,9 +31,9 @@ namespace GraphicBuilder
 
         private void RT_Graphic_Load(object sender, EventArgs e)
         {
-            RTgraph = new PointsGraphic(pictureBox1, AxesMode.Static, AxesPosition.AllQuarters);
+            RTgraph = new PointsGraphic(pictureBox1, AxesMode.Dynamic, AxesPosition.AllQuarters);
             RTgraph.Config.Grid = true;
-            //RTgraph.Config.SmoothAngles = true;
+            RTgraph.Config.SmoothAngles = true;
             RTgraph.Config.PriceForPointOX = 1;
             RTgraph.Config.PriceForPointOY = 1;
             
@@ -55,18 +54,18 @@ namespace GraphicBuilder
 
             if (result == DialogResult.OK)
             {
-                //if (File.ReadAllText(pathFile) == string.Empty && Path.GetExtension(pathFile) == ".txt")
-                //{
+                if (Path.GetExtension(pathFile) == ".txt")
+                {
                     lbl_Status.ForeColor = Color.Green;
                     lbl_Status.Text = "P";
                     txb_FilePath.Text = pathFile;
                     PathTxt = pathFile;
-                //}
-                //else
-                //{
-                //    lbl_Status.ForeColor = Color.Red;
-                //    lbl_Status.Text = "O";
-                //}
+                }
+                else
+                {
+                    lbl_Status.ForeColor = Color.Red;
+                    lbl_Status.Text = "O";
+                }
             }
         }
 
@@ -79,15 +78,15 @@ namespace GraphicBuilder
                 using (StreamReader reader = new StreamReader(input))
                 {
                     string[] el = reader.ReadToEnd().Split(' ');
-                    double value = double.Parse(el[el.Length - 2]);
+                    double value = double.Parse(el[el.Length - 1]);
                     YValues.Add(value);
-                    double x = RTgraph.Center.X - 1 * RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX;
+                    double x = RTgraph.ImiganaryCenter.X - 1 * RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX;
                     
-                    RTgraph.Center = new Point((int)x, RTgraph.Center.Y);
+                    RTgraph.ImiganaryCenter = new Point((int)x, RTgraph.ImiganaryCenter.Y);
                     
-                    RTgraph.DrawRTGraph(YValues, Time);
+                    RTgraph.DrawRTGraph(YValues);
                     Time++;
-                    Thread.Sleep(50);
+                    Thread.Sleep(100);
                 }
             }
         }
@@ -110,7 +109,6 @@ namespace GraphicBuilder
         private void button1_Click(object sender, EventArgs e)
         {
             ActiveConnection = false;
-            RTPoints = null;
             GC.Collect(2);
         }
     }
