@@ -17,12 +17,12 @@ namespace GraphicBuilder
     public partial class RT_Graphic : Form
     {
         PointsGraphic RTgraph;
-        public List<double> YValues = new List<double>();
+        
 
-        int Time { get; set; }
-        public string PathTxt { get; set; }
-        bool ActiveConnection { get; set; }
-
+        int Time { get; set; } //время, кажется бесполезный..добавить словарь для хранения значений
+        public string PathTxt { get; set; } //путь к тхт-файлу
+        bool ActiveConnection { get; set; } //является ли второй поток активным
+         
         public RT_Graphic()
         {
             InitializeComponent();
@@ -31,13 +31,12 @@ namespace GraphicBuilder
 
         private void RT_Graphic_Load(object sender, EventArgs e)
         {
-            RTgraph = new PointsGraphic(pictureBox1, AxesMode.Dynamic, AxesPosition.AllQuarters);
+            RTgraph = new PointsGraphic(pc, AxesMode.Dynamic, AxesPosition.AllQuarters);
+            //начальный настройки
             RTgraph.Config.Grid = true;
             RTgraph.Config.SmoothAngles = true;
             RTgraph.Config.PriceForPointOX = 1;
             RTgraph.Config.PriceForPointOY = 1;
-            
-            lbl_Status.Visible = true;
             ActiveConnection = false;
             
         }
@@ -56,13 +55,14 @@ namespace GraphicBuilder
             {
                 if (Path.GetExtension(pathFile) == ".txt")
                 {
-                    lbl_Status.ForeColor = Color.Green;
+                    lbl_Status.ForeColor = Color.FromArgb(0, 217, 0);
                     lbl_Status.Text = "P";
                     txb_FilePath.Text = pathFile;
                     PathTxt = pathFile;
                 }
                 else
                 {
+                    txb_FilePath.Text = pathFile;
                     lbl_Status.ForeColor = Color.Red;
                     lbl_Status.Text = "O";
                 }
@@ -78,15 +78,20 @@ namespace GraphicBuilder
                 using (StreamReader reader = new StreamReader(input))
                 {
                     string[] el = reader.ReadToEnd().Split(' ');
+                    if (el[el.Length - 1] == " " || el[el.Length - 1] == string.Empty) 
+                    {
+                        MessageBox.Show("Ошибка формата передачи данных: \" \"num", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     double value = double.Parse(el[el.Length - 1]);
-                    YValues.Add(value);
                     double x = RTgraph.ImiganaryCenter.X - 1 * RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX;
-                    
                     RTgraph.ImiganaryCenter = new Point((int)x, RTgraph.ImiganaryCenter.Y);
+                    RTgraph.Listpoints.Add(value);
+
+                    RTgraph.DrawRTGraph();
                     
-                    RTgraph.DrawRTGraph(YValues);
                     Time++;
-                    Thread.Sleep(50);
+                    Thread.Sleep(150);
                 }
             }
         }
@@ -94,27 +99,65 @@ namespace GraphicBuilder
         private async Task DrawRTGraphAsync()
         {
             await Task.Run(() => DrawRTGraph());
+            
             MessageBox.Show("Done!");
         }
 
-        private void btn_Connect_Click(object sender, EventArgs e)
+        private void btn_Connection_Click(object sender, EventArgs e)
         {
-            ActiveConnection = true;
-            RTgraph.DrawAxes();
-            Thread.Sleep(1000);
-            DrawRTGraphAsync();
+            if (!ActiveConnection)
+            {
+                ActiveConnection = true;
+                RTgraph.placeToDraw = pc;
+                RTgraph.SetPlaceToDrawSize(pc.Width, pc.Height);
+                btn_Connection.ForeColor = Color.FromArgb(235, 35, 50);
+                btn_Connection.Text = "Отключиться";
+                Thread.Sleep(1000);
+                DrawRTGraphAsync();
+            }
+            else
+            {
+                ActiveConnection = false;
+                btn_Connection.ForeColor = Color.FromArgb(0, 217, 0);
+                btn_Connection.Text = "Подключиться";
+                pc.Image = null;
+                pc.BackColor = Color.FromArgb(135, 206, 250);
+                GC.Collect(2);
+            }
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            
+            ActiveConnection = true;
+            Thread.Sleep(1000);
+            DrawRTGraphAsync();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
         {
             ActiveConnection = false;
             GC.Collect(2);
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void RT_Graphic_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (ActiveConnection == true)
+            {
+                ActiveConnection = false;
+                GC.Collect(2);
+            }
+        }
+
+        private void RT_Graphic_Resize(object sender, EventArgs e)
+        {
+            
         }
     }
 }

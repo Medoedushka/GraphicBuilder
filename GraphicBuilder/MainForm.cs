@@ -49,8 +49,8 @@ namespace GraphicBuilder
             lbl_StepOX.Visible = lbl_StepOY.Visible = true;
             lbl_StepOX.Text = graph.Config.StepOX.ToString();
             lbl_StepOY.Text = graph.Config.StepOY.ToString();
-           
 
+            
             graph.DrawDiagram();
         }
 
@@ -80,6 +80,11 @@ namespace GraphicBuilder
         {
             RT_Graphic rT_Graphic = new RT_Graphic();
             rT_Graphic.Show();
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -31,23 +31,23 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_BuildGraph = new System.Windows.Forms.Button();
-            this.lbl_StepOY = new System.Windows.Forms.Label();
-            this.lbl_StepOX = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pnl_Windows = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.ControlNote = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_DeleteCurves = new System.Windows.Forms.Button();
             this.btn_AddNewGraph = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.lbl_StepOY = new System.Windows.Forms.Label();
             this.btn_CenterLEFT = new System.Windows.Forms.Button();
+            this.lbl_StepOX = new System.Windows.Forms.Label();
             this.btn_CenterRIGHT = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.btn_CenterDOWN = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.btn_CenterUP = new System.Windows.Forms.Button();
+            this.pnl_Windows = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ControlNote = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.pnl_Windows.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -91,93 +91,6 @@
             this.btn_BuildGraph.Text = "Построить";
             this.btn_BuildGraph.UseVisualStyleBackColor = false;
             this.btn_BuildGraph.Click += new System.EventHandler(this.btn_BuildGraph_Click);
-            // 
-            // lbl_StepOY
-            // 
-            this.lbl_StepOY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_StepOY.AutoSize = true;
-            this.lbl_StepOY.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_StepOY.Location = new System.Drawing.Point(199, 25);
-            this.lbl_StepOY.Name = "lbl_StepOY";
-            this.lbl_StepOY.Size = new System.Drawing.Size(35, 13);
-            this.lbl_StepOY.TabIndex = 25;
-            this.lbl_StepOY.Text = "Num2";
-            this.lbl_StepOY.Visible = false;
-            // 
-            // lbl_StepOX
-            // 
-            this.lbl_StepOX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_StepOX.AutoSize = true;
-            this.lbl_StepOX.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_StepOX.Location = new System.Drawing.Point(199, 7);
-            this.lbl_StepOX.Name = "lbl_StepOX";
-            this.lbl_StepOX.Size = new System.Drawing.Size(35, 13);
-            this.lbl_StepOX.TabIndex = 24;
-            this.lbl_StepOX.Text = "Num1";
-            this.lbl_StepOX.Visible = false;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(86, 25);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(114, 13);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "Шаг деления оси OY:";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(86, 7);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(114, 13);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Шаг деления оси OX:";
-            // 
-            // pnl_Windows
-            // 
-            this.pnl_Windows.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.pnl_Windows.Controls.Add(this.label6);
-            this.pnl_Windows.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnl_Windows.Location = new System.Drawing.Point(603, 0);
-            this.pnl_Windows.Name = "pnl_Windows";
-            this.pnl_Windows.Size = new System.Drawing.Size(449, 507);
-            this.pnl_Windows.TabIndex = 1;
-            this.pnl_Windows.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial Narrow", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(130, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(225, 42);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Главное меню";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Control;
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(603, 507);
-            this.panel3.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(190)))));
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(603, 507);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
@@ -233,6 +146,18 @@
             this.ControlNote.SetToolTip(this.button2, "Настройки");
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // lbl_StepOY
+            // 
+            this.lbl_StepOY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_StepOY.AutoSize = true;
+            this.lbl_StepOY.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_StepOY.Location = new System.Drawing.Point(199, 25);
+            this.lbl_StepOY.Name = "lbl_StepOY";
+            this.lbl_StepOY.Size = new System.Drawing.Size(35, 13);
+            this.lbl_StepOY.TabIndex = 25;
+            this.lbl_StepOY.Text = "Num2";
+            this.lbl_StepOY.Visible = false;
+            // 
             // btn_CenterLEFT
             // 
             this.btn_CenterLEFT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -244,6 +169,18 @@
             this.btn_CenterLEFT.Size = new System.Drawing.Size(20, 32);
             this.btn_CenterLEFT.TabIndex = 36;
             this.btn_CenterLEFT.UseVisualStyleBackColor = true;
+            // 
+            // lbl_StepOX
+            // 
+            this.lbl_StepOX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_StepOX.AutoSize = true;
+            this.lbl_StepOX.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_StepOX.Location = new System.Drawing.Point(199, 7);
+            this.lbl_StepOX.Name = "lbl_StepOX";
+            this.lbl_StepOX.Size = new System.Drawing.Size(35, 13);
+            this.lbl_StepOX.TabIndex = 24;
+            this.lbl_StepOX.Text = "Num1";
+            this.lbl_StepOX.Visible = false;
             // 
             // btn_CenterRIGHT
             // 
@@ -257,6 +194,17 @@
             this.btn_CenterRIGHT.TabIndex = 34;
             this.btn_CenterRIGHT.UseVisualStyleBackColor = true;
             // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(86, 25);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(114, 13);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Шаг деления оси OY:";
+            // 
             // btn_CenterDOWN
             // 
             this.btn_CenterDOWN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -269,6 +217,17 @@
             this.btn_CenterDOWN.TabIndex = 35;
             this.btn_CenterDOWN.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(86, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(114, 13);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Шаг деления оси OX:";
+            // 
             // btn_CenterUP
             // 
             this.btn_CenterUP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -280,6 +239,48 @@
             this.btn_CenterUP.Size = new System.Drawing.Size(32, 20);
             this.btn_CenterUP.TabIndex = 33;
             this.btn_CenterUP.UseVisualStyleBackColor = true;
+            // 
+            // pnl_Windows
+            // 
+            this.pnl_Windows.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.pnl_Windows.Controls.Add(this.label6);
+            this.pnl_Windows.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnl_Windows.Location = new System.Drawing.Point(603, 0);
+            this.pnl_Windows.Name = "pnl_Windows";
+            this.pnl_Windows.Size = new System.Drawing.Size(449, 507);
+            this.pnl_Windows.TabIndex = 1;
+            this.pnl_Windows.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial Narrow", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(130, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(225, 42);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Главное меню";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(603, 507);
+            this.panel3.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(190)))));
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(603, 507);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // MainForm
             // 
