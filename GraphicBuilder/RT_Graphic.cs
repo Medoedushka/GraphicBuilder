@@ -86,7 +86,7 @@ namespace GraphicBuilder
                     
                     RTgraph.DrawRTGraph(YValues);
                     Time++;
-                    Thread.Sleep(100);
+                    Thread.Sleep(50);
                 }
             }
         }
@@ -110,6 +110,11 @@ namespace GraphicBuilder
         {
             ActiveConnection = false;
             GC.Collect(2);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
