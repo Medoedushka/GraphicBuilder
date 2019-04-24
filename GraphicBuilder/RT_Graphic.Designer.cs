@@ -28,37 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pc = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tls_MoveLeft = new System.Windows.Forms.ToolStripButton();
+            this.tls_MoveRight = new System.Windows.Forms.ToolStripButton();
+            this.btn_Connection = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.group1 = new System.Windows.Forms.GroupBox();
             this.lbl_Status = new System.Windows.Forms.Label();
             this.btn_OpenFile = new System.Windows.Forms.Button();
             this.txb_FilePath = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_Connection = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pc)).BeginInit();
+            this.pc = new System.Windows.Forms.PictureBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.group1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pc)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pc
-            // 
-            this.pc.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.pc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pc.Location = new System.Drawing.Point(0, 0);
-            this.pc.Name = "pc";
-            this.pc.Size = new System.Drawing.Size(674, 557);
-            this.pc.TabIndex = 3;
-            this.pc.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(143)))), ((int)(((byte)(173)))));
+            this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Controls.Add(this.btn_Connection);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.group1);
@@ -69,6 +64,69 @@
             this.panel1.Size = new System.Drawing.Size(310, 557);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(173)))), ((int)(((byte)(173)))), ((int)(((byte)(173)))));
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tls_MoveLeft,
+            this.tls_MoveRight,
+            this.toolStripSeparator1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 529);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(310, 28);
+            this.toolStrip1.TabIndex = 4;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tls_MoveLeft
+            // 
+            this.tls_MoveLeft.AutoSize = false;
+            this.tls_MoveLeft.AutoToolTip = false;
+            this.tls_MoveLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tls_MoveLeft.Image = global::GraphicBuilder.Properties.Resources.RightArrow_25px;
+            this.tls_MoveLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tls_MoveLeft.Name = "tls_MoveLeft";
+            this.tls_MoveLeft.Size = new System.Drawing.Size(25, 25);
+            this.tls_MoveLeft.Text = "toolStripButton1";
+            this.tls_MoveLeft.Click += new System.EventHandler(this.tls_MoveLeft_Click);
+            // 
+            // tls_MoveRight
+            // 
+            this.tls_MoveRight.AutoSize = false;
+            this.tls_MoveRight.AutoToolTip = false;
+            this.tls_MoveRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tls_MoveRight.Image = global::GraphicBuilder.Properties.Resources.LeftArrow_25px;
+            this.tls_MoveRight.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tls_MoveRight.Name = "tls_MoveRight";
+            this.tls_MoveRight.Size = new System.Drawing.Size(25, 25);
+            this.tls_MoveRight.Text = "toolStripButton2";
+            this.tls_MoveRight.Click += new System.EventHandler(this.tls_MoveRight_Click);
+            // 
+            // btn_Connection
+            // 
+            this.btn_Connection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Connection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Connection.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Connection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(0)))));
+            this.btn_Connection.Location = new System.Drawing.Point(2, 500);
+            this.btn_Connection.Name = "btn_Connection";
+            this.btn_Connection.Size = new System.Drawing.Size(146, 26);
+            this.btn_Connection.TabIndex = 3;
+            this.btn_Connection.Text = "Подключиться";
+            this.btn_Connection.UseVisualStyleBackColor = true;
+            this.btn_Connection.Click += new System.EventHandler(this.btn_Connection_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(3, 171);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(301, 170);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "USB-порт";
             // 
             // group1
             // 
@@ -136,30 +194,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Настройки";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(3, 200);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(301, 243);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "USB-порт";
-            // 
-            // btn_Connection
-            // 
-            this.btn_Connection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Connection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Connection.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_Connection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(0)))));
-            this.btn_Connection.Location = new System.Drawing.Point(3, 528);
-            this.btn_Connection.Name = "btn_Connection";
-            this.btn_Connection.Size = new System.Drawing.Size(146, 26);
-            this.btn_Connection.TabIndex = 3;
-            this.btn_Connection.Text = "Подключиться";
-            this.btn_Connection.UseVisualStyleBackColor = true;
-            this.btn_Connection.Click += new System.EventHandler(this.btn_Connection_Click);
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.pc);
@@ -168,6 +202,22 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(674, 557);
             this.panel2.TabIndex = 5;
+            // 
+            // pc
+            // 
+            this.pc.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.pc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pc.Location = new System.Drawing.Point(0, 0);
+            this.pc.Name = "pc";
+            this.pc.Size = new System.Drawing.Size(674, 557);
+            this.pc.TabIndex = 3;
+            this.pc.TabStop = false;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 28);
             // 
             // RT_Graphic
             // 
@@ -186,12 +236,14 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RT_Graphic_FormClosing);
             this.Load += new System.EventHandler(this.RT_Graphic_Load);
             this.Resize += new System.EventHandler(this.RT_Graphic_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.pc)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,5 +260,9 @@
         private System.Windows.Forms.Button btn_Connection;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton tls_MoveLeft;
+        private System.Windows.Forms.ToolStripButton tls_MoveRight;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

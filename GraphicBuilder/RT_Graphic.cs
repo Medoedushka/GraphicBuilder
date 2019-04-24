@@ -19,7 +19,7 @@ namespace GraphicBuilder
         PointsGraphic RTgraph;
         
 
-        int Time { get; set; } //время, кажется бесполезный..добавить словарь для хранения значений
+        double Time { get; set; } //время, кажется бесполезный..добавить словарь для хранения значений
         public string PathTxt { get; set; } //путь к тхт-файлу
         bool ActiveConnection { get; set; } //является ли второй поток активным
          
@@ -33,10 +33,11 @@ namespace GraphicBuilder
         {
             RTgraph = new PointsGraphic(pc, AxesMode.Dynamic, AxesPosition.AllQuarters);
             //начальный настройки
-            RTgraph.Config.Grid = true;
-            RTgraph.Config.SmoothAngles = true;
-            RTgraph.Config.PriceForPointOX = 1;
+            //RTgraph.Config.Grid = true;
+            //RTgraph.Config.SmoothAngles = true;
+            RTgraph.Config.PriceForPointOX = 0.5;
             RTgraph.Config.PriceForPointOY = 1;
+            RTgraph.Config.DrawPoints = true;
             ActiveConnection = false;
             
         }
@@ -84,14 +85,13 @@ namespace GraphicBuilder
                         return;
                     }
                     double value = double.Parse(el[el.Length - 1]);
-                    double x = RTgraph.ImiganaryCenter.X - 1 * RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX;
+                    double x = RTgraph.ImiganaryCenter.X -  0.1 * RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX;
                     RTgraph.ImiganaryCenter = new Point((int)x, RTgraph.ImiganaryCenter.Y);
-                    RTgraph.Listpoints.Add(value);
-
+                    RTgraph.ValuePairs.Add(Time, value);
                     RTgraph.DrawRTGraph();
                     
-                    Time++;
-                    Thread.Sleep(150);
+                    Time += 0.1;
+                    Thread.Sleep(100);
                 }
             }
         }
@@ -118,6 +118,7 @@ namespace GraphicBuilder
             else
             {
                 ActiveConnection = false;
+                RTgraph.ValuePairs.Clear();
                 btn_Connection.ForeColor = Color.FromArgb(0, 217, 0);
                 btn_Connection.Text = "Подключиться";
                 pc.Image = null;
@@ -158,6 +159,31 @@ namespace GraphicBuilder
         private void RT_Graphic_Resize(object sender, EventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RTgraph.ImiganaryCenter = new Point(RTgraph.ImiganaryCenter.X - 25, RTgraph.ImiganaryCenter.Y);
+        }
+
+        private void tls_MoveLeft_Click(object sender, EventArgs e)
+        {
+            RTgraph.ImiganaryCenter = new Point(RTgraph.ImiganaryCenter.X - 25, RTgraph.ImiganaryCenter.Y);
+        }
+
+        private void tls_MoveRight_Click(object sender, EventArgs e)
+        {
+            RTgraph.ImiganaryCenter = new Point(RTgraph.ImiganaryCenter.X + 25, RTgraph.ImiganaryCenter.Y);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            RTgraph.Config.PriceForPointOY += 10;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RTgraph.Config.StepOY = 25;
         }
     }
 }
