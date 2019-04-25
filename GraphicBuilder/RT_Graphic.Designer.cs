@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tls_MoveLeft = new System.Windows.Forms.ToolStripButton();
             this.tls_MoveRight = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_Connection = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.group1 = new System.Windows.Forms.GroupBox();
@@ -42,9 +44,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pc = new System.Windows.Forms.PictureBox();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmb_PortName = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmb_BaundRate = new System.Windows.Forms.ComboBox();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.group1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pc)).BeginInit();
@@ -63,7 +70,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(310, 557);
             this.panel1.TabIndex = 4;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+           
             // 
             // toolStrip1
             // 
@@ -104,6 +111,11 @@
             this.tls_MoveRight.Text = "toolStripButton2";
             this.tls_MoveRight.Click += new System.EventHandler(this.tls_MoveRight_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 28);
+            // 
             // btn_Connection
             // 
             this.btn_Connection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -120,10 +132,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmb_BaundRate);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cmb_PortName);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(3, 171);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(301, 170);
+            this.groupBox1.Size = new System.Drawing.Size(301, 106);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "USB-порт";
@@ -214,10 +230,56 @@
             this.pc.TabIndex = 3;
             this.pc.TabStop = false;
             // 
-            // toolStripSeparator1
+            // label3
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 28);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(6, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 15);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Имя порта:";
+            // 
+            // cmb_PortName
+            // 
+            this.cmb_PortName.FormattingEnabled = true;
+            this.cmb_PortName.Items.AddRange(new object[] {
+            "COM1",
+            "COM2",
+            "COM3",
+            "COM4",
+            "COM5"});
+            this.cmb_PortName.Location = new System.Drawing.Point(83, 30);
+            this.cmb_PortName.Name = "cmb_PortName";
+            this.cmb_PortName.Size = new System.Drawing.Size(92, 24);
+            this.cmb_PortName.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(6, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(207, 15);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Символьная скорость(BaundRate):";
+            // 
+            // cmb_BaundRate
+            // 
+            this.cmb_BaundRate.FormattingEnabled = true;
+            this.cmb_BaundRate.Items.AddRange(new object[] {
+            "300",
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "19200",
+            "38400",
+            "57600"});
+            this.cmb_BaundRate.Location = new System.Drawing.Point(214, 68);
+            this.cmb_BaundRate.Name = "cmb_BaundRate";
+            this.cmb_BaundRate.Size = new System.Drawing.Size(76, 24);
+            this.cmb_BaundRate.TabIndex = 7;
             // 
             // RT_Graphic
             // 
@@ -235,11 +297,13 @@
             this.Text = "Построение графика в реальном времени";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RT_Graphic_FormClosing);
             this.Load += new System.EventHandler(this.RT_Graphic_Load);
-            this.Resize += new System.EventHandler(this.RT_Graphic_Resize);
+           
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -264,5 +328,10 @@
         private System.Windows.Forms.ToolStripButton tls_MoveLeft;
         private System.Windows.Forms.ToolStripButton tls_MoveRight;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ComboBox cmb_BaundRate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmb_PortName;
+        private System.Windows.Forms.Label label3;
+        private System.IO.Ports.SerialPort serialPort1;
     }
 }
