@@ -35,9 +35,10 @@ namespace GraphicBuilder
             RTgraph = new PointsGraphic(pc, AxesMode.Dynamic, AxesPosition.AllQuarters);
             //начальный настройки
             PathTxt = null;
-            RTgraph.Config.PriceForPointOX = 80;
-            RTgraph.Config.PriceForPointOY = 50;
-            RTgraph.Config.StepOX = 90;
+            RTgraph.Config.PriceForPointOX = 1;
+            RTgraph.Config.PriceForPointOY = 100;
+            RTgraph.Config.StepOX = 25;
+            RTgraph.Config.StepOY = 100;
             RTgraph.Config.Grid = true;
             RTgraph.Config.SmoothAngles = true;
             RTgraph.Config.DrawPoints = true;
@@ -96,20 +97,25 @@ namespace GraphicBuilder
                 }
                 else if (PathTxt == null)
                 {
-                    el = serialPort1.ReadLine().Split(' ');
-                    if (el[el.Length - 1] == " " || el[el.Length - 1] == string.Empty)
+                    try
+                    {
+                        el = serialPort1.ReadLine().Split(' ');
+                    }
+                    catch(IOException) { return; }
+                        if (el[el.Length - 1] == " " || el[el.Length - 1] == string.Empty)
                     {
                         MessageBox.Show("Ошибка формата передачи данных: \" \"num", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
                 value = double.Parse(el[el.Length - 1]);
-                double x = RTgraph.ImiganaryCenter.X - 25 * RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX;
+                double k = Math.Round(RTgraph.Config.StepOX / 2400.0, 4);
+                double x = RTgraph.ImiganaryCenter.X -  0.0004* RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX;
                 RTgraph.ImiganaryCenter = new Point((int)x, RTgraph.ImiganaryCenter.Y);
                 RTgraph.ValuePairs.Add(Time, value);
                 RTgraph.DrawRTGraph();
 
-                Time += 25;
+                Time += 0.1 / 60.0;
                 Thread.Sleep(25);
             }
         }
@@ -123,9 +129,9 @@ namespace GraphicBuilder
 
         private void btn_Connection_Click(object sender, EventArgs e)
         {
+            l1:
           if (!ActiveConnection)
             {
-                ActiveConnection = true;
                 if (PathTxt == null)
                 {
                     try
@@ -136,10 +142,14 @@ namespace GraphicBuilder
                     }
                     catch (IOException ex)
                     {
+                        DialogResult res = 
                         MessageBox.Show(ex.Message, "Ошибка подключения к порту", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation);
-                        return;
+                        if (res == DialogResult.Retry) goto l1;
+                        else return;
+
                     }
                 }
+                ActiveConnection = true;
                 RTgraph.placeToDraw = pc;
                 RTgraph.SetPlaceToDrawSize(pc.Width, pc.Height);
                 btn_Connection.ForeColor = Color.FromArgb(235, 35, 50);
@@ -149,43 +159,18 @@ namespace GraphicBuilder
             }
             else
             {
+                pc.Image = null;
+                PathTxt = null;
+                txb_FilePath.Text = "";
                 ActiveConnection = false;
                 serialPort1.Close();
                 RTgraph.ValuePairs.Clear();
                 btn_Connection.ForeColor = Color.FromArgb(0, 217, 0);
                 btn_Connection.Text = "Подключиться";
-                pc.Image = null;
-                PathTxt = null;
                 pc.BackColor = Color.FromArgb(135, 206, 250);
                 GC.Collect(2);
             }
-                
-
-               
-          
-            
-            
-                
-            
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            
-            ActiveConnection = true;
-            Thread.Sleep(1000);
-            DrawRTGraphAsync();
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            ActiveConnection = false;
-            GC.Collect(2);
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+              
         }
 
         private void RT_Graphic_FormClosing(object sender, FormClosingEventArgs e)
@@ -208,5 +193,20 @@ namespace GraphicBuilder
             RTgraph.ImiganaryCenter = new Point(RTgraph.ImiganaryCenter.X + 25, RTgraph.ImiganaryCenter.Y);
         }
 
+        private void tls_IncreaseOX_Click(object sender, EventArgs e)
+        {
+            RTgraph.Config.StepOX += 2;
+        }
+
+        private void tls_DecreaseOX_Click(object sender, EventArgs e)
+        {
+            RTgraph.Config.StepOX -= 2;
+        }
+
+        private void RT_Graphic_StyleChanged(object sender, EventArgs e)
+        {
+            if (RTgraph != null)
+            RTgraph.placeToDraw = pc;
+        }
     }
 }

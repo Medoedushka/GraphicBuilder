@@ -34,8 +34,14 @@
             this.tls_MoveLeft = new System.Windows.Forms.ToolStripButton();
             this.tls_MoveRight = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tls_IncreaseOX = new System.Windows.Forms.ToolStripButton();
+            this.tls_DecreaseOX = new System.Windows.Forms.ToolStripButton();
             this.btn_Connection = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmb_BaundRate = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmb_PortName = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.group1 = new System.Windows.Forms.GroupBox();
             this.lbl_Status = new System.Windows.Forms.Label();
             this.btn_OpenFile = new System.Windows.Forms.Button();
@@ -44,10 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pc = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmb_PortName = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmb_BaundRate = new System.Windows.Forms.ComboBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -70,7 +72,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(310, 557);
             this.panel1.TabIndex = 4;
-           
             // 
             // toolStrip1
             // 
@@ -80,7 +81,9 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tls_MoveLeft,
             this.tls_MoveRight,
-            this.toolStripSeparator1});
+            this.toolStripSeparator1,
+            this.tls_IncreaseOX,
+            this.tls_DecreaseOX});
             this.toolStrip1.Location = new System.Drawing.Point(0, 529);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(310, 28);
@@ -116,6 +119,30 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 28);
             // 
+            // tls_IncreaseOX
+            // 
+            this.tls_IncreaseOX.AutoSize = false;
+            this.tls_IncreaseOX.AutoToolTip = false;
+            this.tls_IncreaseOX.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tls_IncreaseOX.Image = global::GraphicBuilder.Properties.Resources.Plus_25px;
+            this.tls_IncreaseOX.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tls_IncreaseOX.Name = "tls_IncreaseOX";
+            this.tls_IncreaseOX.Size = new System.Drawing.Size(25, 25);
+            this.tls_IncreaseOX.Text = "toolStripButton1";
+            this.tls_IncreaseOX.Click += new System.EventHandler(this.tls_IncreaseOX_Click);
+            // 
+            // tls_DecreaseOX
+            // 
+            this.tls_DecreaseOX.AutoSize = false;
+            this.tls_DecreaseOX.AutoToolTip = false;
+            this.tls_DecreaseOX.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tls_DecreaseOX.Image = global::GraphicBuilder.Properties.Resources.Minus_25px;
+            this.tls_DecreaseOX.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tls_DecreaseOX.Name = "tls_DecreaseOX";
+            this.tls_DecreaseOX.Size = new System.Drawing.Size(25, 25);
+            this.tls_DecreaseOX.Text = "toolStripButton2";
+            this.tls_DecreaseOX.Click += new System.EventHandler(this.tls_DecreaseOX_Click);
+            // 
             // btn_Connection
             // 
             this.btn_Connection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -142,7 +169,58 @@
             this.groupBox1.Size = new System.Drawing.Size(301, 106);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "USB-порт";
+            this.groupBox1.Text = "COM-порт";
+            // 
+            // cmb_BaundRate
+            // 
+            this.cmb_BaundRate.FormattingEnabled = true;
+            this.cmb_BaundRate.Items.AddRange(new object[] {
+            "300",
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "19200",
+            "38400",
+            "57600"});
+            this.cmb_BaundRate.Location = new System.Drawing.Point(214, 68);
+            this.cmb_BaundRate.Name = "cmb_BaundRate";
+            this.cmb_BaundRate.Size = new System.Drawing.Size(76, 24);
+            this.cmb_BaundRate.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(6, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(207, 15);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Символьная скорость(BaundRate):";
+            // 
+            // cmb_PortName
+            // 
+            this.cmb_PortName.FormattingEnabled = true;
+            this.cmb_PortName.Items.AddRange(new object[] {
+            "COM1",
+            "COM2",
+            "COM3",
+            "COM4",
+            "COM5"});
+            this.cmb_PortName.Location = new System.Drawing.Point(83, 30);
+            this.cmb_PortName.Name = "cmb_PortName";
+            this.cmb_PortName.Size = new System.Drawing.Size(92, 24);
+            this.cmb_PortName.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(6, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 15);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Имя порта:";
             // 
             // group1
             // 
@@ -230,57 +308,6 @@
             this.pc.TabIndex = 3;
             this.pc.TabStop = false;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(6, 34);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Имя порта:";
-            // 
-            // cmb_PortName
-            // 
-            this.cmb_PortName.FormattingEnabled = true;
-            this.cmb_PortName.Items.AddRange(new object[] {
-            "COM1",
-            "COM2",
-            "COM3",
-            "COM4",
-            "COM5"});
-            this.cmb_PortName.Location = new System.Drawing.Point(83, 30);
-            this.cmb_PortName.Name = "cmb_PortName";
-            this.cmb_PortName.Size = new System.Drawing.Size(92, 24);
-            this.cmb_PortName.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(6, 72);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(207, 15);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Символьная скорость(BaundRate):";
-            // 
-            // cmb_BaundRate
-            // 
-            this.cmb_BaundRate.FormattingEnabled = true;
-            this.cmb_BaundRate.Items.AddRange(new object[] {
-            "300",
-            "1200",
-            "2400",
-            "4800",
-            "9600",
-            "19200",
-            "38400",
-            "57600"});
-            this.cmb_BaundRate.Location = new System.Drawing.Point(214, 68);
-            this.cmb_BaundRate.Name = "cmb_BaundRate";
-            this.cmb_BaundRate.Size = new System.Drawing.Size(76, 24);
-            this.cmb_BaundRate.TabIndex = 7;
-            // 
             // RT_Graphic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -297,7 +324,7 @@
             this.Text = "Построение графика в реальном времени";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RT_Graphic_FormClosing);
             this.Load += new System.EventHandler(this.RT_Graphic_Load);
-           
+            this.StyleChanged += new System.EventHandler(this.RT_Graphic_StyleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -333,5 +360,7 @@
         private System.Windows.Forms.ComboBox cmb_PortName;
         private System.Windows.Forms.Label label3;
         private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.ToolStripButton tls_IncreaseOX;
+        private System.Windows.Forms.ToolStripButton tls_DecreaseOX;
     }
 }
