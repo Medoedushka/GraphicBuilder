@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyDrawing;
 using System.IO;
-using System.IO.Ports;
+
 
 
 namespace GraphicBuilder
@@ -21,6 +16,7 @@ namespace GraphicBuilder
         
 
         double Time { get; set; } //время, кажется бесполезный..добавить словарь для хранения значений
+        int WaitTime { get; set; } //время задержки между получением нового значения
         public string PathTxt { get; set; } //путь к тхт-файлу
         bool ActiveConnection { get; set; } //является ли второй поток активным
          
@@ -33,18 +29,19 @@ namespace GraphicBuilder
         private void RT_Graphic_Load(object sender, EventArgs e)
         {
             RTgraph = new PointsGraphic(pc, AxesMode.Dynamic, AxesPosition.AllQuarters);
-            //начальный настройки
+            //настройки по умолчанию
             PathTxt = null;
+            WaitTime = 25;
             RTgraph.Config.PriceForPointOX = 1;
-            RTgraph.Config.PriceForPointOY = 100;
+            RTgraph.Config.PriceForPointOY = 1;
             RTgraph.Config.StepOX = 25;
-            RTgraph.Config.StepOY = 100;
+            RTgraph.Config.StepOY = 25;
             RTgraph.Config.Grid = true;
             RTgraph.Config.SmoothAngles = true;
             RTgraph.Config.DrawPoints = true;
             ActiveConnection = false;
-            cmb_BaundRate.Text = cmb_BaundRate.Items[4].ToString();
-            cmb_PortName.Text = cmb_PortName.Items[2].ToString();
+            cmb_BaundRate.Text = cmb_BaundRate.Items[4].ToString(); //9600
+            cmb_PortName.Text = cmb_PortName.Items[2].ToString(); //COM3
         }
 
         private void btn_OpenFile_Click(object sender, EventArgs e)
@@ -110,13 +107,13 @@ namespace GraphicBuilder
                 }
                 value = double.Parse(el[el.Length - 1]);
                 double k = Math.Round(RTgraph.Config.StepOX / 2400.0, 4);
-                double x = RTgraph.ImiganaryCenter.X -  0.0004* RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX;
+                double x = RTgraph.ImiganaryCenter.X -  1* RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX;
                 RTgraph.ImiganaryCenter = new Point((int)x, RTgraph.ImiganaryCenter.Y);
                 RTgraph.ValuePairs.Add(Time, value);
                 RTgraph.DrawRTGraph();
 
-                Time += 0.1 / 60.0;
-                Thread.Sleep(25);
+                Time += 1;
+                Thread.Sleep(WaitTime);
             }
         }
 
@@ -126,6 +123,8 @@ namespace GraphicBuilder
             
             MessageBox.Show("Done!");
         }
+
+        
 
         private void btn_Connection_Click(object sender, EventArgs e)
         {
@@ -138,7 +137,16 @@ namespace GraphicBuilder
                     {
                         serialPort1.BaudRate = int.Parse(cmb_BaundRate.Text);
                         serialPort1.PortName = cmb_PortName.Text;
-                        serialPort1.Open();
+                        try
+                        {
+                            serialPort1.Open();
+                        }
+                        catch(UnauthorizedAccessException ex)
+                        {
+                            DialogResult res = 
+                            MessageBox.Show(ex.Message, "Ошибка подключения", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                            if (res == DialogResult.Retry) goto l1;
+                        }
                     }
                     catch (IOException ex)
                     {
@@ -183,30 +191,36 @@ namespace GraphicBuilder
             if (serialPort1.IsOpen) serialPort1.Close();
         }
         
-        private void tls_MoveLeft_Click(object sender, EventArgs e)
-        {
-            RTgraph.ImiganaryCenter = new Point(RTgraph.ImiganaryCenter.X - 25, RTgraph.ImiganaryCenter.Y);
-        }
-
-        private void tls_MoveRight_Click(object sender, EventArgs e)
-        {
-            RTgraph.ImiganaryCenter = new Point(RTgraph.ImiganaryCenter.X + 25, RTgraph.ImiganaryCenter.Y);
-        }
-
-        private void tls_IncreaseOX_Click(object sender, EventArgs e)
-        {
-            RTgraph.Config.StepOX += 2;
-        }
-
-        private void tls_DecreaseOX_Click(object sender, EventArgs e)
-        {
-            RTgraph.Config.StepOX -= 2;
-        }
+       
 
         private void RT_Graphic_StyleChanged(object sender, EventArgs e)
         {
             if (RTgraph != null)
             RTgraph.placeToDraw = pc;
         }
+
+        
+
+        private void btn_ApplyConf_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txb_WaitTime.Text != "") WaitTime = int.Parse(txb_WaitTime.Text);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void pcb_FileInfo_MouseHover(object sender, EventArgs e)
+        {
+            string str = "Читаемый файл должен быть формата .txt.\n" +
+                "Данные в файле должны быть записаны в следующем формате: ' 'num";
+            ToolTip tt = new ToolTip();
+            tt.SetToolTip(pcb_FileInfo, str);
+        }
+
+        
     }
 }

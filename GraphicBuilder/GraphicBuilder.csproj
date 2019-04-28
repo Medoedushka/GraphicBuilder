@@ -65,6 +65,9 @@
     <Compile Include="AddGraph.Designer.cs">
       <DependentUpon>AddGraph.cs</DependentUpon>
     </Compile>
+    <Compile Include="CircularButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +81,9 @@
     </Compile>
     <Compile Include="RT_Graphic.Designer.cs">
       <DependentUpon>RT_Graphic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RT_GraphicMOVING.cs">
+      <SubType>Form</SubType>
     </Compile>
     <EmbeddedResource Include="AddGraph.resx">
       <DependentUpon>AddGraph.cs</DependentUpon>
@@ -161,6 +167,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Minus_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\que_15px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

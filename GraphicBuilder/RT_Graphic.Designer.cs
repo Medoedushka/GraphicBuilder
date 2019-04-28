@@ -30,12 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_ApplyConf = new System.Windows.Forms.Button();
+            this.txb_WaitTime = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tls_MoveLeft = new System.Windows.Forms.ToolStripButton();
             this.tls_MoveRight = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tls_IncreaseOX = new System.Windows.Forms.ToolStripButton();
             this.tls_DecreaseOX = new System.Windows.Forms.ToolStripButton();
+            this.tls_PriceOX = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.tls_IncreaseOY = new System.Windows.Forms.ToolStripButton();
+            this.tls_DecreaseOY = new System.Windows.Forms.ToolStripButton();
+            this.tls_PriceOY = new System.Windows.Forms.ToolStripComboBox();
             this.btn_Connection = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmb_BaundRate = new System.Windows.Forms.ComboBox();
@@ -43,6 +54,7 @@
             this.cmb_PortName = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.group1 = new System.Windows.Forms.GroupBox();
+            this.pcb_FileInfo = new System.Windows.Forms.PictureBox();
             this.lbl_Status = new System.Windows.Forms.Label();
             this.btn_OpenFile = new System.Windows.Forms.Button();
             this.txb_FilePath = new System.Windows.Forms.TextBox();
@@ -51,10 +63,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pc = new System.Windows.Forms.PictureBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.tmr_MOVE = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.group1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_FileInfo)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pc)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +77,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(143)))), ((int)(((byte)(173)))));
+            this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Controls.Add(this.btn_Connection);
             this.panel1.Controls.Add(this.groupBox1);
@@ -73,6 +89,51 @@
             this.panel1.Size = new System.Drawing.Size(310, 557);
             this.panel1.TabIndex = 4;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btn_ApplyConf);
+            this.groupBox2.Controls.Add(this.txb_WaitTime);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(6, 295);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(298, 136);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Дополнительные настройки";
+            // 
+            // btn_ApplyConf
+            // 
+            this.btn_ApplyConf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_ApplyConf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ApplyConf.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_ApplyConf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(35)))), ((int)(((byte)(50)))));
+            this.btn_ApplyConf.Location = new System.Drawing.Point(9, 107);
+            this.btn_ApplyConf.Name = "btn_ApplyConf";
+            this.btn_ApplyConf.Size = new System.Drawing.Size(88, 23);
+            this.btn_ApplyConf.TabIndex = 4;
+            this.btn_ApplyConf.Text = "Применить";
+            this.btn_ApplyConf.UseVisualStyleBackColor = true;
+            this.btn_ApplyConf.Click += new System.EventHandler(this.btn_ApplyConf_Click);
+            // 
+            // txb_WaitTime
+            // 
+            this.txb_WaitTime.Location = new System.Drawing.Point(202, 24);
+            this.txb_WaitTime.Name = "txb_WaitTime";
+            this.txb_WaitTime.Size = new System.Drawing.Size(75, 23);
+            this.txb_WaitTime.TabIndex = 1;
+            this.txb_WaitTime.Text = "25";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 9F);
+            this.label5.Location = new System.Drawing.Point(6, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(190, 15);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Время задержки(миллисекунд):";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(173)))), ((int)(((byte)(173)))), ((int)(((byte)(173)))));
@@ -82,8 +143,15 @@
             this.tls_MoveLeft,
             this.tls_MoveRight,
             this.toolStripSeparator1,
+            this.toolStripLabel1,
             this.tls_IncreaseOX,
-            this.tls_DecreaseOX});
+            this.tls_DecreaseOX,
+            this.tls_PriceOX,
+            this.toolStripSeparator2,
+            this.toolStripLabel2,
+            this.tls_IncreaseOY,
+            this.tls_DecreaseOY,
+            this.tls_PriceOY});
             this.toolStrip1.Location = new System.Drawing.Point(0, 529);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(310, 28);
@@ -100,7 +168,8 @@
             this.tls_MoveLeft.Name = "tls_MoveLeft";
             this.tls_MoveLeft.Size = new System.Drawing.Size(25, 25);
             this.tls_MoveLeft.Text = "toolStripButton1";
-            this.tls_MoveLeft.Click += new System.EventHandler(this.tls_MoveLeft_Click);
+            this.tls_MoveLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tls_MoveLeft_MouseDown);
+            this.tls_MoveLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tls_MoveLeft_MouseUp);
             // 
             // tls_MoveRight
             // 
@@ -112,43 +181,119 @@
             this.tls_MoveRight.Name = "tls_MoveRight";
             this.tls_MoveRight.Size = new System.Drawing.Size(25, 25);
             this.tls_MoveRight.Text = "toolStripButton2";
-            this.tls_MoveRight.Click += new System.EventHandler(this.tls_MoveRight_Click);
+            this.tls_MoveRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tls_MoveRight_MouseDown);
+            this.tls_MoveRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tls_MoveRight_MouseUp);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 28);
             // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(123)))));
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(18, 25);
+            this.toolStripLabel1.Text = "X:";
+            // 
             // tls_IncreaseOX
             // 
-            this.tls_IncreaseOX.AutoSize = false;
             this.tls_IncreaseOX.AutoToolTip = false;
             this.tls_IncreaseOX.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tls_IncreaseOX.Image = global::GraphicBuilder.Properties.Resources.Plus_25px;
             this.tls_IncreaseOX.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tls_IncreaseOX.Name = "tls_IncreaseOX";
-            this.tls_IncreaseOX.Size = new System.Drawing.Size(25, 25);
+            this.tls_IncreaseOX.Size = new System.Drawing.Size(23, 25);
             this.tls_IncreaseOX.Text = "toolStripButton1";
-            this.tls_IncreaseOX.Click += new System.EventHandler(this.tls_IncreaseOX_Click);
+            this.tls_IncreaseOX.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tls_IncreaseOX_MouseDown);
+            this.tls_IncreaseOX.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tls_IncreaseOX_MouseUp);
             // 
             // tls_DecreaseOX
             // 
-            this.tls_DecreaseOX.AutoSize = false;
             this.tls_DecreaseOX.AutoToolTip = false;
             this.tls_DecreaseOX.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tls_DecreaseOX.Image = global::GraphicBuilder.Properties.Resources.Minus_25px;
             this.tls_DecreaseOX.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tls_DecreaseOX.Name = "tls_DecreaseOX";
-            this.tls_DecreaseOX.Size = new System.Drawing.Size(25, 25);
+            this.tls_DecreaseOX.Size = new System.Drawing.Size(23, 25);
             this.tls_DecreaseOX.Text = "toolStripButton2";
-            this.tls_DecreaseOX.Click += new System.EventHandler(this.tls_DecreaseOX_Click);
+            this.tls_DecreaseOX.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tls_DecreaseOX_MouseDown);
+            this.tls_DecreaseOX.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tls_DecreaseOX_MouseUp);
+            // 
+            // tls_PriceOX
+            // 
+            this.tls_PriceOX.AutoSize = false;
+            this.tls_PriceOX.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "5",
+            "6",
+            "10"});
+            this.tls_PriceOX.Name = "tls_PriceOX";
+            this.tls_PriceOX.Size = new System.Drawing.Size(40, 23);
+            this.tls_PriceOX.Text = "1";
+            this.tls_PriceOX.Leave += new System.EventHandler(this.tls_PriceOX_Leave);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 28);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(123)))));
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(17, 25);
+            this.toolStripLabel2.Text = "Y:";
+            // 
+            // tls_IncreaseOY
+            // 
+            this.tls_IncreaseOY.AutoToolTip = false;
+            this.tls_IncreaseOY.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tls_IncreaseOY.Image = global::GraphicBuilder.Properties.Resources.Plus_25px;
+            this.tls_IncreaseOY.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tls_IncreaseOY.Name = "tls_IncreaseOY";
+            this.tls_IncreaseOY.Size = new System.Drawing.Size(23, 25);
+            this.tls_IncreaseOY.Text = "toolStripButton1";
+   
+            this.tls_IncreaseOY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tls_IncreaseOY_MouseDown);
+            this.tls_IncreaseOY.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tls_IncreaseOY_MouseUp);
+            // 
+            // tls_DecreaseOY
+            // 
+            this.tls_DecreaseOY.AutoToolTip = false;
+            this.tls_DecreaseOY.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tls_DecreaseOY.Image = global::GraphicBuilder.Properties.Resources.Minus_25px;
+            this.tls_DecreaseOY.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tls_DecreaseOY.Name = "tls_DecreaseOY";
+            this.tls_DecreaseOY.Size = new System.Drawing.Size(23, 25);
+            this.tls_DecreaseOY.Text = "toolStripButton2";
+        
+            this.tls_DecreaseOY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tls_DecreaseOY_MouseDown);
+            this.tls_DecreaseOY.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tls_DecreaseOY_MouseUp);
+            // 
+            // tls_PriceOY
+            // 
+            this.tls_PriceOY.AutoSize = false;
+            this.tls_PriceOY.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "5",
+            "6",
+            "10"});
+            this.tls_PriceOY.Name = "tls_PriceOY";
+            this.tls_PriceOY.Size = new System.Drawing.Size(40, 23);
+            this.tls_PriceOY.Text = "1";
+            this.tls_PriceOY.Leave += new System.EventHandler(this.tls_PriceOY_Leave);
             // 
             // btn_Connection
             // 
             this.btn_Connection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_Connection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Connection.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_Connection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(0)))));
+            this.btn_Connection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(0)))));
             this.btn_Connection.Location = new System.Drawing.Point(2, 500);
             this.btn_Connection.Name = "btn_Connection";
             this.btn_Connection.Size = new System.Drawing.Size(146, 26);
@@ -224,6 +369,7 @@
             // 
             // group1
             // 
+            this.group1.Controls.Add(this.pcb_FileInfo);
             this.group1.Controls.Add(this.lbl_Status);
             this.group1.Controls.Add(this.btn_OpenFile);
             this.group1.Controls.Add(this.txb_FilePath);
@@ -235,6 +381,17 @@
             this.group1.TabIndex = 1;
             this.group1.TabStop = false;
             this.group1.Text = "Тестовый файл";
+            // 
+            // pcb_FileInfo
+            // 
+            this.pcb_FileInfo.Image = global::GraphicBuilder.Properties.Resources.que_15px;
+            this.pcb_FileInfo.Location = new System.Drawing.Point(84, 17);
+            this.pcb_FileInfo.Name = "pcb_FileInfo";
+            this.pcb_FileInfo.Size = new System.Drawing.Size(16, 16);
+            this.pcb_FileInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pcb_FileInfo.TabIndex = 4;
+            this.pcb_FileInfo.TabStop = false;
+            this.pcb_FileInfo.MouseHover += new System.EventHandler(this.pcb_FileInfo_MouseHover);
             // 
             // lbl_Status
             // 
@@ -308,6 +465,10 @@
             this.pc.TabIndex = 3;
             this.pc.TabStop = false;
             // 
+            // tmr_MOVE
+            // 
+            this.tmr_MOVE.Tick += new System.EventHandler(this.tmr_MOVE_Tick);
+            // 
             // RT_Graphic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -327,12 +488,15 @@
             this.StyleChanged += new System.EventHandler(this.RT_Graphic_StyleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_FileInfo)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pc)).EndInit();
             this.ResumeLayout(false);
@@ -360,7 +524,20 @@
         private System.Windows.Forms.ComboBox cmb_PortName;
         private System.Windows.Forms.Label label3;
         private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton tls_IncreaseOX;
         private System.Windows.Forms.ToolStripButton tls_DecreaseOX;
+        private System.Windows.Forms.ToolStripComboBox tls_PriceOX;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripButton tls_IncreaseOY;
+        private System.Windows.Forms.ToolStripButton tls_DecreaseOY;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripComboBox tls_PriceOY;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btn_ApplyConf;
+        private System.Windows.Forms.TextBox txb_WaitTime;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pcb_FileInfo;
+        private System.Windows.Forms.Timer tmr_MOVE;
     }
 }
