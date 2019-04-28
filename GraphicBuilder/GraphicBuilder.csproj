@@ -39,6 +39,9 @@
     <Reference Include="MyDrawing">
       <HintPath>..\..\Библиотеки\DiagramLibrary\MyDrawing\bin\Debug\MyDrawing.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\JsonTest\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />

@@ -26,3 +26,6 @@ D:\Проекты C#\GraphicBuilder1\GraphicBuilder\bin\Debug\MyDrawing.xml
 D:\Проекты C#\GraphicBuilder1\GraphicBuilder\obj\Debug\GraphicBuilder.AddGraph.resources
 D:\Проекты C#\GraphicBuilder1\GraphicBuilder\obj\Debug\GraphicBuilder.csproj.CopyComplete
 D:\Проекты C#\GraphicBuilder1\GraphicBuilder\obj\Debug\GraphicBuilder.RT_Graphic.resources
+D:\Проекты C#\GraphicBuilder1\GraphicBuilder\bin\Debug\Newtonsoft.Json.dll
+D:\Проекты C#\GraphicBuilder1\GraphicBuilder\bin\Debug\Newtonsoft.Json.pdb
+D:\Проекты C#\GraphicBuilder1\GraphicBuilder\bin\Debug\Newtonsoft.Json.xml

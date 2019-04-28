@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyDrawing;
 using System.IO;
-
-
+using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace GraphicBuilder
 {
@@ -74,6 +74,9 @@ namespace GraphicBuilder
 
         private void DrawRTGraph()
         {
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+            
             Time = 0; //время работы цикла
             string[] el = null; //массив элементов значений
             double value; //последнее значение в массиве
@@ -106,22 +109,45 @@ namespace GraphicBuilder
                     }
                 }
                 value = double.Parse(el[el.Length - 1]);
-                double k = Math.Round(RTgraph.Config.StepOX / 2400.0, 4);
-                double x = RTgraph.ImiganaryCenter.X -  1* RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX;
+                double k = Math.Round(RTgraph.Config.StepOX / 40.0, 4);
+                double x = RTgraph.ImiganaryCenter.X -  0.1* RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX;
                 RTgraph.ImiganaryCenter = new Point((int)x, RTgraph.ImiganaryCenter.Y);
                 RTgraph.ValuePairs.Add(Time, value);
                 RTgraph.DrawRTGraph();
 
-                Time += 1;
+                Time = watch.Elapsed.TotalMilliseconds / 1000;
                 Thread.Sleep(WaitTime);
             }
+            watch.Stop();
         }
 
         private async Task DrawRTGraphAsync()
         {
             await Task.Run(() => DrawRTGraph());
-            
-            MessageBox.Show("Done!");
+            DialogResult res = 
+            MessageBox.Show("Построение завершено!\n" +
+                "Желаете сохранить полученные данные?", "Завершение построения", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (res == DialogResult.Yes)
+            {
+                string filePath; DialogResult result;
+                using (SaveFileDialog save = new SaveFileDialog())
+                {
+                    result = save.ShowDialog();
+                    filePath = save.FileName;
+                    filePath += ".json";
+                }
+                if (File.Exists(filePath))
+                    MessageBox.Show("Файл с таким именем уже существует!", "Сохранение данных", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                else
+                {
+                    using (var newFile = File.Create(filePath)) { }
+                    string jsonData = JsonConvert.SerializeObject(RTgraph.ValuePairs, Formatting.Indented);
+                    File.WriteAllText(filePath, jsonData);
+                    MessageBox.Show("Данные успешно сохранены!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            RTgraph.ValuePairs.Clear();
         }
 
         
@@ -172,8 +198,8 @@ namespace GraphicBuilder
                 txb_FilePath.Text = "";
                 ActiveConnection = false;
                 serialPort1.Close();
-                RTgraph.ValuePairs.Clear();
-                btn_Connection.ForeColor = Color.FromArgb(0, 217, 0);
+                
+                btn_Connection.ForeColor = Color.FromArgb(0, 140, 0);
                 btn_Connection.Text = "Подключиться";
                 pc.BackColor = Color.FromArgb(135, 206, 250);
                 GC.Collect(2);
