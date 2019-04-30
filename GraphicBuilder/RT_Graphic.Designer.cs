@@ -29,8 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RT_Graphic));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbl_Seconds = new System.Windows.Forms.Label();
+            this.lbl_Minutes = new System.Windows.Forms.Label();
+            this.lbl_Hours = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chb_AutoMax = new System.Windows.Forms.CheckBox();
             this.btn_ApplyConf = new System.Windows.Forms.Button();
             this.txb_WaitTime = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,6 +55,16 @@
             this.tls_IncreaseOY = new System.Windows.Forms.ToolStripButton();
             this.tls_DecreaseOY = new System.Windows.Forms.ToolStripButton();
             this.tls_PriceOY = new System.Windows.Forms.ToolStripComboBox();
+            this.создатьToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.открытьToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.сохранитьToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.печатьToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.вырезатьToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.копироватьToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.вставкаToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.справкаToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.btn_Connection = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmb_BaundRate = new System.Windows.Forms.ComboBox();
@@ -64,7 +82,9 @@
             this.pc = new System.Windows.Forms.PictureBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.tmr_MOVE = new System.Windows.Forms.Timer(this.components);
+            this.tmr_WorkingTime = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -77,6 +97,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(143)))), ((int)(((byte)(173)))));
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Controls.Add(this.btn_Connection);
@@ -89,8 +110,72 @@
             this.panel1.Size = new System.Drawing.Size(310, 557);
             this.panel1.TabIndex = 4;
             // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.lbl_Seconds);
+            this.panel3.Controls.Add(this.lbl_Minutes);
+            this.panel3.Controls.Add(this.lbl_Hours);
+            this.panel3.Controls.Add(this.label11);
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.panel3.ForeColor = System.Drawing.Color.White;
+            this.panel3.Location = new System.Drawing.Point(158, 500);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(146, 26);
+            this.panel3.TabIndex = 6;
+            // 
+            // lbl_Seconds
+            // 
+            this.lbl_Seconds.AutoSize = true;
+            this.lbl_Seconds.Location = new System.Drawing.Point(90, 4);
+            this.lbl_Seconds.Name = "lbl_Seconds";
+            this.lbl_Seconds.Size = new System.Drawing.Size(24, 17);
+            this.lbl_Seconds.TabIndex = 8;
+            this.lbl_Seconds.Text = "00";
+            // 
+            // lbl_Minutes
+            // 
+            this.lbl_Minutes.AutoSize = true;
+            this.lbl_Minutes.Location = new System.Drawing.Point(64, 4);
+            this.lbl_Minutes.Name = "lbl_Minutes";
+            this.lbl_Minutes.Size = new System.Drawing.Size(24, 17);
+            this.lbl_Minutes.TabIndex = 8;
+            this.lbl_Minutes.Text = "00";
+            // 
+            // lbl_Hours
+            // 
+            this.lbl_Hours.AutoSize = true;
+            this.lbl_Hours.Location = new System.Drawing.Point(38, 4);
+            this.lbl_Hours.Name = "lbl_Hours";
+            this.lbl_Hours.Size = new System.Drawing.Size(24, 17);
+            this.lbl_Hours.TabIndex = 8;
+            this.lbl_Hours.Text = "00";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(84, 4);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(12, 16);
+            this.label11.TabIndex = 9;
+            this.label11.Text = ":";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(58, 4);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(12, 16);
+            this.label9.TabIndex = 9;
+            this.label9.Text = ":";
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chb_AutoMax);
             this.groupBox2.Controls.Add(this.btn_ApplyConf);
             this.groupBox2.Controls.Add(this.txb_WaitTime);
             this.groupBox2.Controls.Add(this.label5);
@@ -101,6 +186,21 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Дополнительные настройки";
+            // 
+            // chb_AutoMax
+            // 
+            this.chb_AutoMax.AutoSize = true;
+            this.chb_AutoMax.Checked = true;
+            this.chb_AutoMax.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chb_AutoMax.FlatAppearance.BorderSize = 0;
+            this.chb_AutoMax.Font = new System.Drawing.Font("Arial", 9F);
+            this.chb_AutoMax.Location = new System.Drawing.Point(9, 82);
+            this.chb_AutoMax.Name = "chb_AutoMax";
+            this.chb_AutoMax.Size = new System.Drawing.Size(243, 19);
+            this.chb_AutoMax.TabIndex = 5;
+            this.chb_AutoMax.Text = "Автоподбор максимального значения";
+            this.chb_AutoMax.UseVisualStyleBackColor = true;
+            this.chb_AutoMax.CheckedChanged += new System.EventHandler(this.chb_AutoMax_CheckedChanged);
             // 
             // btn_ApplyConf
             // 
@@ -151,7 +251,17 @@
             this.toolStripLabel2,
             this.tls_IncreaseOY,
             this.tls_DecreaseOY,
-            this.tls_PriceOY});
+            this.tls_PriceOY,
+            this.создатьToolStripButton,
+            this.открытьToolStripButton,
+            this.сохранитьToolStripButton,
+            this.печатьToolStripButton,
+            this.toolStripSeparator,
+            this.вырезатьToolStripButton,
+            this.копироватьToolStripButton,
+            this.вставкаToolStripButton,
+            this.toolStripSeparator3,
+            this.справкаToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 529);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(310, 28);
@@ -257,7 +367,6 @@
             this.tls_IncreaseOY.Name = "tls_IncreaseOY";
             this.tls_IncreaseOY.Size = new System.Drawing.Size(23, 25);
             this.tls_IncreaseOY.Text = "toolStripButton1";
-   
             this.tls_IncreaseOY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tls_IncreaseOY_MouseDown);
             this.tls_IncreaseOY.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tls_IncreaseOY_MouseUp);
             // 
@@ -270,7 +379,6 @@
             this.tls_DecreaseOY.Name = "tls_DecreaseOY";
             this.tls_DecreaseOY.Size = new System.Drawing.Size(23, 25);
             this.tls_DecreaseOY.Text = "toolStripButton2";
-        
             this.tls_DecreaseOY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tls_DecreaseOY_MouseDown);
             this.tls_DecreaseOY.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tls_DecreaseOY_MouseUp);
             // 
@@ -287,6 +395,88 @@
             this.tls_PriceOY.Size = new System.Drawing.Size(40, 23);
             this.tls_PriceOY.Text = "1";
             this.tls_PriceOY.Leave += new System.EventHandler(this.tls_PriceOY_Leave);
+            // 
+            // создатьToolStripButton
+            // 
+            this.создатьToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.создатьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("создатьToolStripButton.Image")));
+            this.создатьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.создатьToolStripButton.Name = "создатьToolStripButton";
+            this.создатьToolStripButton.Size = new System.Drawing.Size(23, 20);
+            this.создатьToolStripButton.Text = "&Создать";
+            // 
+            // открытьToolStripButton
+            // 
+            this.открытьToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.открытьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("открытьToolStripButton.Image")));
+            this.открытьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.открытьToolStripButton.Name = "открытьToolStripButton";
+            this.открытьToolStripButton.Size = new System.Drawing.Size(23, 20);
+            this.открытьToolStripButton.Text = "&Открыть";
+            // 
+            // сохранитьToolStripButton
+            // 
+            this.сохранитьToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.сохранитьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("сохранитьToolStripButton.Image")));
+            this.сохранитьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.сохранитьToolStripButton.Name = "сохранитьToolStripButton";
+            this.сохранитьToolStripButton.Size = new System.Drawing.Size(23, 20);
+            this.сохранитьToolStripButton.Text = "&Сохранить";
+            // 
+            // печатьToolStripButton
+            // 
+            this.печатьToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.печатьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("печатьToolStripButton.Image")));
+            this.печатьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.печатьToolStripButton.Name = "печатьToolStripButton";
+            this.печатьToolStripButton.Size = new System.Drawing.Size(23, 20);
+            this.печатьToolStripButton.Text = "&Печать";
+            // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 6);
+            // 
+            // вырезатьToolStripButton
+            // 
+            this.вырезатьToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.вырезатьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("вырезатьToolStripButton.Image")));
+            this.вырезатьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.вырезатьToolStripButton.Name = "вырезатьToolStripButton";
+            this.вырезатьToolStripButton.Size = new System.Drawing.Size(23, 20);
+            this.вырезатьToolStripButton.Text = "В&ырезать";
+            // 
+            // копироватьToolStripButton
+            // 
+            this.копироватьToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.копироватьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("копироватьToolStripButton.Image")));
+            this.копироватьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.копироватьToolStripButton.Name = "копироватьToolStripButton";
+            this.копироватьToolStripButton.Size = new System.Drawing.Size(23, 20);
+            this.копироватьToolStripButton.Text = "&Копировать";
+            // 
+            // вставкаToolStripButton
+            // 
+            this.вставкаToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.вставкаToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("вставкаToolStripButton.Image")));
+            this.вставкаToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.вставкаToolStripButton.Name = "вставкаToolStripButton";
+            this.вставкаToolStripButton.Size = new System.Drawing.Size(23, 20);
+            this.вставкаToolStripButton.Text = "Вст&авка";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 6);
+            // 
+            // справкаToolStripButton
+            // 
+            this.справкаToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.справкаToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("справкаToolStripButton.Image")));
+            this.справкаToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.справкаToolStripButton.Name = "справкаToolStripButton";
+            this.справкаToolStripButton.Size = new System.Drawing.Size(23, 20);
+            this.справкаToolStripButton.Text = "Спр&авка";
             // 
             // btn_Connection
             // 
@@ -469,6 +659,11 @@
             // 
             this.tmr_MOVE.Tick += new System.EventHandler(this.tmr_MOVE_Tick);
             // 
+            // tmr_WorkingTime
+            // 
+            this.tmr_WorkingTime.Interval = 1000;
+            this.tmr_WorkingTime.Tick += new System.EventHandler(this.tmr_WorkingTime_Tick);
+            // 
             // RT_Graphic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -485,9 +680,11 @@
             this.Text = "Построение графика в реальном времени";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RT_Graphic_FormClosing);
             this.Load += new System.EventHandler(this.RT_Graphic_Load);
-            this.StyleChanged += new System.EventHandler(this.RT_Graphic_StyleChanged);
+            
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -539,5 +736,23 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pcb_FileInfo;
         private System.Windows.Forms.Timer tmr_MOVE;
+        private System.Windows.Forms.CheckBox chb_AutoMax;
+        private System.Windows.Forms.ToolStripButton создатьToolStripButton;
+        private System.Windows.Forms.ToolStripButton открытьToolStripButton;
+        private System.Windows.Forms.ToolStripButton сохранитьToolStripButton;
+        private System.Windows.Forms.ToolStripButton печатьToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
+        private System.Windows.Forms.ToolStripButton вырезатьToolStripButton;
+        private System.Windows.Forms.ToolStripButton копироватьToolStripButton;
+        private System.Windows.Forms.ToolStripButton вставкаToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton справкаToolStripButton;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lbl_Seconds;
+        private System.Windows.Forms.Label lbl_Minutes;
+        private System.Windows.Forms.Label lbl_Hours;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Timer tmr_WorkingTime;
     }
 }

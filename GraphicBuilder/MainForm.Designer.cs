@@ -31,7 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_BuildGraph = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_OpenRTGraph = new System.Windows.Forms.Button();
+            this.btn_BuildRTGraph = new System.Windows.Forms.Button();
             this.btn_DeleteCurves = new System.Windows.Forms.Button();
             this.btn_AddNewGraph = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ControlNote = new System.Windows.Forms.ToolTip(this.components);
+            this.tmr_ChangeMainParams = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.pnl_Windows.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -58,7 +60,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(220)))), ((int)(((byte)(130)))));
             this.panel1.Controls.Add(this.btn_BuildGraph);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btn_OpenRTGraph);
+            this.panel1.Controls.Add(this.btn_BuildRTGraph);
             this.panel1.Controls.Add(this.btn_DeleteCurves);
             this.panel1.Controls.Add(this.btn_AddNewGraph);
             this.panel1.Controls.Add(this.button2);
@@ -92,18 +95,33 @@
             this.btn_BuildGraph.UseVisualStyleBackColor = false;
             this.btn_BuildGraph.Click += new System.EventHandler(this.btn_BuildGraph_Click);
             // 
-            // button1
+            // btn_OpenRTGraph
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::GraphicBuilder.Properties.Resources.lineChart_25px;
-            this.button1.Location = new System.Drawing.Point(559, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 41);
-            this.button1.TabIndex = 35;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_OpenRTGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_OpenRTGraph.FlatAppearance.BorderSize = 0;
+            this.btn_OpenRTGraph.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_OpenRTGraph.Image = global::GraphicBuilder.Properties.Resources.file_25px;
+            this.btn_OpenRTGraph.Location = new System.Drawing.Point(517, 0);
+            this.btn_OpenRTGraph.Name = "btn_OpenRTGraph";
+            this.btn_OpenRTGraph.Size = new System.Drawing.Size(41, 41);
+            this.btn_OpenRTGraph.TabIndex = 35;
+            this.ControlNote.SetToolTip(this.btn_OpenRTGraph, "Открыть сохранённый график в реальном времени ");
+            this.btn_OpenRTGraph.UseVisualStyleBackColor = true;
+            this.btn_OpenRTGraph.Click += new System.EventHandler(this.btn_OpenRTGraph_Click);
+            // 
+            // btn_BuildRTGraph
+            // 
+            this.btn_BuildRTGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_BuildRTGraph.FlatAppearance.BorderSize = 0;
+            this.btn_BuildRTGraph.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_BuildRTGraph.Image = global::GraphicBuilder.Properties.Resources.lineChart_25px;
+            this.btn_BuildRTGraph.Location = new System.Drawing.Point(559, 0);
+            this.btn_BuildRTGraph.Name = "btn_BuildRTGraph";
+            this.btn_BuildRTGraph.Size = new System.Drawing.Size(41, 41);
+            this.btn_BuildRTGraph.TabIndex = 35;
+            this.ControlNote.SetToolTip(this.btn_BuildRTGraph, "Построение графика в реальном времени");
+            this.btn_BuildRTGraph.UseVisualStyleBackColor = true;
+            this.btn_BuildRTGraph.Click += new System.EventHandler(this.btn_BuildRTGraph_Click);
             // 
             // btn_DeleteCurves
             // 
@@ -169,6 +187,8 @@
             this.btn_CenterLEFT.Size = new System.Drawing.Size(20, 32);
             this.btn_CenterLEFT.TabIndex = 36;
             this.btn_CenterLEFT.UseVisualStyleBackColor = true;
+            this.btn_CenterLEFT.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_CenterLEFT_MouseDown);
+            this.btn_CenterLEFT.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_CenterLEFT_MouseUp);
             // 
             // lbl_StepOX
             // 
@@ -193,6 +213,8 @@
             this.btn_CenterRIGHT.Size = new System.Drawing.Size(20, 32);
             this.btn_CenterRIGHT.TabIndex = 34;
             this.btn_CenterRIGHT.UseVisualStyleBackColor = true;
+            this.btn_CenterRIGHT.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_CenterRIGHT_MouseDown);
+            this.btn_CenterRIGHT.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_CenterRIGHT_MouseUp);
             // 
             // label9
             // 
@@ -216,6 +238,8 @@
             this.btn_CenterDOWN.Size = new System.Drawing.Size(32, 18);
             this.btn_CenterDOWN.TabIndex = 35;
             this.btn_CenterDOWN.UseVisualStyleBackColor = true;
+            this.btn_CenterDOWN.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_CenterDOWN_MouseDown);
+            this.btn_CenterDOWN.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_CenterDOWN_MouseUp);
             // 
             // label10
             // 
@@ -239,6 +263,8 @@
             this.btn_CenterUP.Size = new System.Drawing.Size(32, 20);
             this.btn_CenterUP.TabIndex = 33;
             this.btn_CenterUP.UseVisualStyleBackColor = true;
+            this.btn_CenterUP.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_CenterUP_MouseDown);
+            this.btn_CenterUP.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_CenterUP_MouseUp);
             // 
             // pnl_Windows
             // 
@@ -249,7 +275,6 @@
             this.pnl_Windows.Name = "pnl_Windows";
             this.pnl_Windows.Size = new System.Drawing.Size(449, 507);
             this.pnl_Windows.TabIndex = 1;
-            this.pnl_Windows.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label6
             // 
@@ -280,7 +305,11 @@
             this.pictureBox1.Size = new System.Drawing.Size(603, 507);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            // 
+            // tmr_ChangeMainParams
+            // 
+            this.tmr_ChangeMainParams.Interval = 40;
+            this.tmr_ChangeMainParams.Tick += new System.EventHandler(this.tmr_ChangeMainParams_Tick);
             // 
             // MainForm
             // 
@@ -327,7 +356,9 @@
         private System.Windows.Forms.Button btn_BuildGraph;
         private System.Windows.Forms.Button btn_DeleteCurves;
         private System.Windows.Forms.ToolTip ControlNote;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_BuildRTGraph;
+        private System.Windows.Forms.Button btn_OpenRTGraph;
+        private System.Windows.Forms.Timer tmr_ChangeMainParams;
     }
 }
 

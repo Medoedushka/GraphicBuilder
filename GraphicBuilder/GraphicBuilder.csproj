@@ -85,9 +85,6 @@
     <Compile Include="RT_Graphic.Designer.cs">
       <DependentUpon>RT_Graphic.cs</DependentUpon>
     </Compile>
-    <Compile Include="RT_GraphicMOVING.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <EmbeddedResource Include="AddGraph.resx">
       <DependentUpon>AddGraph.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,6 +170,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\que_15px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_25px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
