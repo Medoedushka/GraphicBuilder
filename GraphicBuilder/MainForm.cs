@@ -7,6 +7,7 @@ using MyDrawing;
 using Newtonsoft.Json;
 using Mathos;
 using System.IO;
+using System.Threading;
 
 namespace GraphicBuilder
 {
@@ -14,8 +15,9 @@ namespace GraphicBuilder
     {
         public static PointsGraphic graph;
         AddGraph addGraph;
-
-        
+        MainSettings mainSettings;
+        bool Hidden { get; set; }
+       
 
         public MainForm()
         {
@@ -25,6 +27,9 @@ namespace GraphicBuilder
         private void MainForm_Load(object sender, EventArgs e)
         {
             graph = new PointsGraphic(pictureBox1, AxesMode.Static, AxesPosition.AllQuarters);
+            Hidden = false;
+            cmb_PriceOX.Text = graph.Config.PriceForPointOX.ToString();
+            cmb_PriceOY.Text = graph.Config.PriceForPointOY.ToString();
         }
 
         #region StaticCameraMoving
@@ -95,20 +100,70 @@ namespace GraphicBuilder
         {
             tmr_ChangeMainParams.Stop();
         }
+
+        private void btn_IncreaseOX_MouseDown(object sender, MouseEventArgs e)
+        {
+            crrParam = Param.StepOX; value = 5;
+            tmr_ChangeMainParams.Start();
+        }
+        private void btn_IncreaseOX_MouseUp(object sender, MouseEventArgs e)
+        {
+            tmr_ChangeMainParams.Stop();
+        }
+
+        private void btn_DecreaseOX_MouseDown(object sender, MouseEventArgs e)
+        {
+            crrParam = Param.StepOX; value = -5;
+            tmr_ChangeMainParams.Start();
+        }
+        private void btn_DecreaseOX_MouseUp(object sender, MouseEventArgs e)
+        {
+            tmr_ChangeMainParams.Stop();
+        }
+
+        private void btn_IncreaseOY_MouseDown(object sender, MouseEventArgs e)
+        {
+            crrParam = Param.StepOY; value = 5;
+            tmr_ChangeMainParams.Start();
+        }
+        private void btn_IncreaseOY_MouseUp(object sender, MouseEventArgs e)
+        {
+            tmr_ChangeMainParams.Stop();
+        }
+
+        private void btn_DecreaseOY_MouseDown(object sender, MouseEventArgs e)
+        {
+            crrParam = Param.StepOY; value = -5;
+            tmr_ChangeMainParams.Start();
+        }
+        private void btn_DecreaseOY_MouseUp(object sender, MouseEventArgs e)
+        {
+            tmr_ChangeMainParams.Stop();
+        }
         #endregion
 
-        
+
         private void btn_AddNewGraph_Click(object sender, EventArgs e)
         {
             pnl_Windows.Controls.Clear();
             addGraph = new AddGraph()
             {
                 Location = new Point(0,0),
-                BackColor = Color.White,
                 Dock = DockStyle.Right
-        };
+            };
             pnl_Windows.Controls.Add(addGraph);
             
+        }
+
+        private void btn_MainSettings_Click(object sender, EventArgs e)
+        {
+            pnl_Windows.Controls.Clear();
+            mainSettings = new MainSettings()
+            {
+                Location = new Point(0, 0),
+                Dock = DockStyle.Right
+            };
+            pnl_Windows.Controls.Add(mainSettings);
         }
 
         private void btn_BuildGraph_Click(object sender, EventArgs e)
@@ -116,11 +171,6 @@ namespace GraphicBuilder
             graph.Config.Grid = true;
             graph.Config.SmoothAngles = true;
 
-            lbl_StepOX.Visible = lbl_StepOY.Visible = true;
-            lbl_StepOX.Text = graph.Config.StepOX.ToString();
-            lbl_StepOY.Text = graph.Config.StepOY.ToString();
-
-            
             graph.DrawDiagram();
         }
 
@@ -131,6 +181,7 @@ namespace GraphicBuilder
             g.Clear(pictureBox1.BackColor);
             g.Dispose();
             g = null;
+
             addGraph?.ResetParams();
         }
 
@@ -163,7 +214,6 @@ namespace GraphicBuilder
             {
                 result = open.ShowDialog();
                 filePath = open.FileName;
-                //filePath += ".json";
             }
 
             if (result == DialogResult.OK && filePath != "")
@@ -185,6 +235,84 @@ namespace GraphicBuilder
             }
         }
 
-        
+        private void btn_HideSettings_Click(object sender, EventArgs e)
+        {
+            if (Hidden == false)
+            {
+                pnl_Windows.Width = 0;
+                btn_HideSettings.Image = Properties.Resources.visible_25px;
+                Hidden = true;
+                if (graph != null)
+                {
+                    graph.placeToDraw = pictureBox1;
+                    graph.SetPlaceToDrawSize(graph.placeToDraw.Width, graph.placeToDraw.Height);
+                    graph.DrawDiagram();
+                }
+            }
+            else if (Hidden == true)
+            {
+                pnl_Windows.Width = 449;
+                btn_HideSettings.Image = Properties.Resources.unvisibie_25px;
+                Hidden = false;
+                if (graph != null)
+                {
+                    graph.placeToDraw = pictureBox1;
+                    graph.SetPlaceToDrawSize(graph.placeToDraw.Width, graph.placeToDraw.Height);
+                    graph.DrawDiagram();
+                }
+            }
+        }
+
+        private void cmb_PriceOX_Leave(object sender, EventArgs e)
+        {
+            graph.Config.PriceForPointOX = double.Parse(cmb_PriceOX.Text);
+            graph.DrawDiagram();
+        }
+
+        private void cmb_PriceOY_Leave(object sender, EventArgs e)
+        {
+            graph.Config.PriceForPointOY = double.Parse(cmb_PriceOY.Text);
+            graph.DrawDiagram();
+        }
+
+        private void сохранитьPngкартинкуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string filePath; DialogResult result;
+            using (SaveFileDialog save = new SaveFileDialog())
+            {
+                result = save.ShowDialog();
+                filePath = save.FileName;
+            }
+            if (result == DialogResult.OK && filePath != null)
+            {
+                Thread.Sleep(1000);
+                filePath += ".png";
+                Bitmap image = DrawControlToBitMap(pictureBox1);
+                image.Save(filePath);
+                DialogResult res =
+                MessageBox.Show("График успешно сохранён!\n" +
+                    "Открыть файл?", "Операция заверщена", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (res == DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start(filePath);
+                }
+            }
+        }
+
+        private static Bitmap DrawControlToBitMap(Control control)
+        {
+            Bitmap bitmap = new Bitmap(control.Width, control.Height);
+            Graphics g = Graphics.FromImage(bitmap);
+            Rectangle rect = control.RectangleToScreen(control.ClientRectangle);
+            g.CopyFromScreen(rect.Location, Point.Empty, control.Size);
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            return bitmap;
+        }
+
+        private void toolStripLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

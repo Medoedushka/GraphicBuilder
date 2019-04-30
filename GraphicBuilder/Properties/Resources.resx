@@ -127,23 +127,44 @@
   <data name="ArrowRight_25px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArrowRight_25px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="RightArrow_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RightArrow_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Plus_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plus_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mainPlus_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mainPlus_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plus25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plus25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cross_20px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cross_20px.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minus_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minus_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="plus25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\plus25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mainMinus_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mainMinus_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="newCross_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\newCross_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="saveImage_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\saveImage_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="unvisibie_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\unvisibie_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="saveImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\saveImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeftArrow_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LeftArrow_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="que_15px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\que_15px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Plus_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Plus_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="file_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lineChart_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lineChart_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,8 +178,8 @@
   <data name="ArrowLeft_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArrowLeft_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LeftArrow_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LeftArrow_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="newCross_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newCross_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ArrowTop_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArrowTop_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,10 +190,13 @@
   <data name="ArrowBottom_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArrowBottom_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RightArrow_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RightArrow_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="visible_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\visible_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="file_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\file_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hideSettings_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hideSettings_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settings_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

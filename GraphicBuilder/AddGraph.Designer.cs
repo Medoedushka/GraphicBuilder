@@ -60,6 +60,7 @@
             this.pnl_CreatedCurves.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_CreatedCurves.AutoScroll = true;
+            this.pnl_CreatedCurves.BackColor = System.Drawing.SystemColors.Control;
             this.pnl_CreatedCurves.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_CreatedCurves.Location = new System.Drawing.Point(3, 60);
             this.pnl_CreatedCurves.Name = "pnl_CreatedCurves";
@@ -196,6 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.btn_Info);
             this.Controls.Add(this.txb_CurveColor);
             this.Controls.Add(this.label2);
