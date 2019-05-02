@@ -22,7 +22,8 @@ namespace GraphicBuilder
         int Seconds { get; set; } // кол-во секунд работы приложения
         public string PathTxt { get; set; } //путь к тхт-файлу
         bool ActiveConnection { get; set; } //является ли второй поток активным
-         
+        bool Hidden { get; set; } 
+
         public RT_Graphic()
         {
             InitializeComponent();
@@ -139,8 +140,9 @@ namespace GraphicBuilder
             RTgraph.Config.StepOY = 25;
             RTgraph.Config.Grid = true;
             RTgraph.Config.SmoothAngles = true;
-            RTgraph.Config.DrawPoints = true;
+            //RTgraph.Config.DrawPoints = true;
             ActiveConnection = false;
+            Hidden = false;
             cmb_BaundRate.Text = cmb_BaundRate.Items[4].ToString(); //9600
             cmb_PortName.Text = cmb_PortName.Items[2].ToString(); //COM3
         }
@@ -254,63 +256,7 @@ namespace GraphicBuilder
 
         
 
-        private void btn_Connection_Click(object sender, EventArgs e)
-        {
-            l1:
-          if (!ActiveConnection)
-            {
-                if (PathTxt == null)
-                {
-                    try
-                    {
-                        serialPort1.BaudRate = int.Parse(cmb_BaundRate.Text);
-                        serialPort1.PortName = cmb_PortName.Text;
-                        try
-                        {
-                            serialPort1.Open();
-                        }
-                        catch(UnauthorizedAccessException ex)
-                        {
-                            DialogResult res = 
-                            MessageBox.Show(ex.Message, "Ошибка подключения", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                            if (res == DialogResult.Retry) goto l1;
-                        }
-                    }
-                    catch (IOException ex)
-                    {
-                        DialogResult res = 
-                        MessageBox.Show(ex.Message, "Ошибка подключения к порту", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation);
-                        if (res == DialogResult.Retry) goto l1;
-                        else return;
-
-                    }
-                }
-                ActiveConnection = true;
-                RTgraph.placeToDraw = pc;
-                LastPlot = pc;
-                RTgraph.SetPlaceToDrawSize(pc.Width, pc.Height);
-                btn_Connection.ForeColor = Color.FromArgb(235, 35, 50);
-                btn_Connection.Text = "Отключиться";
-                Thread.Sleep(1000);
-                tmr_WorkingTime.Start();
-                DrawRTGraphAsync();
-            }
-            else
-            {
-                tmr_WorkingTime.Stop();
-                pc.Image = null;
-                PathTxt = null;
-                txb_FilePath.Text = "";
-                ActiveConnection = false;
-                serialPort1.Close();
-                
-                btn_Connection.ForeColor = Color.FromArgb(0, 140, 0);
-                btn_Connection.Text = "Подключиться";
-                pc.BackColor = Color.FromArgb(135, 206, 250);
-                GC.Collect(2);
-            }
-              
-        }
+        
 
         private void RT_Graphic_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -367,5 +313,82 @@ namespace GraphicBuilder
             }
         }
 
+        private void btn_StartConnection_Click(object sender, EventArgs e)
+        {
+            btn_StartConnection.Checked = true;
+            btn_StopConnection.Checked = false;
+
+            l1:
+            if (PathTxt == null)
+            {
+                try
+                {
+                    serialPort1.BaudRate = int.Parse(cmb_BaundRate.Text);
+                    serialPort1.PortName = cmb_PortName.Text;
+                    try
+                    {
+                        serialPort1.Open();
+                    }
+                    catch (UnauthorizedAccessException ex)
+                    {
+                        DialogResult res =
+                        MessageBox.Show(ex.Message, "Ошибка подключения", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        if (res == DialogResult.Retry) goto l1;
+                    }
+                }
+                catch (IOException ex)
+                {
+                    DialogResult res =
+                    MessageBox.Show(ex.Message, "Ошибка подключения к порту", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation);
+                    if (res == DialogResult.Retry) goto l1;
+                    else return;
+
+                }
+            }
+            ActiveConnection = true;
+            RTgraph.placeToDraw = pc;
+            LastPlot = pc;
+            RTgraph.SetPlaceToDrawSize(pc.Width, pc.Height);
+            Thread.Sleep(1000);
+            tmr_WorkingTime.Start();
+            DrawRTGraphAsync();
+        }
+
+        private void btn_StopConnection_Click(object sender, EventArgs e)
+        {
+            btn_StartConnection.Checked = false;
+            btn_StopConnection.Checked = true;
+
+            tmr_WorkingTime.Stop();
+            pc.Image = null;
+            PathTxt = null;
+            txb_FilePath.Text = "";
+            ActiveConnection = false;
+            serialPort1.Close();
+
+            pc.BackColor = Color.FromArgb(135, 206, 250);
+            GC.Collect(2);
+        }
+
+        private void btn_HideSettings_Click(object sender, EventArgs e)
+        {
+            if (Hidden == false)
+            {
+                Hidden = true;
+                pnl_Settings.Width = 0;
+                RTgraph.placeToDraw = pc;
+                RTgraph.SetPlaceToDrawSize(RTgraph.placeToDraw.Width, RTgraph.placeToDraw.Height);
+                btn_HideSettings.Image = Properties.Resources.visible_25px;
+            }
+            else if (Hidden == true)
+            {
+                Hidden = false;
+                pnl_Settings.Width = 310;
+                RTgraph.placeToDraw = pc;
+                RTgraph.SetPlaceToDrawSize(RTgraph.placeToDraw.Width, RTgraph.placeToDraw.Height);
+                btn_HideSettings.Image = Properties.Resources.unvisibie_25px;
+            }
+
+        }
     }
 }

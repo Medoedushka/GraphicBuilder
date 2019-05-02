@@ -30,6 +30,7 @@ namespace GraphicBuilder
             Hidden = false;
             cmb_PriceOX.Text = graph.Config.PriceForPointOX.ToString();
             cmb_PriceOY.Text = graph.Config.PriceForPointOY.ToString();
+            graph.Config.DrawPoints = true;
         }
 
         #region StaticCameraMoving

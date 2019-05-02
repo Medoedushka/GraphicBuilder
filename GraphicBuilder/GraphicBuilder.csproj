@@ -204,5 +204,11 @@
   <ItemGroup>
     <None Include="Resources\settings_25px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop_25px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
