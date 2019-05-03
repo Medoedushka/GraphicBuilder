@@ -143,6 +143,16 @@ namespace GraphicBuilder.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imgonline_com_ua_Resize_3cqMF2tBQMS31Cs {
+            get {
+                object obj = ResourceManager.GetObject("imgonline-com-ua-Resize-3cqMF2tBQMS31Cs", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LeftArrow_25px {
             get {
                 object obj = ResourceManager.GetObject("LeftArrow_25px", resourceCulture);
@@ -203,6 +213,16 @@ namespace GraphicBuilder.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap more_20px {
+            get {
+                object obj = ResourceManager.GetObject("more_20px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Newcross_20px {
             get {
                 object obj = ResourceManager.GetObject("Newcross_20px", resourceCulture);
@@ -236,6 +256,16 @@ namespace GraphicBuilder.Properties {
         internal static System.Drawing.Bitmap newpears_25px {
             get {
                 object obj = ResourceManager.GetObject("newpears_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap palette_25px {
+            get {
+                object obj = ResourceManager.GetObject("palette_25px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

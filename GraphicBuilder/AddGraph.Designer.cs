@@ -214,6 +214,7 @@
             this.Controls.Add(this.label6);
             this.Name = "AddGraph";
             this.Size = new System.Drawing.Size(449, 507);
+            this.Load += new System.EventHandler(this.AddGraph_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

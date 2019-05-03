@@ -32,7 +32,7 @@ namespace GraphicBuilder
         }
 
         //расчёт точек для построения кривой
-        public PointF[] GetPoints(double a, double b, int numberOfPoints, string func)
+        private PointF[] GetPoints(double a, double b, int numberOfPoints, string func)
         {
             double step = Math.Abs(b - a) / numberOfPoints;
             PointF[] points = new PointF[numberOfPoints];
@@ -126,7 +126,7 @@ namespace GraphicBuilder
         }
 
         //добавления элементов управления соответствующей кривой в коллеции
-        private void AddGraphToList(string func, Color color)
+        public void AddGraphToList(string func, Color color)
         {
             Button bt;
             Graphics temp = pnl_CreatedCurves.CreateGraphics();
@@ -193,11 +193,14 @@ namespace GraphicBuilder
         private void DeleteCurve_Click(object sender, EventArgs e)
         {
             Button crrButton = (Button)sender;
+            int delY = crrButton.Location.Y;
+
+            Label delLB = null;
             foreach(Label lb in labelList)
             {
                 if (lb.Location.Y == crrButton.Location.Y)
                 {
-                    foreach(Curves curve in MainForm.graph.GraphCurves)
+                    foreach (Curves curve in MainForm.graph.GraphCurves)
                     {
                         if (lb.Text == curve.Legend)
                         {
@@ -205,17 +208,27 @@ namespace GraphicBuilder
                             break;
                         }
                     }
-                    labelList.Remove(lb);
-                    break;
+                    delLB = lb;
+                    continue;
                 }
+                else if (lb.Location.Y > delY) lb.Location = new Point(lb.Location.X, lb.Location.Y - 50);
             }
+            labelList.Remove(delLB);
+            TextBox delTXB = null;
             foreach(TextBox txb in textBoxList)
             {
                 if (txb.Location.Y == crrButton.Location.Y)
                 {
-                    textBoxList.Remove(txb);
-                    break;
+                    delTXB = txb;
+                    continue;
                 }
+                else if (txb.Location.Y > delY) txb.Location = new Point(txb.Location.X, txb.Location.Y - 50);
+            }
+            textBoxList.Remove(delTXB);
+
+            foreach(Button btn in buttonList)
+            {
+                if(btn.Location.Y > delY) btn.Location = new Point(btn.Location.X, btn.Location.Y - 50);
             }
             buttonList.Remove(crrButton);
             if (labelList.Count == 0 && textBoxList.Count == 0 && buttonList.Count == 0)
@@ -223,9 +236,13 @@ namespace GraphicBuilder
                 ResetParams();
             }
             else RefreshPanel();
-            if (MainForm.graph.GraphCurves.Count != 0)
-                MainForm.graph.DrawDiagram();
-            else MainForm.graph.g.Clear(MainForm.graph.placeToDraw.BackColor);
+
+            MainForm.graph.DrawDiagram();
+        }
+
+        private void AddGraph_Load(object sender, EventArgs e)
+        {
+            RefreshPanel();
         }
 
         public AddGraph()

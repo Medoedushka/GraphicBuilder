@@ -16,8 +16,13 @@ namespace GraphicBuilder
         public static PointsGraphic graph;
         AddGraph addGraph;
         MainSettings mainSettings;
+
+        int ShiftOX; //результирующее смещение центра по оси ОХ
+        int ShiftOY; //результирующее смещение центра по оси ОY
+
         bool Hidden { get; set; }
-       
+
+        
 
         public MainForm()
         {
@@ -27,10 +32,16 @@ namespace GraphicBuilder
         private void MainForm_Load(object sender, EventArgs e)
         {
             graph = new PointsGraphic(pictureBox1, AxesMode.Static, AxesPosition.AllQuarters);
+            addGraph = new AddGraph()
+            {
+                Location = new Point(0, 0),
+                Dock = DockStyle.Right
+            };
             Hidden = false;
             cmb_PriceOX.Text = graph.Config.PriceForPointOX.ToString();
             cmb_PriceOY.Text = graph.Config.PriceForPointOY.ToString();
-            graph.Config.DrawPoints = true;
+            graph.Config.Grid = true;
+            graph.Config.SmoothAngles = true;
         }
 
         #region StaticCameraMoving
@@ -50,10 +61,17 @@ namespace GraphicBuilder
             if (param == Param.StepOY) graph.Config.StepOY += value;
 
             if (param == Param.RCenterPosX)
+            {
                 graph.RealCenter = new Point(graph.RealCenter.X + value, graph.RealCenter.Y);
-
+                ShiftOX += value;
+            }
+           
             if (param == Param.RCenterPosY)
+            {
                 graph.RealCenter = new Point(graph.RealCenter.X, graph.RealCenter.Y + value);
+                ShiftOY += value;
+            }
+                
             graph.DrawDiagram();
         }
 
@@ -143,15 +161,124 @@ namespace GraphicBuilder
         }
         #endregion
 
+        #region CutTool
+        bool CutMode { get; set; }
+        byte numLines = 0;
+        int firstX, secondX;
+
+        private void вырезатьОбластьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (!CutMode && cmb_CutCurveLeg.Text != "")
+            {
+                Graphics g = pictureBox1.CreateGraphics();
+                g.FillRectangle(new SolidBrush(Color.FromArgb(100, 120, 120, 120)), new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height));
+                CutMode = true;
+                g.Dispose();
+            }
+            else
+            {
+                CutMode = false;
+                graph.DrawDiagram();
+            }
+
+        }
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (CutMode)
+            {
+                Graphics g = pictureBox1.CreateGraphics();
+                int MouseX = e.X;
+                //int MouseY = e.Y;
+                if (numLines < 2)
+                {
+                    g.DrawLine(new Pen(Color.Black), MouseX, pictureBox1.Height, MouseX, 0);
+                    numLines++;
+                    if (numLines == 1) firstX = MouseX;
+                    else secondX = MouseX;
+                }
+                if (numLines == 2)
+                {
+                    int x1, x2;
+                    if (secondX > firstX)
+                    {
+                        x1 = firstX;
+                        x2 = secondX;
+                    }
+                    else if (firstX > secondX)
+                    {
+                        x1 = secondX;
+                        x2 = firstX;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Недопустимый интервал!");
+                        return;
+                    }
+                    g.FillRectangle(new SolidBrush(Color.FromArgb(100, 255, 0, 0)),
+                        new RectangleF(x1, 0, Math.Abs(firstX - secondX), pictureBox1.Height));
+
+                    double ValueX1 = Math.Round((x1 - graph.RealCenter.X) * graph.Config.PriceForPointOX / graph.Config.StepOX, 1);
+                    double ValueX2 = Math.Round((x2 - graph.RealCenter.X) * graph.Config.PriceForPointOX / graph.Config.StepOX, 1);
+                    DialogResult result =
+                    MessageBox.Show("Вы действительно хотите удалить участок кривой от " + ValueX1.ToString() + " до " + ValueX2.ToString() + "?",
+                        "Удаление промежутка кривой", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        for(int i = 0; i < graph.GraphCurves.Count; i++)
+                        {
+                            if (graph.GraphCurves[i].Legend == cmb_CutCurveLeg.Text)
+                            {
+                                //обнуление значений в массиве
+                                int ZeroPT = 0;
+                                for(int j = 0; j < graph.GraphCurves[i].PointsToDraw.Length; j++)
+                                {
+                                    if (graph.GraphCurves[i].PointsToDraw[j].X >= ValueX1 && graph.GraphCurves[i].PointsToDraw[j].X <= ValueX2)
+                                    {
+                                        graph.GraphCurves[i].PointsToDraw[j].X = 0;
+                                        graph.GraphCurves[i].PointsToDraw[j].Y = 0;
+                                        ZeroPT++;
+                                    }
+                                }
+                                //заполнение нового массива
+                                PointF[] temp = new PointF[graph.GraphCurves[i].PointsToDraw.Length - ZeroPT];
+                                int CountNotZero = 0;
+                                for(int j = 0; j < graph.GraphCurves[i].PointsToDraw.Length; j++)
+                                {
+                                    if (graph.GraphCurves[i].PointsToDraw[j].X != 0 &&
+                                        graph.GraphCurves[i].PointsToDraw[j].Y != 0)
+                                    {
+                                        temp[CountNotZero].X = graph.GraphCurves[i].PointsToDraw[j].X;
+                                        temp[CountNotZero].Y = graph.GraphCurves[i].PointsToDraw[j].Y;
+                                        CountNotZero++;
+                                    }
+                                }
+                                graph.GraphCurves[i] = new Curves(temp, graph.GraphCurves[i].CurveColor,
+                                    graph.GraphCurves[i].CurveThickness, graph.GraphCurves[i].Legend);
+                                graph.DrawDiagram();
+                                x1 = x2 = 0;
+                                numLines = 0;
+                                CutMode = false;
+                                GC.Collect();
+                                break;
+                            }
+                            
+                        }
+                        
+                        
+                    }
+                }
+
+            }
+        }
+        #endregion
+
 
         private void btn_AddNewGraph_Click(object sender, EventArgs e)
         {
             pnl_Windows.Controls.Clear();
-            addGraph = new AddGraph()
-            {
-                Location = new Point(0,0),
-                Dock = DockStyle.Right
-            };
             pnl_Windows.Controls.Add(addGraph);
             
         }
@@ -169,9 +296,7 @@ namespace GraphicBuilder
 
         private void btn_BuildGraph_Click(object sender, EventArgs e)
         {
-            graph.Config.Grid = true;
-            graph.Config.SmoothAngles = true;
-
+            
             graph.DrawDiagram();
         }
 
@@ -230,8 +355,11 @@ namespace GraphicBuilder
                     pt[i].Y = (float)pair.Value;
                     i++;
                 }
-                Curves RTcurve = new Curves(pt, Color.Red);
+                string name = filePath.Remove(0, 3).Remove(6, 5);
+                Curves RTcurve = new Curves(pt, Color.Black, Legend: name);
                 graph.AddCurve(RTcurve);
+                
+                addGraph.AddGraphToList(name, Color.Black);
                 MessageBox.Show("Конвертация успешно завершена", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -247,6 +375,7 @@ namespace GraphicBuilder
                 {
                     graph.placeToDraw = pictureBox1;
                     graph.SetPlaceToDrawSize(graph.placeToDraw.Width, graph.placeToDraw.Height);
+                    graph.RealCenter = new Point(graph.RealCenter.X + ShiftOX, graph.RealCenter.Y + ShiftOY);
                     graph.DrawDiagram();
                 }
             }
@@ -259,6 +388,7 @@ namespace GraphicBuilder
                 {
                     graph.placeToDraw = pictureBox1;
                     graph.SetPlaceToDrawSize(graph.placeToDraw.Width, graph.placeToDraw.Height);
+                    graph.RealCenter = new Point(graph.RealCenter.X + ShiftOX, graph.RealCenter.Y + ShiftOY);
                     graph.DrawDiagram();
                 }
             }
@@ -301,6 +431,16 @@ namespace GraphicBuilder
             }
         }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            cmb_CutCurveLeg.Items.Clear();
+            foreach(Curves curve in graph.GraphCurves)
+            {
+                cmb_CutCurveLeg.Items.Add(curve.Legend);
+            }
+            
+        }
+
         private static Bitmap DrawControlToBitMap(Control control)
         {
             Bitmap bitmap = new Bitmap(control.Width, control.Height);
@@ -311,9 +451,6 @@ namespace GraphicBuilder
             return bitmap;
         }
 
-        private void toolStripLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
