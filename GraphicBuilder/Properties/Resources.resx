@@ -163,8 +163,8 @@
   <data name="newInfo_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\newInfo_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="que_15px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\que_15px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settings_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settings_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="unvisibie_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\unvisibie_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,6 +178,9 @@
   <data name="saveImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\saveImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="que_15px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\que_15px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="palette_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\palette_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -190,9 +193,6 @@
   <data name="file_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\file_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="settings_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settings_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="mainMinus_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mainMinus_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -201,6 +201,9 @@
   </data>
   <data name="more_20px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\more_20px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imgonline-com-ua-Resize-3cqMF2tBQMS31Cs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imgonline-com-ua-Resize-3cqMF2tBQMS31Cs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lineChart_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lineChart_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,7 +214,7 @@
   <data name="ArrowBottom_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArrowBottom_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="imgonline-com-ua-Resize-3cqMF2tBQMS31Cs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imgonline-com-ua-Resize-3cqMF2tBQMS31Cs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="insert_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\insert_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

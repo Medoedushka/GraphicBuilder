@@ -71,6 +71,12 @@
     <Compile Include="AddGraph.Designer.cs">
       <DependentUpon>AddGraph.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeLBL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeLBL.Designer.cs">
+      <DependentUpon>ChangeLBL.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </Compile>
     <EmbeddedResource Include="AddGraph.resx">
       <DependentUpon>AddGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeLBL.resx">
+      <DependentUpon>ChangeLBL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -222,6 +231,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imgonline-com-ua-Resize-3cqMF2tBQMS31Cs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert_25px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

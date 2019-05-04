@@ -22,7 +22,7 @@ namespace GraphicBuilder
 
         bool Hidden { get; set; }
 
-        
+        public static string TextValue;
 
         public MainForm()
         {
@@ -501,10 +501,28 @@ namespace GraphicBuilder
                 Location = new Point(0, 0),
                 Text = "Meow",
                 BackColor = System.Drawing.Color.Transparent,
-                Cursor = Cursors.SizeAll
+                Cursor = Cursors.SizeAll,
+                AutoSize = true
             };
+            lb.MouseClick += new System.Windows.Forms.MouseEventHandler(lbl_MouseClick);
+            lb.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(lbl_MouseDoubleClick);
             pictureBox1.Controls.Add(lb);
             ControlExtension.Draggable(lb, true);
+            
+        }
+
+        private void lbl_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Middle)
+            pictureBox1.Controls.Remove((Label)sender);
+        }
+
+        private void lbl_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Label activeLabel = (Label)sender;
+            ChangeLBL changeLBL = new ChangeLBL();
+            changeLBL.ShowDialog();
+            activeLabel.Text = TextValue;
         }
 
         private static Bitmap DrawControlToBitMap(Control control)
