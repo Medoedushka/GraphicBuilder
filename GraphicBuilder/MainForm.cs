@@ -159,9 +159,38 @@ namespace GraphicBuilder
         {
             tmr_ChangeMainParams.Stop();
         }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.W)
+            {
+                crrParam = Param.RCenterPosY; value = 5;
+                tmr_ChangeMainParams.Start();
+            }
+            else if (e.KeyCode == Keys.S)
+            {
+                crrParam = Param.RCenterPosY; value = -5;
+                tmr_ChangeMainParams.Start();
+            }
+            else if (e.KeyCode == Keys.D)
+            {
+                crrParam = Param.RCenterPosX; value = -5;
+                tmr_ChangeMainParams.Start();
+            }
+            else if (e.KeyCode == Keys.A)
+            {
+                crrParam = Param.RCenterPosX; value = 5;
+                tmr_ChangeMainParams.Start();
+            }
+        }
+
+        private void MainForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            tmr_ChangeMainParams.Stop();
+        }
         #endregion
 
-        #region CutTool
+        #region Tools
         bool CutMode { get; set; }
         byte numLines = 0;
         int firstX, secondX;
@@ -186,6 +215,7 @@ namespace GraphicBuilder
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
+            //Выризание части графика
             if (CutMode)
             {
                 Graphics g = pictureBox1.CreateGraphics();
@@ -247,8 +277,12 @@ namespace GraphicBuilder
                                 int CountNotZero = 0;
                                 for(int j = 0; j < graph.GraphCurves[i].PointsToDraw.Length; j++)
                                 {
-                                    if (graph.GraphCurves[i].PointsToDraw[j].X != 0 &&
-                                        graph.GraphCurves[i].PointsToDraw[j].Y != 0)
+                                    if (graph.GraphCurves[i].PointsToDraw[j].X == 0 &&
+                                        graph.GraphCurves[i].PointsToDraw[j].Y == 0)
+                                    {
+                                        
+                                    }
+                                    else
                                     {
                                         temp[CountNotZero].X = graph.GraphCurves[i].PointsToDraw[j].X;
                                         temp[CountNotZero].Y = graph.GraphCurves[i].PointsToDraw[j].Y;
@@ -269,9 +303,18 @@ namespace GraphicBuilder
                         
                         
                     }
+                    else
+                    {
+                        x1 = x2 = 0;
+                        numLines = 0;
+                        CutMode = false;
+                        graph.DrawDiagram();
+                    }
                 }
 
             }
+
+
         }
         #endregion
 
@@ -309,6 +352,11 @@ namespace GraphicBuilder
             g = null;
 
             addGraph?.ResetParams();
+            graph.placeToDraw = pictureBox1;
+            graph.SetPlaceToDrawSize(graph.placeToDraw.Width, graph.placeToDraw.Height);
+            graph.Config.StepOX = 30;
+            graph.Config.StepOY = 25;
+            graph.Config.PriceForPointOX = graph.Config.PriceForPointOY = 1;
         }
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
@@ -355,11 +403,11 @@ namespace GraphicBuilder
                     pt[i].Y = (float)pair.Value;
                     i++;
                 }
-                string name = filePath.Remove(0, 3).Remove(6, 5);
-                Curves RTcurve = new Curves(pt, Color.Black, Legend: name);
+                
+                Curves RTcurve = new Curves(pt, Color.Black, Legend: filePath);
                 graph.AddCurve(RTcurve);
                 
-                addGraph.AddGraphToList(name, Color.Black);
+                addGraph.AddGraphToList(filePath, Color.Black);
                 MessageBox.Show("Конвертация успешно завершена", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -439,6 +487,24 @@ namespace GraphicBuilder
                 cmb_CutCurveLeg.Items.Add(curve.Legend);
             }
             
+        }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void текстToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Label lb = new Label()
+            {
+                Location = new Point(0, 0),
+                Text = "Meow",
+                BackColor = System.Drawing.Color.Transparent,
+                Cursor = Cursors.SizeAll
+            };
+            pictureBox1.Controls.Add(lb);
+            ControlExtension.Draggable(lb, true);
         }
 
         private static Bitmap DrawControlToBitMap(Control control)

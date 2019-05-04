@@ -14,6 +14,7 @@ namespace GraphicBuilder
     {
         PointsGraphic RTgraph;
         PictureBox LastPlot;
+        int ShiftOX;
 
         double Time { get; set; } //время, кажется бесполезный..добавить словарь для хранения значений
         int WaitTime { get; set; } //время задержки между получением нового значения
@@ -212,7 +213,8 @@ namespace GraphicBuilder
                 }
                 
                 double k = Math.Round(RTgraph.Config.StepOX / 40.0, 4);
-                double x = RTgraph.ImiganaryCenter.X -  0.1* RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX;
+                ShiftOX += (int)(0.1 * RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX);
+                double x = RTgraph.ImiganaryCenter.X - 0.1 * RTgraph.Config.StepOX / RTgraph.Config.PriceForPointOX;
                 RTgraph.ImiganaryCenter = new Point((int)x, RTgraph.ImiganaryCenter.Y);
                 RTgraph.ValuePairs.Add(Time, value);
                 RTgraph.DrawDiagram();
@@ -316,7 +318,9 @@ namespace GraphicBuilder
         private void btn_StartConnection_Click(object sender, EventArgs e)
         {
             btn_StartConnection.Checked = true;
+            btn_StartConnection.Enabled = false;
             btn_StopConnection.Checked = false;
+            btn_StopConnection.Enabled = true;
 
             l1:
             if (PathTxt == null)
@@ -357,13 +361,16 @@ namespace GraphicBuilder
         private void btn_StopConnection_Click(object sender, EventArgs e)
         {
             btn_StartConnection.Checked = false;
+            btn_StartConnection.Enabled = true;
             btn_StopConnection.Checked = true;
+            btn_StopConnection.Enabled = false; 
+            ActiveConnection = false;
 
             tmr_WorkingTime.Stop();
             pc.Image = null;
             PathTxt = null;
             txb_FilePath.Text = "";
-            ActiveConnection = false;
+            ShiftOX = 0;
             serialPort1.Close();
 
             pc.BackColor = Color.FromArgb(135, 206, 250);
@@ -375,17 +382,21 @@ namespace GraphicBuilder
             if (Hidden == false)
             {
                 Hidden = true;
+                ShiftOX += pnl_Settings.Width;
                 pnl_Settings.Width = 0;
                 RTgraph.placeToDraw = pc;
                 RTgraph.SetPlaceToDrawSize(RTgraph.placeToDraw.Width, RTgraph.placeToDraw.Height);
+                RTgraph.ImiganaryCenter = new Point(RTgraph.ImiganaryCenter.X - ShiftOX, RTgraph.ImiganaryCenter.Y);
                 btn_HideSettings.Image = Properties.Resources.visible_25px;
             }
             else if (Hidden == true)
             {
                 Hidden = false;
                 pnl_Settings.Width = 310;
+                ShiftOX -= pnl_Settings.Width;
                 RTgraph.placeToDraw = pc;
                 RTgraph.SetPlaceToDrawSize(RTgraph.placeToDraw.Width, RTgraph.placeToDraw.Height);
+                RTgraph.ImiganaryCenter = new Point(RTgraph.ImiganaryCenter.X - ShiftOX, RTgraph.ImiganaryCenter.Y);
                 btn_HideSettings.Image = Properties.Resources.unvisibie_25px;
             }
 

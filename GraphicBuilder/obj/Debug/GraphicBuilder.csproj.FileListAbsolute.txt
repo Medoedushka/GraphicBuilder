@@ -30,3 +30,4 @@ D:\Проекты C#\GraphicBuilder1\GraphicBuilder\bin\Debug\Newtonsoft.Json.dl
 D:\Проекты C#\GraphicBuilder1\GraphicBuilder\bin\Debug\Newtonsoft.Json.pdb
 D:\Проекты C#\GraphicBuilder1\GraphicBuilder\bin\Debug\Newtonsoft.Json.xml
 D:\Проекты C#\GraphicBuilder1\GraphicBuilder\obj\Debug\GraphicBuilder.MainSettings.resources
+D:\Проекты C#\GraphicBuilder1\GraphicBuilder\bin\Debug\Control.Draggable.dll

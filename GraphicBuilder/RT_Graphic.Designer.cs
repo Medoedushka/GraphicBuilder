@@ -571,6 +571,7 @@
             this.btn_StopConnection.Checked = true;
             this.btn_StopConnection.CheckState = System.Windows.Forms.CheckState.Checked;
             this.btn_StopConnection.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_StopConnection.Enabled = false;
             this.btn_StopConnection.Image = global::GraphicBuilder.Properties.Resources.stop_25px;
             this.btn_StopConnection.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_StopConnection.Name = "btn_StopConnection";
