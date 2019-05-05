@@ -21,6 +21,8 @@ namespace GraphicBuilder
         Mathos.Parser.MathParser parser; //объек, использующийся для преобразования строки формулы
         int preX, preY = 5; //начальные значения координат элементов управления на панели с сущ кривыми
 
+        public Color CurveColor = Color.Red;
+
         //сброс параметров
         public void ResetParams()
         {
@@ -86,22 +88,27 @@ namespace GraphicBuilder
                 }
 
                 Curves curve1;
-                Color curveColor = Color.Red;
-                if (txb_CurveColor.Text != "")
-                {
-                    string[] el = txb_CurveColor.Text.Split(',');
-                    try
-                    {
-                        curveColor = Color.FromArgb(Int32.Parse(el[0]), Int32.Parse(el[1]), Int32.Parse(el[2]));
-                    }
-                    catch (FormatException)
-                    {
-                        MessageBox.Show("Введён неверный формат цвета кривой: 'Р,Г,Б'.", "Ошибка ввода",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    curve1 = new Curves(pt, curveColor, Legend: txb_UsersFunc.Text);
-                }
-                else curve1 = new Curves(pt, Color.Red, Legend: txb_UsersFunc.Text);
+                Color curveColor = CurveColor;
+
+                // sorry :(
+
+                //if (txb_CurveColor.Text != "")
+                //{
+                //    string[] el = txb_CurveColor.Text.Split(',');
+                //    try
+                //    {
+                //        curveColor = Color.FromArgb(Int32.Parse(el[0]), Int32.Parse(el[1]), Int32.Parse(el[2]));
+                //    }
+                //    catch (FormatException)
+                //    {
+                //        MessageBox.Show("Введён неверный формат цвета кривой: 'Р,Г,Б'.", "Ошибка ввода",
+                //        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+
+                curve1 = new Curves(pt, curveColor, Legend: txb_UsersFunc.Text);
+
+                //}
+                //else curve1 = new Curves(pt, Color.Red, Legend: txb_UsersFunc.Text);
 
                 DialogResult result;
                 try
@@ -245,6 +252,31 @@ namespace GraphicBuilder
             RefreshPanel();
             //hello, honey budger
             this.Width = Parent.Width;
+        }
+
+        // hello, honey budger
+        private void Change_Colour_Click(object sender, EventArgs e)
+        {
+            DialogResult result; ColorDialog colorDialog;
+            using (colorDialog = new ColorDialog())
+            {
+                colorDialog.FullOpen = true;
+                colorDialog.Color = MainForm.graph.placeToDraw.BackColor;
+                result = colorDialog.ShowDialog();
+            }
+            if (result == DialogResult.OK)
+            {
+                //sorry again  
+                //MainForm.graph.placeToDraw.BackColor = colorDialog.Color;
+                pcb_PlotColor.BackColor = colorDialog.Color;
+                //MainForm.graph.DrawDiagram();
+                CurveColor = colorDialog.Color;
+            }
+        }
+
+        private void btn_ChangePlotColor_Click(object sender, EventArgs e)
+        {
+
         }
 
         public AddGraph()
