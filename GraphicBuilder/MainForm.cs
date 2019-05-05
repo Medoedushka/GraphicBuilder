@@ -265,34 +265,83 @@ namespace GraphicBuilder
                             {
                                 //обнуление значений в массиве
                                 int ZeroPT = 0;
-                                for(int j = 0; j < graph.GraphCurves[i].PointsToDraw.Length; j++)
+                                //for(int j = 0; j < graph.GraphCurves[i].PointsToDraw.Length; j++)
+                                //{
+                                //    if (graph.GraphCurves[i].PointsToDraw[j].X >= ValueX1 && graph.GraphCurves[i].PointsToDraw[j].X <= ValueX2)
+                                //    {
+                                //        graph.GraphCurves[i].PointsToDraw[j].X = 0;
+                                //        graph.GraphCurves[i].PointsToDraw[j].Y = 0;
+                                //        ZeroPT++;
+                                //    }
+                                //}
+                                ////заполнение нового массива
+                                //PointF[] temp = new PointF[graph.GraphCurves[i].PointsToDraw.Length - ZeroPT];
+                                int CountNotZero = 0;
+                                //for(int j = 0; j < graph.GraphCurves[i].PointsToDraw.Length; j++)
+                                //{
+                                //    if (graph.GraphCurves[i].PointsToDraw[j].X == 0 &&
+                                //        graph.GraphCurves[i].PointsToDraw[j].Y == 0)
+                                //    {
+                                        
+                                //    }
+                                //    else
+                                //    {
+                                //        temp[CountNotZero].X = graph.GraphCurves[i].PointsToDraw[j].X;
+                                //        temp[CountNotZero].Y = graph.GraphCurves[i].PointsToDraw[j].Y;
+                                //        CountNotZero++;
+                                //    }
+                                //}
+                                //graph.GraphCurves[i] = new Curves(temp, graph.GraphCurves[i].CurveColor,
+                                //    graph.GraphCurves[i].CurveThickness, graph.GraphCurves[i].Legend);
+
+
+                                //hi there, honey budger. I hope, you'll like this algorythm
+                                int FirstZeroPosition = 0, LastZeroPosition=0;
+                                //
+                                for (int j = 0; j < graph.GraphCurves[i].PointsToDraw.Length; j++)
                                 {
                                     if (graph.GraphCurves[i].PointsToDraw[j].X >= ValueX1 && graph.GraphCurves[i].PointsToDraw[j].X <= ValueX2)
                                     {
                                         graph.GraphCurves[i].PointsToDraw[j].X = 0;
                                         graph.GraphCurves[i].PointsToDraw[j].Y = 0;
+                                        if(FirstZeroPosition==0) FirstZeroPosition = j;
+                                        LastZeroPosition = j;
                                         ZeroPT++;
                                     }
                                 }
-                                //заполнение нового массива
-                                PointF[] temp = new PointF[graph.GraphCurves[i].PointsToDraw.Length - ZeroPT];
-                                int CountNotZero = 0;
-                                for(int j = 0; j < graph.GraphCurves[i].PointsToDraw.Length; j++)
+
+                                PointF[] temp2 = new PointF[graph.GraphCurves[i].PointsToDraw.Length - LastZeroPosition-1];
+                                PointF[] temp1 = new PointF[FirstZeroPosition-1];
+
+                                for (int j = 0; j < graph.GraphCurves[i].PointsToDraw.Length; j++)
                                 {
-                                    if (graph.GraphCurves[i].PointsToDraw[j].X == 0 &&
-                                        graph.GraphCurves[i].PointsToDraw[j].Y == 0)
+                                    if (graph.GraphCurves[i].PointsToDraw[j].X != 0 &&
+                                        graph.GraphCurves[i].PointsToDraw[j].Y != 0)
                                     {
-                                        
+                                        if (j<FirstZeroPosition)
+                                        {
+                                            temp1[CountNotZero].X = graph.GraphCurves[i].PointsToDraw[j].X;
+                                            temp1[CountNotZero].Y = graph.GraphCurves[i].PointsToDraw[j].Y;
+
+                                            CountNotZero++;
+                                        }
+                                        else if (j>LastZeroPosition)
+                                        {
+                                            temp2[CountNotZero-temp1.Length].X = graph.GraphCurves[i].PointsToDraw[j].X;
+                                            temp2[CountNotZero-temp1.Length].Y = graph.GraphCurves[i].PointsToDraw[j].Y;
+
+                                            CountNotZero++;
+                                        }
                                     }
-                                    else
-                                    {
-                                        temp[CountNotZero].X = graph.GraphCurves[i].PointsToDraw[j].X;
-                                        temp[CountNotZero].Y = graph.GraphCurves[i].PointsToDraw[j].Y;
-                                        CountNotZero++;
-                                    }
+                                    
                                 }
-                                graph.GraphCurves[i] = new Curves(temp, graph.GraphCurves[i].CurveColor,
+
+
+                                graph.GraphCurves[i] = new Curves(temp1, graph.GraphCurves[i].CurveColor,
                                     graph.GraphCurves[i].CurveThickness, graph.GraphCurves[i].Legend);
+                                graph.GraphCurves.Add(new Curves(temp2, graph.GraphCurves[i].CurveColor,
+                                    graph.GraphCurves[i].CurveThickness, graph.GraphCurves[i].Legend))  ;
+
                                 graph.DrawDiagram();
                                 x1 = x2 = 0;
                                 numLines = 0;
