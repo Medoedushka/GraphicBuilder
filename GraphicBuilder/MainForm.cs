@@ -42,6 +42,8 @@ namespace GraphicBuilder
             cmb_PriceOY.Text = graph.Config.PriceForPointOY.ToString();
             graph.Config.Grid = true;
             graph.Config.SmoothAngles = true;
+            //hello, honey budger
+            pnl_Windows.Width =(int) (this.Width / 3.5);
         }
 
         #region StaticCameraMoving
@@ -323,7 +325,7 @@ namespace GraphicBuilder
         {
             pnl_Windows.Controls.Clear();
             pnl_Windows.Controls.Add(addGraph);
-            
+            addGraph.Parent = pnl_Windows;
         }
 
         private void btn_MainSettings_Click(object sender, EventArgs e)
@@ -335,6 +337,8 @@ namespace GraphicBuilder
                 Dock = DockStyle.Right
             };
             pnl_Windows.Controls.Add(mainSettings);
+            //hi
+            mainSettings.Parent = pnl_Windows;
         }
 
         private void btn_BuildGraph_Click(object sender, EventArgs e)
@@ -429,7 +433,7 @@ namespace GraphicBuilder
             }
             else if (Hidden == true)
             {
-                pnl_Windows.Width = 449;
+                pnl_Windows.Width = this.Width / 3; // 449;
                 btn_HideSettings.Image = Properties.Resources.unvisibie_25px;
                 Hidden = false;
                 if (graph != null)

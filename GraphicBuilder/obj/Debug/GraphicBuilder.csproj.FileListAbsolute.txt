@@ -32,3 +32,23 @@ D:\Проекты C#\GraphicBuilder1\GraphicBuilder\bin\Debug\Newtonsoft.Json.xm
 D:\Проекты C#\GraphicBuilder1\GraphicBuilder\obj\Debug\GraphicBuilder.MainSettings.resources
 D:\Проекты C#\GraphicBuilder1\GraphicBuilder\bin\Debug\Control.Draggable.dll
 D:\Проекты C#\GraphicBuilder1\GraphicBuilder\obj\Debug\GraphicBuilder.ChangeLBL.resources
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\bin\Debug\GraphicBuilder.exe.config
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\bin\Debug\GraphicBuilder.exe
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\bin\Debug\GraphicBuilder.pdb
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\bin\Debug\Control.Draggable.dll
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\bin\Debug\Newtonsoft.Json.dll
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\bin\Debug\MathParser.pdb
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\bin\Debug\MyDrawing.pdb
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\bin\Debug\MyDrawing.xml
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.csprojAssemblyReference.cache
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.AddGraph.resources
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.ChangeLBL.resources
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.MainForm.resources
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.MainSettings.resources
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.Properties.Resources.resources
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.RT_Graphic.resources
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.csproj.GenerateResource.cache
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.csproj.CoreCompileInputs.cache
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.csproj.CopyComplete
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.exe
+D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.pdb

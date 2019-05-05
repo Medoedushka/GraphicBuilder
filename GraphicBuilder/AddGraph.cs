@@ -243,6 +243,8 @@ namespace GraphicBuilder
         private void AddGraph_Load(object sender, EventArgs e)
         {
             RefreshPanel();
+            //hello, honey budger
+            this.Width = Parent.Width;
         }
 
         public AddGraph()

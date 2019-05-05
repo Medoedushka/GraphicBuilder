@@ -59,6 +59,8 @@ namespace GraphicBuilder
 
         private void MainSettings_Load(object sender, EventArgs e)
         {
+            //hello, honey budger
+            this.Width = this.Parent.Width;
             InitBaseConf();
         }
 
