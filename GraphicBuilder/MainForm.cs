@@ -193,23 +193,24 @@ namespace GraphicBuilder
         #endregion
 
         #region Tools
-        bool CutMode { get; set; }
+        bool CutMode { get; set; } = true;
         byte numLines = 0;
         int firstX, secondX;
 
         private void вырезатьОбластьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            if (!CutMode && cmb_CutCurveLeg.Text != "")
+            CutMode = !CutMode;
+            if (!CutMode)// && cmb_CutCurveLeg.Text != "")
             {
+                вырезатьОбластьToolStripMenuItem.Checked = true;
                 Graphics g = pictureBox1.CreateGraphics();
                 g.FillRectangle(new SolidBrush(Color.FromArgb(100, 120, 120, 120)), new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height));
-                CutMode = true;
                 g.Dispose();
             }
             else
             {
-                CutMode = false;
+                вырезатьОбластьToolStripMenuItem.Checked = false;
+                //CutMode = false;
                 graph.DrawDiagram();
             }
 
@@ -218,20 +219,22 @@ namespace GraphicBuilder
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
             //Выризание части графика
-            if (CutMode)
+            if (!CutMode)
             {
+                numLines++;
                 Graphics g = pictureBox1.CreateGraphics();
                 int MouseX = e.X;
                 //int MouseY = e.Y;
-                if (numLines < 2)
+                if (numLines % 2!=0)
                 {
                     g.DrawLine(new Pen(Color.Black), MouseX, pictureBox1.Height, MouseX, 0);
-                    numLines++;
-                    if (numLines == 1) firstX = MouseX;
-                    else secondX = MouseX;
+                    
+                    firstX = MouseX;
                 }
-                if (numLines == 2)
+                if (numLines %2==0&&numLines!=0)
                 {
+                    secondX = MouseX;
+                    CutMode = !CutMode;
                     int x1, x2;
                     if (secondX > firstX)
                     {
@@ -257,44 +260,26 @@ namespace GraphicBuilder
                     MessageBox.Show("Вы действительно хотите удалить участок кривой от " + ValueX1.ToString() + " до " + ValueX2.ToString() + "?",
                         "Удаление промежутка кривой", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                    string[] a = new string[graph.GraphCurves.Count];
+                    for (int k = 0; k < graph.GraphCurves.Count; k++) a[k] = graph.GraphCurves[k].Legend;
+                    AskingForm af = new AskingForm(a);
+                    af.ShowDialog();
+                    bool[] Answ = new bool[0];
+                    if (af.DialogResult == DialogResult.OK) Answ = AskingForm.Answer;
                     if (result == DialogResult.Yes)
                     {
                         for(int i = 0; i < graph.GraphCurves.Count; i++)
                         {
-                            if (graph.GraphCurves[i].Legend == cmb_CutCurveLeg.Text)
-                            {
-                                //обнуление значений в массиве
+                            if (Answ.Length != 0&&Answ.Length== graph.GraphCurves.Count) if (!Answ[i]) continue;
                                 int ZeroPT = 0;
-                                //for(int j = 0; j < graph.GraphCurves[i].PointsToDraw.Length; j++)
-                                //{
-                                //    if (graph.GraphCurves[i].PointsToDraw[j].X >= ValueX1 && graph.GraphCurves[i].PointsToDraw[j].X <= ValueX2)
-                                //    {
-                                //        graph.GraphCurves[i].PointsToDraw[j].X = 0;
-                                //        graph.GraphCurves[i].PointsToDraw[j].Y = 0;
-                                //        ZeroPT++;
-                                //    }
-                                //}
-                                ////заполнение нового массива
-                                //PointF[] temp = new PointF[graph.GraphCurves[i].PointsToDraw.Length - ZeroPT];
                                 int CountNotZero = 0;
-                                //for(int j = 0; j < graph.GraphCurves[i].PointsToDraw.Length; j++)
-                                //{
-                                //    if (graph.GraphCurves[i].PointsToDraw[j].X == 0 &&
-                                //        graph.GraphCurves[i].PointsToDraw[j].Y == 0)
-                                //    {
-                                        
-                                //    }
-                                //    else
-                                //    {
-                                //        temp[CountNotZero].X = graph.GraphCurves[i].PointsToDraw[j].X;
-                                //        temp[CountNotZero].Y = graph.GraphCurves[i].PointsToDraw[j].Y;
-                                //        CountNotZero++;
-                                //    }
-                                //}
-                                //graph.GraphCurves[i] = new Curves(temp, graph.GraphCurves[i].CurveColor,
-                                //    graph.GraphCurves[i].CurveThickness, graph.GraphCurves[i].Legend);
-
-
+                            if (ValueX1 <= graph.GraphCurves[i].PointsToDraw[0].X && ValueX2 >= graph.GraphCurves[i].PointsToDraw[graph.GraphCurves[i].PointsToDraw.Length - 1].X)
+                            {
+                                graph.GraphCurves.Remove(graph.GraphCurves[i]);
+                                graph.DrawDiagram();
+                                continue;
+                            }
+                            
                                 //hi there, honey budger. I hope, you'll like this algorythm
                                 int FirstZeroPosition = 0, LastZeroPosition=0;
                                 //
@@ -302,67 +287,64 @@ namespace GraphicBuilder
                                 {
                                     if (graph.GraphCurves[i].PointsToDraw[j].X >= ValueX1 && graph.GraphCurves[i].PointsToDraw[j].X <= ValueX2)
                                     {
-                                        graph.GraphCurves[i].PointsToDraw[j].X = 0;
-                                        graph.GraphCurves[i].PointsToDraw[j].Y = 0;
                                         if(FirstZeroPosition==0) FirstZeroPosition = j;
                                         LastZeroPosition = j;
                                         ZeroPT++;
                                     }
                                 }
-
+                            if (ValueX1 <= graph.GraphCurves[i].PointsToDraw[0].X) FirstZeroPosition = 0;
+                            if (ValueX2 >= graph.GraphCurves[i].PointsToDraw[graph.GraphCurves[i].PointsToDraw.Length - 1].X) LastZeroPosition = graph.GraphCurves[i].PointsToDraw.Length - 1;
                                 PointF[] temp2 = new PointF[graph.GraphCurves[i].PointsToDraw.Length - LastZeroPosition-1];
-                                PointF[] temp1 = new PointF[FirstZeroPosition-1];
+                                PointF[] temp1 = new PointF[FirstZeroPosition];
 
                                 for (int j = 0; j < graph.GraphCurves[i].PointsToDraw.Length; j++)
                                 {
-                                    if (graph.GraphCurves[i].PointsToDraw[j].X != 0 &&
-                                        graph.GraphCurves[i].PointsToDraw[j].Y != 0)
+                                    if (j < FirstZeroPosition)
                                     {
-                                        if (j<FirstZeroPosition)
-                                        {
-                                            temp1[CountNotZero].X = graph.GraphCurves[i].PointsToDraw[j].X;
-                                            temp1[CountNotZero].Y = graph.GraphCurves[i].PointsToDraw[j].Y;
+                                        temp1[CountNotZero].X = graph.GraphCurves[i].PointsToDraw[j].X;
+                                        temp1[CountNotZero].Y = graph.GraphCurves[i].PointsToDraw[j].Y;
 
-                                            CountNotZero++;
-                                        }
-                                        else if (j>LastZeroPosition)
-                                        {
-                                            temp2[CountNotZero-temp1.Length].X = graph.GraphCurves[i].PointsToDraw[j].X;
-                                            temp2[CountNotZero-temp1.Length].Y = graph.GraphCurves[i].PointsToDraw[j].Y;
-
-                                            CountNotZero++;
-                                        }
+                                        CountNotZero++;
                                     }
-                                    
+                                    else if (j > LastZeroPosition)
+                                    {
+                                        temp2[CountNotZero].X = graph.GraphCurves[i].PointsToDraw[j].X;
+                                        temp2[CountNotZero].Y = graph.GraphCurves[i].PointsToDraw[j].Y;
+
+                                        CountNotZero++;
+                                    }
+                                    else CountNotZero = 0;
                                 }
 
-
-                                graph.GraphCurves[i] = new Curves(temp1, graph.GraphCurves[i].CurveColor,
-                                    graph.GraphCurves[i].CurveThickness, graph.GraphCurves[i].Legend);
-                                graph.GraphCurves.Add(new Curves(temp2, graph.GraphCurves[i].CurveColor,
-                                    graph.GraphCurves[i].CurveThickness, graph.GraphCurves[i].Legend))  ;
+                                if (temp1.Length != 0 && temp2.Length != 0)
+                                {
+                                    graph.GraphCurves[i] = new Curves(temp1, graph.GraphCurves[i].CurveColor,
+                                        graph.GraphCurves[i].CurveThickness, graph.GraphCurves[i].Legend);
+                                    graph.GraphCurves.Add(new Curves(temp2, graph.GraphCurves[i].CurveColor,
+                                        graph.GraphCurves[i].CurveThickness, graph.GraphCurves[i].Legend));
+                                }
+                                else graph.GraphCurves[i] = new Curves( (temp1.Length!=0)? temp1:temp2, graph.GraphCurves[i].CurveColor,
+                                        graph.GraphCurves[i].CurveThickness, graph.GraphCurves[i].Legend);
 
                                 graph.DrawDiagram();
-                                x1 = x2 = 0;
-                                numLines = 0;
+
+                                //x1 = x2 = 0;
+                                //numLines = 0;
                                 CutMode = false;
                                 GC.Collect();
-                                break;
-                            }
-                            
                         }
-                        
-                        
                     }
                     else
                     {
-                        x1 = x2 = 0;
-                        numLines = 0;
+                        //x1 = x2 = 0;
+                        //numLines = 0;
                         CutMode = false;
                         graph.DrawDiagram();
                     }
                 }
-
+                Graphics gi = pictureBox1.CreateGraphics();
+                gi.FillRectangle(new SolidBrush(Color.FromArgb(100, 120, 120, 120)), new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height));
+                gi.Dispose();
             }
 
 
@@ -590,4 +572,120 @@ namespace GraphicBuilder
 
         
     }
+    // I bet you'll never seen it, don't you?)   
+    public class AskingForm : System.Windows.Forms.Form
+    {
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST) m.Result = (IntPtr)(HT_CAPTION);
+        }
+
+        private static string[] Curves = { };
+        private Button OK = new Button();
+        private Button Cancel = new Button();
+        private Label lblCount = new Label();
+        public static bool[] Answer = new bool[Curves.Length];
+        public AskingForm(string[] a)
+        {
+            Curves = a;
+            InitializeComponent();
+        }
+        private void Ask_Load(object sender, EventArgs e)
+        {
+            int i = 0;
+            CheckBox ch;
+            Answer = new bool[Curves.Length];
+            foreach (string str in Curves)
+            {
+                 ch = new CheckBox(); ch.Text = str;
+                ch.Name = "ch" + i; 
+                ch.Parent = this; ch.Location = new Point(0, i * 20 + 10);
+                ch.TabIndex = i;
+                ch.Visible = true; ch.Checked = false;
+                this.Controls.Add(ch);
+                i++;
+            }
+            
+        }
+
+        private void OK_Click(object sender, EventArgs e)
+        {
+           for(int i=0; i<Curves.Length; i++)
+            {
+                if ((this.Controls["ch" + i] as CheckBox).Checked == true) Answer[i] = true;
+                else Answer[i] = false;
+            }
+           this.DialogResult = DialogResult.OK;
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+        private void InitializeComponent()
+        {
+            
+            this.label1 = new System.Windows.Forms.Label();
+            
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 10F);
+            this.label1.Location = new System.Drawing.Point(this.Width/2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(183, 16);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Выберите кривые для вырезания";
+            
+            //button OK
+            
+            this.OK.Location = new System.Drawing.Point(41, Curves.Length*20+10);
+            this.OK.Name = "OK";
+            this.OK.Size = new System.Drawing.Size(100, 30);
+            this.OK.TabIndex = 2;
+            this.OK.Text = "OK";
+            this.OK.UseVisualStyleBackColor = true;
+            this.OK.Click += new System.EventHandler(this.OK_Click);
+            this.OK.Visible = true;
+            OK.TabIndex = Curves.Length;
+            //cancel 
+            this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Cancel.Location = new System.Drawing.Point(200, Curves.Length * 20+10);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(100, 30);
+            this.Cancel.TabIndex = 3;
+            this.Cancel.Text = "Отмена";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
+            this.Cancel.Visible = true;
+            this.Cancel.TabIndex = OK.TabIndex + 1;
+            // 
+            // MainSettings
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.OK);
+            this.Controls.Add(this.Cancel);
+            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "";
+            this.Size = new System.Drawing.Size(449, Curves.Length*40+10);
+            this.Load += new System.EventHandler(this.Ask_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+            this.FormBorderStyle = FormBorderStyle.None;
+        }
+        
+        
+        private System.Windows.Forms.Label label1;
+    }
 }
+
