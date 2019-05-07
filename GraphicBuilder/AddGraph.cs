@@ -243,7 +243,7 @@ namespace GraphicBuilder
                 ResetParams();
             }
             else RefreshPanel();
-
+            preY -= 50;
             MainForm.graph.DrawDiagram();
         }
 

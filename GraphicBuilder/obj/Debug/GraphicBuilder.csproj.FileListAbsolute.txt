@@ -52,3 +52,17 @@ D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.csp
 D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.csproj.CopyComplete
 D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.exe
 D:\Documents_D\Curves\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.pdb
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\bin\Debug\Control.Draggable.dll
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\bin\Debug\MathParser.dll
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\bin\Debug\MyDrawing.dll
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\bin\Debug\Newtonsoft.Json.dll
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\bin\Debug\MathParser.pdb
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\bin\Debug\MyDrawing.pdb
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\bin\Debug\MyDrawing.xml
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\bin\Debug\Newtonsoft.Json.pdb
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\bin\Debug\Newtonsoft.Json.xml
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.AddGraph.resources
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.ChangeLBL.resources
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.MainSettings.resources
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.RT_Graphic.resources
+D:\Проекты C#\GraphicBuilder\GraphicBuilder\obj\Debug\GraphicBuilder.csproj.CopyComplete
