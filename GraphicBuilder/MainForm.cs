@@ -500,16 +500,6 @@ namespace GraphicBuilder
 
         private void текстToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Label lb = new Label()
-            //{
-            //    Location = new Point(0, 0),
-            //    Text = "Meow",
-            //    BackColor = System.Drawing.Color.Transparent,
-            //    Cursor = Cursors.SizeAll,
-            //    AutoSize = true
-            //};
-            //lb.MouseClick += new System.Windows.Forms.MouseEventHandler(lbl_MouseClick);
-            //lb.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(lbl_MouseDoubleClick);
             TextLabel lb = new TextLabel()
             {
                 Location = new Point(0, 0),
@@ -517,7 +507,7 @@ namespace GraphicBuilder
                 BackColor = System.Drawing.Color.Transparent,
                 Cursor = Cursors.SizeAll,
                 AutoSize = true,
-                Font = new Font("Arial", 9)                
+                Font = new Font("Arial", 9),
             };
             lb.MouseClick += new System.Windows.Forms.MouseEventHandler(lbl_MouseClick);
             lb.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(lbl_MouseDoubleClick);
@@ -531,13 +521,18 @@ namespace GraphicBuilder
             if (e.Button == MouseButtons.Middle)
             pictureBox1.Controls.Remove((Label)sender);
         }
-
         private void lbl_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Label activeLabel = (Label)sender;
+            //начальная инициализация параметров
+            ChangeLBL.lbl_Text = activeLabel.Text;
+            ChangeLBL.lbl_Font = activeLabel.Font;
+            ChangeLBL.lbl_Color = activeLabel.ForeColor;    
+
             ChangeLBL changeLBL = new ChangeLBL();
             changeLBL.textBox1.Text = activeLabel.Text;
             changeLBL.ShowDialog();
+
             activeLabel.Text = ChangeLBL.lbl_Text;
             activeLabel.Font = ChangeLBL.lbl_Font;
             activeLabel.ForeColor = ChangeLBL.lbl_Color;

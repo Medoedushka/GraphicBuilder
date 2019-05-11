@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.resultLBL = new GraphicBuilder.TextLabel();
             this.btn_ChangeTextFont = new System.Windows.Forms.Button();
+            this.resultLBL = new GraphicBuilder.TextLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -47,8 +47,9 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(5, 27);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 21);
+            this.textBox1.Size = new System.Drawing.Size(195, 51);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -62,15 +63,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // resultLBL
-            // 
-            this.resultLBL.AutoSize = true;
-            this.resultLBL.Location = new System.Drawing.Point(2, 60);
-            this.resultLBL.Name = "resultLBL";
-            this.resultLBL.Size = new System.Drawing.Size(43, 15);
-            this.resultLBL.TabIndex = 3;
-            this.resultLBL.Text = "Result";
-            // 
             // btn_ChangeTextFont
             // 
             this.btn_ChangeTextFont.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -82,11 +74,20 @@
             this.btn_ChangeTextFont.UseVisualStyleBackColor = true;
             this.btn_ChangeTextFont.Click += new System.EventHandler(this.btn_ChangeTextFont_Click);
             // 
+            // resultLBL
+            // 
+            this.resultLBL.AutoSize = true;
+            this.resultLBL.Location = new System.Drawing.Point(2, 81);
+            this.resultLBL.Name = "resultLBL";
+            this.resultLBL.Size = new System.Drawing.Size(43, 15);
+            this.resultLBL.TabIndex = 3;
+            this.resultLBL.Text = "Result";
+            // 
             // ChangeLBL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 84);
+            this.ClientSize = new System.Drawing.Size(282, 105);
             this.Controls.Add(this.btn_ChangeTextFont);
             this.Controls.Add(this.resultLBL);
             this.Controls.Add(this.button1);
@@ -98,6 +99,7 @@
             this.Name = "ChangeLBL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangeLBL";
+            this.Load += new System.EventHandler(this.ChangeLBL_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

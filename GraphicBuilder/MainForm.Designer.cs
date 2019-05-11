@@ -203,7 +203,6 @@
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
             this.toolStripDropDownButton2.Size = new System.Drawing.Size(81, 22);
             this.toolStripDropDownButton2.Text = "Вставка";
-    
             // 
             // текстToolStripMenuItem
             // 

@@ -21,6 +21,13 @@ namespace GraphicBuilder
             InitializeComponent();
         }
 
+        private void ChangeLBL_Load(object sender, EventArgs e)
+        {
+            resultLBL.Text = lbl_Text;
+            resultLBL.Font = lbl_Font;
+            resultLBL.ForeColor = lbl_Color;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "")
@@ -40,6 +47,8 @@ namespace GraphicBuilder
             using (font = new FontDialog())
             {
                 font.ShowColor = true;
+                font.Font = lbl_Font;
+                font.Color = lbl_Color;
                 result = font.ShowDialog();
             }
             if (result == DialogResult.OK)
@@ -49,5 +58,7 @@ namespace GraphicBuilder
                 
             }
         }
+
+        
     }
 }
