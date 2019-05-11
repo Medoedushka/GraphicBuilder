@@ -206,6 +206,7 @@
             // 
             // текстToolStripMenuItem
             // 
+            this.текстToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.letterA_25px;
             this.текстToolStripMenuItem.Name = "текстToolStripMenuItem";
             this.текстToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.текстToolStripMenuItem.Text = "Текст";

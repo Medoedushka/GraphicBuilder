@@ -42,7 +42,7 @@ namespace GraphicBuilder
 
                         var s = c.ToString();
                         var size = e.Graphics.MeasureString(s == " " ? "." : s, font, 100, StringFormat.GenericTypographic);
-                        e.Graphics.DrawString(s, font, brush, x, yy, StringFormat.GenericTypographic);
+                        e.Graphics.DrawString(s, font, brush, x, yy, StringFormat.GenericDefault);
                         x += size.Width;
                     }
                     prev = c;

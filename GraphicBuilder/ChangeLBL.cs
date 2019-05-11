@@ -31,14 +31,14 @@ namespace GraphicBuilder
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "")
-                lbl_Text = textBox1.Text;
+                lbl_Text = string.Format(textBox1.Text);
 
             this.Close();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            resultLBL.Text = textBox1.Text;
+            resultLBL.Text = string.Format(textBox1.Text);
         }
 
         private void btn_ChangeTextFont_Click(object sender, EventArgs e)

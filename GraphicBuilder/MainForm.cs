@@ -508,6 +508,7 @@ namespace GraphicBuilder
                 Cursor = Cursors.SizeAll,
                 AutoSize = true,
                 Font = new Font("Arial", 9),
+                
             };
             lb.MouseClick += new System.Windows.Forms.MouseEventHandler(lbl_MouseClick);
             lb.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(lbl_MouseDoubleClick);
