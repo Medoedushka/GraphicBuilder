@@ -12,6 +12,10 @@ namespace GraphicBuilder
 {
     public partial class ChangeLBL : Form
     {
+        public static string lbl_Text { get; set; }
+        public static Font lbl_Font { get; set; }
+        public static Color lbl_Color { get; set; }
+
         public ChangeLBL()
         {
             InitializeComponent();
@@ -20,9 +24,30 @@ namespace GraphicBuilder
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "")
-            MainForm.TextValue = textBox1.Text;
+                lbl_Text = textBox1.Text;
 
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            resultLBL.Text = textBox1.Text;
+        }
+
+        private void btn_ChangeTextFont_Click(object sender, EventArgs e)
+        {
+            DialogResult result; FontDialog font;
+            using (font = new FontDialog())
+            {
+                font.ShowColor = true;
+                result = font.ShowDialog();
+            }
+            if (result == DialogResult.OK)
+            {
+                resultLBL.Font = lbl_Font = font.Font;
+                resultLBL.ForeColor = lbl_Color = font.Color;
+                
+            }
         }
     }
 }

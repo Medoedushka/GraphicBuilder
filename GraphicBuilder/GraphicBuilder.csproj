@@ -97,6 +97,9 @@
     <Compile Include="RT_Graphic.Designer.cs">
       <DependentUpon>RT_Graphic.cs</DependentUpon>
     </Compile>
+    <Compile Include="TextLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="AddGraph.resx">
       <DependentUpon>AddGraph.cs</DependentUpon>
     </EmbeddedResource>
