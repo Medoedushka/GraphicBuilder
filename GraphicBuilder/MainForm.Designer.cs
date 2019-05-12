@@ -489,7 +489,7 @@
             this.вырезатьОбластьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmb_CutCurveLeg});
             this.вырезатьОбластьToolStripMenuItem.Name = "вырезатьОбластьToolStripMenuItem";
-            this.вырезатьОбластьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.вырезатьОбластьToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.вырезатьОбластьToolStripMenuItem.Text = "Вырезать область";
             this.вырезатьОбластьToolStripMenuItem.Click += new System.EventHandler(this.вырезатьОбластьToolStripMenuItem_Click);
             // 

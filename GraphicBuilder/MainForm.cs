@@ -416,7 +416,7 @@ namespace GraphicBuilder
                         Curve2.Add(str);
                         ch = new CheckBox(); ch.Text = str;
                         ch.Name = "ch" + i;
-                        ch.Parent = this; ch.Location = new Point(0, i * 20 + 10);
+                        ch.Parent = this; ch.Location = new Point(2, i * 20 + 15);
                         ch.TabIndex = i;
                         ch.Visible = true; ch.Checked = false;
                         this.Controls.Add(ch);
@@ -453,28 +453,31 @@ namespace GraphicBuilder
                 // 
                 this.label1.AutoSize = true;
                 this.label1.Font = new System.Drawing.Font("Arial", 10F);
-                this.label1.Location = new System.Drawing.Point(this.Width / 2, 0);
+                this.label1.Location = new System.Drawing.Point(0, 0);
                 this.label1.Name = "label1";
                 this.label1.Size = new System.Drawing.Size(183, 16);
                 this.label1.TabIndex = 5;
                 this.label1.Text = "Выберите кривые для вырезания";
-
+                //
                 //button OK
-
-                this.OK.Location = new System.Drawing.Point(41, Curves.Length * 20 + 10);
+                //
+                this.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+                this.OK.Location = new System.Drawing.Point(0, Curves.Length * 20 + 10);
                 this.OK.Name = "OK";
-                this.OK.Size = new System.Drawing.Size(100, 30);
+                this.OK.Size = new System.Drawing.Size(50, 20);
                 this.OK.TabIndex = 2;
                 this.OK.Text = "OK";
                 this.OK.UseVisualStyleBackColor = true;
                 this.OK.Click += new System.EventHandler(this.OK_Click);
                 this.OK.Visible = true;
                 OK.TabIndex = Curves.Length;
+                //
                 //cancel 
+                //
                 this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-                this.Cancel.Location = new System.Drawing.Point(200, Curves.Length * 20 + 10);
+                this.Cancel.Location = new System.Drawing.Point(5 + OK.Width, Curves.Length * 20 + 10);
                 this.Cancel.Name = "Cancel";
-                this.Cancel.Size = new System.Drawing.Size(100, 30);
+                this.Cancel.Size = new System.Drawing.Size(75, 20);
                 this.Cancel.TabIndex = 3;
                 this.Cancel.Text = "Отмена";
                 this.Cancel.UseVisualStyleBackColor = true;
@@ -484,6 +487,7 @@ namespace GraphicBuilder
                 // 
                 // MainSettings
                 // 
+                this.StartPosition = FormStartPosition.CenterScreen;
                 this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
                 this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                 this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
@@ -494,7 +498,7 @@ namespace GraphicBuilder
                 this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
                 this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
                 this.Name = "";
-                this.Size = new System.Drawing.Size(449, Curves.Length * 40 + 10);
+                this.Size = new System.Drawing.Size(label1.Width, Curves.Length * 40 + OK.Height + Cancel.Height - 25);
                 this.Load += new System.EventHandler(this.Ask_Load);
                 this.ResumeLayout(false);
                 this.PerformLayout();
