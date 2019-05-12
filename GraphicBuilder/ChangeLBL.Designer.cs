@@ -76,7 +76,7 @@
             // resultLBL
             // 
             this.resultLBL.AutoSize = true;
-            this.resultLBL.Location = new System.Drawing.Point(2, 81);
+            this.resultLBL.Location = new System.Drawing.Point(2, 51);
             this.resultLBL.Name = "resultLBL";
             this.resultLBL.Size = new System.Drawing.Size(43, 15);
             this.resultLBL.TabIndex = 3;
@@ -86,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 105);
+            this.ClientSize = new System.Drawing.Size(282, 78);
             this.Controls.Add(this.btn_ChangeTextFont);
             this.Controls.Add(this.resultLBL);
             this.Controls.Add(this.button1);
