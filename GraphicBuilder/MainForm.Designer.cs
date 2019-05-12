@@ -73,6 +73,7 @@
             this.cmb_CutCurveLeg = new System.Windows.Forms.ToolStripComboBox();
             this.ControlNote = new System.Windows.Forms.ToolTip(this.components);
             this.tmr_ChangeMainParams = new System.Windows.Forms.Timer(this.components);
+            this.рассчитатьПлощадьПодКривойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_Windows.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -477,7 +478,8 @@
             // toolStripButton1
             // 
             this.toolStripButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.вырезатьОбластьToolStripMenuItem});
+            this.вырезатьОбластьToolStripMenuItem,
+            this.рассчитатьПлощадьПодКривойToolStripMenuItem});
             this.toolStripButton1.Image = global::GraphicBuilder.Properties.Resources.imgonline_com_ua_Resize_3cqMF2tBQMS31Cs;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
@@ -490,7 +492,7 @@
             this.вырезатьОбластьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmb_CutCurveLeg});
             this.вырезатьОбластьToolStripMenuItem.Name = "вырезатьОбластьToolStripMenuItem";
-            this.вырезатьОбластьToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.вырезатьОбластьToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
             this.вырезатьОбластьToolStripMenuItem.Text = "Вырезать область";
             this.вырезатьОбластьToolStripMenuItem.Click += new System.EventHandler(this.вырезатьОбластьToolStripMenuItem_Click);
             // 
@@ -503,6 +505,13 @@
             // 
             this.tmr_ChangeMainParams.Interval = 40;
             this.tmr_ChangeMainParams.Tick += new System.EventHandler(this.tmr_ChangeMainParams_Tick);
+            // 
+            // рассчитатьПлощадьПодКривойToolStripMenuItem
+            // 
+            this.рассчитатьПлощадьПодКривойToolStripMenuItem.Name = "рассчитатьПлощадьПодКривойToolStripMenuItem";
+            this.рассчитатьПлощадьПодКривойToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.рассчитатьПлощадьПодКривойToolStripMenuItem.Text = "Рассчитать площадь под кривой";
+            this.рассчитатьПлощадьПодКривойToolStripMenuItem.Click += new System.EventHandler(this.рассчитатьПлощадьПодКривойToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -577,6 +586,7 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem текстToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem рассчитатьПлощадьПодКривойToolStripMenuItem;
     }
 }
 

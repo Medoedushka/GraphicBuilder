@@ -194,7 +194,10 @@ namespace GraphicBuilder
 
         #region Tools
         bool CutMode { get; set; }
+        bool CountSquare { get; set; }
+
         byte numLines = 0;
+        byte Lines = 0;
         int firstX, secondX;
 
         private void вырезатьОбластьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -214,9 +217,142 @@ namespace GraphicBuilder
             }
 
         }
+        private void рассчитатьПлощадьПодКривойToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CountSquare && рассчитатьПлощадьПодКривойToolStripMenuItem.Checked == false)
+            {
+                Graphics g = pictureBox1.CreateGraphics();
+                g.FillRectangle(new SolidBrush(Color.FromArgb(100, 120, 120, 120)), new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height));
+                CountSquare = true;
+                рассчитатьПлощадьПодКривойToolStripMenuItem.Checked = true;
+                g.Dispose();
+            }
+            else
+            {
+                рассчитатьПлощадьПодКривойToolStripMenuItem.Checked = false;
+                CountSquare = false;
+                graph.DrawDiagram();
+            }
+        }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
+            //Рассчёт площади под графиком
+            if (CountSquare)
+            {
+               
+                Graphics g = pictureBox1.CreateGraphics();
+                
+                int MouseX = e.X;
+                if (Lines < 2)
+                {
+                    g.DrawLine(new Pen(Color.Black), MouseX, pictureBox1.Height, MouseX, 0);
+                    Lines++;
+                    if (Lines == 1) firstX = MouseX;
+                    else secondX = MouseX;
+                }
+                if (Lines == 2)
+                {
+                    int x1, x2; //пределы интегрирования в координатах pictureBox
+                    if (secondX > firstX)
+                    {
+                        x1 = firstX;
+                        x2 = secondX;
+                    }
+                    else if (firstX > secondX)
+                    {
+                        x1 = secondX;
+                        x2 = firstX;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Недопустимый интервал!");
+                        return;
+                    }
+                    //ValueX1, ValueX2 - пределы интегрирования в прямоугольной системе координат
+                    double ValueX1 = Math.Round((x1 - graph.RealCenter.X) * graph.Config.PriceForPointOX / graph.Config.StepOX, 1);
+                    double ValueX2 = Math.Round((x2 - graph.RealCenter.X) * graph.Config.PriceForPointOX / graph.Config.StepOX, 1);
+                    DialogResult result =
+                    MessageBox.Show("Вы действительно хотите расчитать площадь под кривой на интервале от " + ValueX1.ToString() + " до " + ValueX2.ToString() + "?",
+                        "Рассчёт площади под кривой", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        if (graph.GraphCurves.Count == 1)
+                        {
+                            int n = 5000;
+                            double delta = (ValueX2 - ValueX1) / n;
+                            double square = 0;
+                            double X1 = 0, Y1 = 0, X2 = 0, Y2 = 0;
+                            for (int i = 0; i < n; i++)
+                            {
+                                X1 = ValueX1 + delta * i;
+                                foreach(Curves curve in graph.GraphCurves)
+                                {
+                                    if (curve.Legend == "10*sin(x)")
+                                    {
+                                        for (int j = 0; j < curve.PointsToDraw.Length; j++)
+                                        {
+                                            if (curve.PointsToDraw[0].X > X1) break;
+                                            else if (curve.PointsToDraw[j].X == X1)
+                                            {
+                                                Y1 = Math.Round(curve.PointsToDraw[j].Y, 2);
+                                                
+                                                break;
+                                            }
+                                            else if (curve.PointsToDraw[j].X > X1)
+                                            {
+                                                Y1 = (curve.PointsToDraw[j].Y - curve.PointsToDraw[j - 1].Y) / (curve.PointsToDraw[j].X - curve.PointsToDraw[j - 1].X) *
+                                                    (X1 - curve.PointsToDraw[j - 1].X) + curve.PointsToDraw[j - 1].Y;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    
+                                }
+                               
+                                X2 = X1 + delta;
+                                
+                                foreach (Curves curve in graph.GraphCurves)
+                                {
+                                    if (curve.Legend == "10*sin(x)")
+                                    {
+                                        for (int j = 0; j < curve.PointsToDraw.Length; j++)
+                                        {
+                                            if (curve.PointsToDraw[0].X > X2) break;
+                                            else if (curve.PointsToDraw[j].X == X2)
+                                            {
+                                                Y2 = Math.Round(curve.PointsToDraw[j].Y, 2);
+                                                
+                                                break;
+                                            }
+                                            else if (curve.PointsToDraw[j].X > X2)
+                                            {
+                                                Y2 = (curve.PointsToDraw[j].Y - curve.PointsToDraw[j - 1].Y) / (curve.PointsToDraw[j].X - curve.PointsToDraw[j - 1].X) *
+                                                    (X2 - curve.PointsToDraw[j - 1].X) + curve.PointsToDraw[j - 1].Y;
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                }
+                                double k = (Y2 + Y1) * delta / 2;
+                                square += k;
+                               
+                            }
+                            MessageBox.Show("Square: " + square);
+                        }
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        Lines = 0;
+                        firstX = secondX = 0;
+                        рассчитатьПлощадьПодКривойToolStripMenuItem.Checked = false;
+                        CountSquare = false;
+                        graph.DrawDiagram();
+                    }
+                }
+            }
+
             //Выризание части графика
             if (CutMode)
             {
@@ -538,6 +674,8 @@ namespace GraphicBuilder
             activeLabel.Font = ChangeLBL.lbl_Font;
             activeLabel.ForeColor = ChangeLBL.lbl_Color;
         }
+
+        
 
         private static Bitmap DrawControlToBitMap(Control control)
         {
