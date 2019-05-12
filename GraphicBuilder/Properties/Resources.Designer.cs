@@ -63,6 +63,16 @@ namespace GraphicBuilder.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap area_25px {
+            get {
+                object obj = ResourceManager.GetObject("area_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ArrowBottom_25px {
             get {
                 object obj = ResourceManager.GetObject("ArrowBottom_25px", resourceCulture);

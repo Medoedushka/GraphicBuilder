@@ -71,9 +71,9 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.вырезатьОбластьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmb_CutCurveLeg = new System.Windows.Forms.ToolStripComboBox();
+            this.рассчитатьПлощадьПодКривойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ControlNote = new System.Windows.Forms.ToolTip(this.components);
             this.tmr_ChangeMainParams = new System.Windows.Forms.Timer(this.components);
-            this.рассчитатьПлощадьПодКривойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_Windows.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -501,17 +501,18 @@
             this.cmb_CutCurveLeg.Name = "cmb_CutCurveLeg";
             this.cmb_CutCurveLeg.Size = new System.Drawing.Size(121, 23);
             // 
-            // tmr_ChangeMainParams
-            // 
-            this.tmr_ChangeMainParams.Interval = 40;
-            this.tmr_ChangeMainParams.Tick += new System.EventHandler(this.tmr_ChangeMainParams_Tick);
-            // 
             // рассчитатьПлощадьПодКривойToolStripMenuItem
             // 
+            this.рассчитатьПлощадьПодКривойToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.area_25px;
             this.рассчитатьПлощадьПодКривойToolStripMenuItem.Name = "рассчитатьПлощадьПодКривойToolStripMenuItem";
             this.рассчитатьПлощадьПодКривойToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
             this.рассчитатьПлощадьПодКривойToolStripMenuItem.Text = "Рассчитать площадь под кривой";
             this.рассчитатьПлощадьПодКривойToolStripMenuItem.Click += new System.EventHandler(this.рассчитатьПлощадьПодКривойToolStripMenuItem_Click);
+            // 
+            // tmr_ChangeMainParams
+            // 
+            this.tmr_ChangeMainParams.Interval = 40;
+            this.tmr_ChangeMainParams.Tick += new System.EventHandler(this.tmr_ChangeMainParams_Tick);
             // 
             // MainForm
             // 
