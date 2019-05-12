@@ -222,20 +222,20 @@ namespace GraphicBuilder
             //Выризание части графика
             if (!CutMode)
             {
-                numLines++;
+                
                 Graphics g = pictureBox1.CreateGraphics();
                 int MouseX = e.X;
                 //int MouseY = e.Y;
-                if (numLines % 2 != 0)
+                if (numLines % 2 == 0)
                 {
                     g.DrawLine(new Pen(Color.Black), MouseX, pictureBox1.Height, MouseX, 0);
 
                     firstX = MouseX;
                 }
-                if (numLines % 2 == 0 && numLines != 0)
+                if (numLines % 2 != 0 && numLines != 0)
                 {
                     secondX = MouseX;
-                    CutMode = !CutMode;
+                    //CutMode = !CutMode;
                     int x1, x2;
                     if (secondX > firstX)
                     {
@@ -283,7 +283,7 @@ namespace GraphicBuilder
                         }
 
                         bool[] Pre_RealAnswer = new bool[graph.GraphCurves.Count];
-                        for (int i = 0; i < Answ.Length; i++)
+                        for (int i = 0; i < AskingForm.Number; i++)
                         {
                             for (int j = i; j < graph.GraphCurves.Count; j++) if (graph.GraphCurves[j].Legend == graph.GraphCurves[i].Legend) Pre_RealAnswer[j] = Answ[i];
                         }
@@ -310,7 +310,10 @@ namespace GraphicBuilder
                                 //graph.DrawDiagram();
                                 continue;
                             }
-
+                            if (ValueX1 > graph.GraphCurves[i].PointsToDraw[0].X 
+                                == ValueX2 > graph.GraphCurves[i].PointsToDraw[graph.GraphCurves[i].PointsToDraw.Length - 1].X)
+                                         continue;
+                            
                             //hi there, honey budger. I hope, you'll like this algorythm
                             int FirstZeroPosition = 0, LastZeroPosition = 0;
                             //
@@ -323,7 +326,8 @@ namespace GraphicBuilder
                                     ZeroPT++;
                                 }
                             }
-                            if (ValueX1 <= graph.GraphCurves[i].PointsToDraw[0].X) FirstZeroPosition = 0;
+                            if (ValueX1 <= graph.GraphCurves[i].PointsToDraw[0].X)
+                                FirstZeroPosition = 0;
                             if (ValueX2 >= graph.GraphCurves[i].PointsToDraw[graph.GraphCurves[i].PointsToDraw.Length - 1].X) LastZeroPosition = graph.GraphCurves[i].PointsToDraw.Length - 1;
                             PointF[] temp2 = new PointF[graph.GraphCurves[i].PointsToDraw.Length - LastZeroPosition - 1];
                             PointF[] temp1 = new PointF[FirstZeroPosition];
@@ -372,6 +376,8 @@ namespace GraphicBuilder
                         graph.DrawDiagram();
                     }
                 }
+
+                numLines++;
                 Graphics gi = pictureBox1.CreateGraphics();
                 gi.FillRectangle(new SolidBrush(Color.FromArgb(100, 120, 120, 120)), new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height));
                 // gi.Dispose();
@@ -393,6 +399,7 @@ namespace GraphicBuilder
             }
 
             private static string[] Curves = { };
+            public static int Number = 0; 
             private List<string> Curve2 = new List<string>();
             private Button OK = new Button();
             private Button Cancel = new Button();
@@ -436,6 +443,7 @@ namespace GraphicBuilder
                         else { if (Curve2.Contains(Curves[i])) Answer[i] = Answer[Curve2.IndexOf(Curves[i])]; }
                     else Answer[i] = false;
                 }
+                Number = Curve2.Count;
                 this.DialogResult = DialogResult.OK;
             }
 
@@ -562,7 +570,7 @@ namespace GraphicBuilder
                 graph.SetPlaceToDrawSize(graph.placeToDraw.Width, graph.placeToDraw.Height);
                 if (graph.GraphCurves.Count != 0)
                 {
-                    graph.DrawDiagram();
+                  //  graph.DrawDiagram();
                 }
 
             }
