@@ -277,6 +277,7 @@ namespace GraphicBuilder
                         "Рассчёт площади под кривой", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
+                        
                         if (graph.GraphCurves.Count == 1)
                         {
                             int n = 5000;
@@ -473,6 +474,135 @@ namespace GraphicBuilder
 
 
         }
+
+        public class CountSquare_AskingForm : System.Windows.Forms.Form
+        {
+            private const int WM_NCHITTEST = 0x84;
+            private const int HT_CLIENT = 0x1;
+            private const int HT_CAPTION = 0x2;
+            protected override void WndProc(ref Message m)
+            {
+                base.WndProc(ref m);
+                if (m.Msg == WM_NCHITTEST) m.Result = (IntPtr)(HT_CAPTION);
+            }
+
+            private static string[] Curves = { };
+            private List<string> Curve2 = new List<string>();
+
+            private Button OK = new Button();
+            private Button Cancel = new Button();
+            private Label lblCount = new Label();
+
+            public static bool[] Answer = new bool[Curves.Length];
+
+            public CountSquare_AskingForm(string[] a)
+            {
+                Curves = a;
+                InitializeComponent();
+            }
+            private void Ask_Load(object sender, EventArgs e)
+            {
+                int i = 0;
+                CheckBox ch;
+
+                Answer = new bool[Curves.Length];
+                foreach (string str in Curves)
+                {
+                    if (!Curve2.Contains(str))
+                    {
+                        Curve2.Add(str);
+                        ch = new CheckBox(); ch.Text = str;
+                        ch.Name = "ch" + i;
+                        ch.Parent = this; ch.Location = new Point(0, i * 20 + 10);
+                        ch.TabIndex = i;
+                        ch.Visible = true; ch.Checked = false;
+                        this.Controls.Add(ch);
+                        i++;
+                    }
+
+                }
+
+            }
+
+            private void OK_Click(object sender, EventArgs e)
+            {
+                for (int i = 0; i < Curves.Length; i++)
+                {
+                    if (i < Curve2.Count)
+                        if ((this.Controls["ch" + i] as CheckBox).Checked == true) Answer[i] = true;
+                        else { if (Curve2.Contains(Curves[i])) Answer[i] = Answer[Curve2.IndexOf(Curves[i])]; }
+                    else Answer[i] = false;
+                }
+                this.DialogResult = DialogResult.OK;
+            }
+
+            private void Cancel_Click(object sender, EventArgs e)
+            {
+                this.DialogResult = DialogResult.Cancel;
+            }
+            private void InitializeComponent()
+            {
+
+                this.label1 = new System.Windows.Forms.Label();
+
+                // 
+                // label1
+                // 
+                this.label1.AutoSize = true;
+                this.label1.Font = new System.Drawing.Font("Arial", 10F);
+                this.label1.Location = new System.Drawing.Point(this.Width / 2, 0);
+                this.label1.Name = "label1";
+                this.label1.Size = new System.Drawing.Size(183, 16);
+                this.label1.TabIndex = 5;
+                this.label1.Text = "Выберите кривые для вырезания";
+                //
+                //button OK
+                //
+                this.OK.Location = new System.Drawing.Point(41, Curves.Length * 20 + 10);
+                this.OK.Name = "OK";
+                this.OK.Size = new System.Drawing.Size(100, 30);
+                this.OK.TabIndex = 2;
+                this.OK.Text = "OK";
+                this.OK.UseVisualStyleBackColor = true;
+                this.OK.Click += new System.EventHandler(this.OK_Click);
+                this.OK.Visible = true;
+                this.OK.TabIndex = Curves.Length;
+                //
+                //cancel 
+                //
+                this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                this.Cancel.Location = new System.Drawing.Point(200, Curves.Length * 20 + 10);
+                this.Cancel.Name = "Cancel";
+                this.Cancel.Size = new System.Drawing.Size(100, 30);
+                this.Cancel.TabIndex = 3;
+                this.Cancel.Text = "Отмена";
+                this.Cancel.UseVisualStyleBackColor = true;
+                this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
+                this.Cancel.Visible = true;
+                this.Cancel.TabIndex = OK.TabIndex + 1;
+                // 
+                // MainSettings
+                // 
+                this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+                this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
+                this.BackColor = System.Drawing.SystemColors.Control;
+                this.Controls.Add(this.label1);
+                this.Controls.Add(this.OK);
+                this.Controls.Add(this.Cancel);
+                this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+                this.Name = "";
+                this.Size = new System.Drawing.Size(449, Curves.Length * 40 + 10);
+                this.Load += new System.EventHandler(this.Ask_Load);
+                this.ResumeLayout(false);
+                this.PerformLayout();
+                this.FormBorderStyle = FormBorderStyle.None;
+            }
+            
+            private System.Windows.Forms.Label label1;
+        }
+
         #endregion
 
 
