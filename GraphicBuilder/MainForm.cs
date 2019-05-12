@@ -277,9 +277,12 @@ namespace GraphicBuilder
                         "Рассчёт площади под кривой", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        
-                        if (graph.GraphCurves.Count == 1)
-                        {
+                        // строка названий кривых для формы
+                        string[] a = new string[graph.GraphCurves.Count];
+                        for (int k = 0; k < graph.GraphCurves.Count; k++) a[k] = graph.GraphCurves[k].Legend;
+                        CountSquare_AskingForm af = new CountSquare_AskingForm(a);
+                        af.ShowDialog();
+
                             int n = 5000;
                             Graphics g1 = pictureBox1.CreateGraphics();
                             PointF[] polygon = new PointF[4];
@@ -287,6 +290,7 @@ namespace GraphicBuilder
                             double delta = (ValueX2 - ValueX1) / n;
                             double square = 0;
                             double X1 = 0, Y1 = 0, X2 = 0, Y2 = 0;
+
                             for (int i = 0; i < n; i++)
                             {
                                 X1 = ValueX1 + delta * i;
@@ -295,7 +299,7 @@ namespace GraphicBuilder
 
                                 foreach(Curves curve in graph.GraphCurves)
                                 {
-                                    if (curve.Legend == "sin(x)")
+                                    if (curve.Legend == CountSquare_AskingForm.Answer)
                                     {
                                         for (int j = 0; j < curve.PointsToDraw.Length; j++)
                                         {
@@ -326,7 +330,7 @@ namespace GraphicBuilder
                                 
                                 foreach (Curves curve in graph.GraphCurves)
                                 {
-                                    if (curve.Legend == "sin(x)")
+                                    if (curve.Legend == CountSquare_AskingForm.Answer)
                                     {
                                         for (int j = 0; j < curve.PointsToDraw.Length; j++)
                                         {
@@ -352,15 +356,15 @@ namespace GraphicBuilder
                                 }
                                 double k = (Y2 + Y1) * delta / 2;
                                 square += k;
-                                g.FillPolygon(new SolidBrush(Color.Red), polygon);
+                                g.FillPolygon(new SolidBrush(Color.FromArgb(120, 255, 0, 0)), polygon);
                             }
-                            MessageBox.Show("Square: " + square);
+                            MessageBox.Show("Square: " + Math.Round(square,2) + " sq. un.");
                             Lines = 0;
                             firstX = secondX = 0;
                             рассчитатьПлощадьПодКривойToolStripMenuItem.Checked = false;
                             CountSquare = false;
                             graph.DrawDiagram();
-                        }
+                        
                     }
                     else if (result == DialogResult.No)
                     {
@@ -493,30 +497,30 @@ namespace GraphicBuilder
             private Button Cancel = new Button();
             private Label lblCount = new Label();
 
-            public static bool[] Answer = new bool[Curves.Length];
+            public static string Answer;
 
             public CountSquare_AskingForm(string[] a)
             {
                 Curves = a;
                 InitializeComponent();
             }
+
             private void Ask_Load(object sender, EventArgs e)
             {
                 int i = 0;
-                CheckBox ch;
+                RadioButton rb;
 
-                Answer = new bool[Curves.Length];
                 foreach (string str in Curves)
                 {
                     if (!Curve2.Contains(str))
                     {
                         Curve2.Add(str);
-                        ch = new CheckBox(); ch.Text = str;
-                        ch.Name = "ch" + i;
-                        ch.Parent = this; ch.Location = new Point(0, i * 20 + 10);
-                        ch.TabIndex = i;
-                        ch.Visible = true; ch.Checked = false;
-                        this.Controls.Add(ch);
+                        rb = new RadioButton(); rb.Text = str;
+                        rb.Name = "rb" + i;
+                        rb.Parent = this; rb.Location = new Point(0, i * 20 + 10);
+                        rb.TabIndex = i;
+                        rb.Visible = true; rb.Checked = false;
+                        this.Controls.Add(rb);
                         i++;
                     }
 
@@ -528,10 +532,12 @@ namespace GraphicBuilder
             {
                 for (int i = 0; i < Curves.Length; i++)
                 {
-                    if (i < Curve2.Count)
-                        if ((this.Controls["ch" + i] as CheckBox).Checked == true) Answer[i] = true;
-                        else { if (Curve2.Contains(Curves[i])) Answer[i] = Answer[Curve2.IndexOf(Curves[i])]; }
-                    else Answer[i] = false;
+                    
+                    if ((this.Controls["rb" + i] as RadioButton).Checked == true)
+                    {
+                        Answer = Curves[i];
+                        break;
+                    }
                 }
                 this.DialogResult = DialogResult.OK;
             }
@@ -554,7 +560,7 @@ namespace GraphicBuilder
                 this.label1.Name = "label1";
                 this.label1.Size = new System.Drawing.Size(183, 16);
                 this.label1.TabIndex = 5;
-                this.label1.Text = "Выберите кривые для вырезания";
+                this.label1.Text = "Выберите кривую для расчёта площади:";
                 //
                 //button OK
                 //
