@@ -280,15 +280,21 @@ namespace GraphicBuilder
                         if (graph.GraphCurves.Count == 1)
                         {
                             int n = 5000;
+                            Graphics g1 = pictureBox1.CreateGraphics();
+                            PointF[] polygon = new PointF[4];
+                            double X1Poly, X2Poly, Y1Poly, Y2Poly;
                             double delta = (ValueX2 - ValueX1) / n;
                             double square = 0;
                             double X1 = 0, Y1 = 0, X2 = 0, Y2 = 0;
                             for (int i = 0; i < n; i++)
                             {
                                 X1 = ValueX1 + delta * i;
+                                X1Poly = graph.RealCenter.X + X1 * graph.Config.StepOX / graph.Config.PriceForPointOX;
+                                polygon[0].X = (float)X1Poly; polygon[0].Y = graph.RealCenter.Y;
+
                                 foreach(Curves curve in graph.GraphCurves)
                                 {
-                                    if (curve.Legend == "10*sin(x)")
+                                    if (curve.Legend == "sin(x)")
                                     {
                                         for (int j = 0; j < curve.PointsToDraw.Length; j++)
                                         {
@@ -296,13 +302,16 @@ namespace GraphicBuilder
                                             else if (curve.PointsToDraw[j].X == X1)
                                             {
                                                 Y1 = Math.Round(curve.PointsToDraw[j].Y, 2);
-                                                
+                                                Y1Poly = graph.RealCenter.Y - Y1 * graph.Config.StepOY / graph.Config.PriceForPointOY;
+                                                polygon[1].X = polygon[0].X; polygon[1].Y = (float)Y1Poly;
                                                 break;
                                             }
                                             else if (curve.PointsToDraw[j].X > X1)
                                             {
                                                 Y1 = (curve.PointsToDraw[j].Y - curve.PointsToDraw[j - 1].Y) / (curve.PointsToDraw[j].X - curve.PointsToDraw[j - 1].X) *
                                                     (X1 - curve.PointsToDraw[j - 1].X) + curve.PointsToDraw[j - 1].Y;
+                                                Y1Poly = graph.RealCenter.Y - Y1 * graph.Config.StepOY / graph.Config.PriceForPointOY;
+                                                polygon[1].X = polygon[0].X; polygon[1].Y = (float)Y1Poly;
                                                 break;
                                             }
                                         }
@@ -311,10 +320,12 @@ namespace GraphicBuilder
                                 }
                                
                                 X2 = X1 + delta;
+                                X2Poly = graph.RealCenter.X + X2 * graph.Config.StepOX / graph.Config.PriceForPointOX;
+                                polygon[3].X = (float)X2Poly; polygon[3].Y = graph.RealCenter.Y;
                                 
                                 foreach (Curves curve in graph.GraphCurves)
                                 {
-                                    if (curve.Legend == "10*sin(x)")
+                                    if (curve.Legend == "sin(x)")
                                     {
                                         for (int j = 0; j < curve.PointsToDraw.Length; j++)
                                         {
@@ -322,13 +333,16 @@ namespace GraphicBuilder
                                             else if (curve.PointsToDraw[j].X == X2)
                                             {
                                                 Y2 = Math.Round(curve.PointsToDraw[j].Y, 2);
-                                                
+                                                Y2Poly = graph.RealCenter.Y - Y2 * graph.Config.StepOY / graph.Config.PriceForPointOY;
+                                                polygon[1].X = polygon[3].X; polygon[1].Y = (float)Y2Poly;
                                                 break;
                                             }
                                             else if (curve.PointsToDraw[j].X > X2)
                                             {
                                                 Y2 = (curve.PointsToDraw[j].Y - curve.PointsToDraw[j - 1].Y) / (curve.PointsToDraw[j].X - curve.PointsToDraw[j - 1].X) *
                                                     (X2 - curve.PointsToDraw[j - 1].X) + curve.PointsToDraw[j - 1].Y;
+                                                Y2Poly = graph.RealCenter.Y - Y2 * graph.Config.StepOY / graph.Config.PriceForPointOY;
+                                                polygon[2].X = polygon[3].X; polygon[2].Y = (float)Y2Poly;
                                                 break;
                                             }
                                         }
@@ -337,9 +351,14 @@ namespace GraphicBuilder
                                 }
                                 double k = (Y2 + Y1) * delta / 2;
                                 square += k;
-                               
+                                g.FillPolygon(new SolidBrush(Color.Red), polygon);
                             }
                             MessageBox.Show("Square: " + square);
+                            Lines = 0;
+                            firstX = secondX = 0;
+                            рассчитатьПлощадьПодКривойToolStripMenuItem.Checked = false;
+                            CountSquare = false;
+                            graph.DrawDiagram();
                         }
                     }
                     else if (result == DialogResult.No)
