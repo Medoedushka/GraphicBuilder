@@ -328,7 +328,8 @@ namespace GraphicBuilder
                             }
                             if (ValueX1 <= graph.GraphCurves[i].PointsToDraw[0].X)
                                 FirstZeroPosition = 0;
-                            if (ValueX2 >= graph.GraphCurves[i].PointsToDraw[graph.GraphCurves[i].PointsToDraw.Length - 1].X) LastZeroPosition = graph.GraphCurves[i].PointsToDraw.Length - 1;
+                            if (ValueX2 >= graph.GraphCurves[i].PointsToDraw[graph.GraphCurves[i].PointsToDraw.Length - 1].X)
+                                LastZeroPosition = graph.GraphCurves[i].PointsToDraw.Length - 1;
                             PointF[] temp2 = new PointF[graph.GraphCurves[i].PointsToDraw.Length - LastZeroPosition - 1];
                             PointF[] temp1 = new PointF[FirstZeroPosition];
 
