@@ -29,12 +29,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label6 = new System.Windows.Forms.Label();
             this.pnl_CreatedCurves = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txb_UsersFunc = new System.Windows.Forms.TextBox();
-            this.txb_CurveColor = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.btn_AddGraphic = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -46,6 +45,11 @@
             this.btn_ChangePlotColor = new System.Windows.Forms.Button();
             this.pcb_PlotColor = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lst_CreatedFigures = new System.Windows.Forms.ListBox();
+            this.btn_ShowLines = new System.Windows.Forms.Button();
+            this.btn_ShowAllFigures = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pcb_PlotColor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,14 +65,12 @@
             // 
             // pnl_CreatedCurves
             // 
-            this.pnl_CreatedCurves.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_CreatedCurves.AutoScroll = true;
             this.pnl_CreatedCurves.BackColor = System.Drawing.SystemColors.Control;
             this.pnl_CreatedCurves.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_CreatedCurves.Location = new System.Drawing.Point(3, 60);
             this.pnl_CreatedCurves.Name = "pnl_CreatedCurves";
-            this.pnl_CreatedCurves.Size = new System.Drawing.Size(443, 142);
+            this.pnl_CreatedCurves.Size = new System.Drawing.Size(427, 142);
             this.pnl_CreatedCurves.TabIndex = 4;
             // 
             // label1
@@ -83,42 +85,18 @@
             // 
             // txb_UsersFunc
             // 
-            this.txb_UsersFunc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txb_UsersFunc.BackColor = System.Drawing.SystemColors.Control;
             this.txb_UsersFunc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txb_UsersFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txb_UsersFunc.Location = new System.Drawing.Point(3, 202);
             this.txb_UsersFunc.Name = "txb_UsersFunc";
-            this.txb_UsersFunc.Size = new System.Drawing.Size(443, 23);
+            this.txb_UsersFunc.Size = new System.Drawing.Size(427, 23);
             this.txb_UsersFunc.TabIndex = 31;
-            // 
-            // txb_CurveColor
-            // 
-            this.txb_CurveColor.BackColor = System.Drawing.SystemColors.Control;
-            this.txb_CurveColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txb_CurveColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_CurveColor.Location = new System.Drawing.Point(129, 337);
-            this.txb_CurveColor.Name = "txb_CurveColor";
-            this.txb_CurveColor.Size = new System.Drawing.Size(53, 22);
-            this.txb_CurveColor.TabIndex = 48;
-            this.txb_CurveColor.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(8, 339);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 17);
-            this.label2.TabIndex = 47;
-            this.label2.Text = "Цвет кривой(Р,Г,Б):";
-            this.label2.Visible = false;
             // 
             // btn_AddGraphic
             // 
             this.btn_AddGraphic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_AddGraphic.Location = new System.Drawing.Point(324, 227);
+            this.btn_AddGraphic.Location = new System.Drawing.Point(313, 227);
             this.btn_AddGraphic.Name = "btn_AddGraphic";
             this.btn_AddGraphic.Size = new System.Drawing.Size(83, 30);
             this.btn_AddGraphic.TabIndex = 46;
@@ -180,10 +158,10 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(3, 227);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.Location = new System.Drawing.Point(0, 231);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(218, 22);
+            this.label12.Size = new System.Drawing.Size(178, 17);
             this.label12.TabIndex = 40;
             this.label12.Text = "Интервал построения:";
             // 
@@ -192,7 +170,7 @@
             this.btn_Info.FlatAppearance.BorderSize = 0;
             this.btn_Info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Info.Image = global::GraphicBuilder.Properties.Resources.newInfo_25px;
-            this.btn_Info.Location = new System.Drawing.Point(413, 225);
+            this.btn_Info.Location = new System.Drawing.Point(397, 227);
             this.btn_Info.Name = "btn_Info";
             this.btn_Info.Size = new System.Drawing.Size(33, 32);
             this.btn_Info.TabIndex = 49;
@@ -225,23 +203,71 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(10, 282);
+            this.label3.Location = new System.Drawing.Point(8, 278);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 17);
             this.label3.TabIndex = 50;
             this.label3.Text = "Цвет кривой: \r\n";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(7, 333);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 20);
+            this.label2.TabIndex = 53;
+            this.label2.Text = "Фигуры:";
+            // 
+            // lst_CreatedFigures
+            // 
+            this.lst_CreatedFigures.FormattingEnabled = true;
+            this.lst_CreatedFigures.Location = new System.Drawing.Point(3, 356);
+            this.lst_CreatedFigures.Name = "lst_CreatedFigures";
+            this.lst_CreatedFigures.Size = new System.Drawing.Size(302, 134);
+            this.lst_CreatedFigures.TabIndex = 54;
+            // 
+            // btn_ShowLines
+            // 
+            this.btn_ShowLines.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_ShowLines.FlatAppearance.BorderSize = 0;
+            this.btn_ShowLines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ShowLines.Image = global::GraphicBuilder.Properties.Resources.line_25px;
+            this.btn_ShowLines.Location = new System.Drawing.Point(308, 356);
+            this.btn_ShowLines.Name = "btn_ShowLines";
+            this.btn_ShowLines.Size = new System.Drawing.Size(25, 25);
+            this.btn_ShowLines.TabIndex = 55;
+            this.toolTip1.SetToolTip(this.btn_ShowLines, "Показать только прямые линии");
+            this.btn_ShowLines.UseVisualStyleBackColor = false;
+            // 
+            // btn_ShowAllFigures
+            // 
+            this.btn_ShowAllFigures.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_ShowAllFigures.Enabled = false;
+            this.btn_ShowAllFigures.FlatAppearance.BorderSize = 0;
+            this.btn_ShowAllFigures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ShowAllFigures.Image = global::GraphicBuilder.Properties.Resources.figures_25px;
+            this.btn_ShowAllFigures.Location = new System.Drawing.Point(308, 387);
+            this.btn_ShowAllFigures.Name = "btn_ShowAllFigures";
+            this.btn_ShowAllFigures.Size = new System.Drawing.Size(25, 25);
+            this.btn_ShowAllFigures.TabIndex = 56;
+            this.toolTip1.SetToolTip(this.btn_ShowAllFigures, "Показать все фигуры");
+            this.btn_ShowAllFigures.UseVisualStyleBackColor = false;
+            // 
             // AddGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.btn_ShowAllFigures);
+            this.Controls.Add(this.btn_ShowLines);
+            this.Controls.Add(this.lst_CreatedFigures);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_ChangePlotColor);
             this.Controls.Add(this.pcb_PlotColor);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_Info);
-            this.Controls.Add(this.txb_CurveColor);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_AddGraphic);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -254,7 +280,7 @@
             this.Controls.Add(this.pnl_CreatedCurves);
             this.Controls.Add(this.label6);
             this.Name = "AddGraph";
-            this.Size = new System.Drawing.Size(449, 507);
+            this.Size = new System.Drawing.Size(454, 507);
             this.Load += new System.EventHandler(this.AddGraph_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcb_PlotColor)).EndInit();
             this.ResumeLayout(false);
@@ -268,8 +294,6 @@
         private System.Windows.Forms.Panel pnl_CreatedCurves;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txb_UsersFunc;
-        private System.Windows.Forms.TextBox txb_CurveColor;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_AddGraphic;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
@@ -281,5 +305,10 @@
         private System.Windows.Forms.Button btn_ChangePlotColor;
         private System.Windows.Forms.PictureBox pcb_PlotColor;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox lst_CreatedFigures;
+        private System.Windows.Forms.Button btn_ShowLines;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btn_ShowAllFigures;
     }
 }

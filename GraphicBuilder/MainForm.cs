@@ -16,7 +16,7 @@ namespace GraphicBuilder
         public static PointsGraphic graph;
         AddGraph addGraph;
         MainSettings mainSettings;
-        Figure Figures;
+        public static Figure Figures;
 
         int ShiftOX; //результирующее смещение центра по оси ОХ
         int ShiftOY; //результирующее смещение центра по оси ОY

@@ -17,7 +17,7 @@ namespace GraphicBuilder
         PointF Begin, End;
         Color LineColor;
         bool IsArrow;
-        string Name;
+        public string Name;
         //public Panel LinePictureBox;
 
         public Line(PointF begin, PointF end, Color lineColor, bool arrow, string name, int width = 5)

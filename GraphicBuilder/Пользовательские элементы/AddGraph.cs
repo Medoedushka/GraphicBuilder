@@ -252,6 +252,12 @@ namespace GraphicBuilder
             RefreshPanel();
             //hello, honey budger
             this.Width = Parent.Width;
+
+            //вывод список созданных фигур
+            foreach(Line ln in MainForm.Figures.Lines)
+            {
+                lst_CreatedFigures.Items.Add(ln.Name);
+            }
         }
 
         // hello, honey budger
