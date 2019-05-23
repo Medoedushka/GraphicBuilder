@@ -16,6 +16,7 @@ namespace GraphicBuilder
         public static PointsGraphic graph;
         AddGraph addGraph;
         MainSettings mainSettings;
+        Figure Figures;
 
         int ShiftOX; //результирующее смещение центра по оси ОХ
         int ShiftOY; //результирующее смещение центра по оси ОY
@@ -32,6 +33,7 @@ namespace GraphicBuilder
         private void MainForm_Load(object sender, EventArgs e)
         {
             graph = new PointsGraphic(pictureBox1, AxesMode.Static, AxesPosition.AllQuarters);
+            Figures = new Figure(pictureBox1);
             addGraph = new AddGraph()
             {
                 Location = new Point(0, 0),
@@ -192,6 +194,65 @@ namespace GraphicBuilder
         }
         #endregion
 
+
+        #region Insert
+        //Вставка нового текста
+        private void текстToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TextLabel lb = new TextLabel()
+            {
+                Location = new Point(0, 0),
+                Text = "Новый текст",
+                BackColor = System.Drawing.Color.Transparent,
+                Cursor = Cursors.SizeAll,
+                AutoSize = true,
+                Font = new Font("Arial", 9),
+
+            };
+            lb.MouseClick += new System.Windows.Forms.MouseEventHandler(lbl_MouseClick);
+            lb.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(lbl_MouseDoubleClick);
+            pictureBox1.Controls.Add(lb);
+            ControlExtension.Draggable(lb, true);
+
+        }
+        private void lbl_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Middle)
+                pictureBox1.Controls.Remove((Label)sender);
+        }
+        private void lbl_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Label activeLabel = (Label)sender;
+            //начальная инициализация параметров
+            ChangeLBL.lbl_Text = activeLabel.Text;
+            ChangeLBL.lbl_Font = activeLabel.Font;
+            ChangeLBL.lbl_Color = activeLabel.ForeColor;
+
+            ChangeLBL changeLBL = new ChangeLBL();
+            changeLBL.textBox1.Text = activeLabel.Text;
+            changeLBL.ShowDialog();
+
+            activeLabel.Text = ChangeLBL.lbl_Text;
+            activeLabel.Font = ChangeLBL.lbl_Font;
+            activeLabel.ForeColor = ChangeLBL.lbl_Color;
+        }
+
+        //Вставка линии
+        bool drawingLine = false; //режим рисования прямой
+        PointF First, Second;
+        byte numPt;
+        private void линияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!drawingLine)
+            {
+                drawingLine = true;
+                линияToolStripMenuItem.Checked = true;
+                
+            }
+            numPt = 0;
+        }
+        #endregion
+
         #region Tools
         bool CutMode { get; set; }
         bool CountSquare { get; set; }
@@ -237,6 +298,26 @@ namespace GraphicBuilder
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
+            //Рисование линии
+            if (drawingLine)
+            {
+                if (numPt < 2)
+                {
+                    numPt++;
+                    if (numPt == 1) First = e.Location;
+                    else Second = e.Location;
+                }
+                if (numPt == 2)
+                {
+                    Line line = new Line(First, Second, Color.Black, false, "line" + (1 + Figures.Lines.Count).ToString(), 1);
+                    Figures.Lines.Add(line);
+                    drawingLine = false;
+                    numPt = 0;
+                    линияToolStripMenuItem.Checked = false;
+                }
+                
+            }
+
             //Рассчёт площади под графиком
             if (CountSquare)
             {
@@ -475,7 +556,6 @@ namespace GraphicBuilder
                 }
 
             }
-
 
         }
 
@@ -790,46 +870,7 @@ namespace GraphicBuilder
 
         }
 
-        private void текстToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TextLabel lb = new TextLabel()
-            {
-                Location = new Point(0, 0),
-                Text = "Новый текст",
-                BackColor = System.Drawing.Color.Transparent,
-                Cursor = Cursors.SizeAll,
-                AutoSize = true,
-                Font = new Font("Arial", 9),
-                
-            };
-            lb.MouseClick += new System.Windows.Forms.MouseEventHandler(lbl_MouseClick);
-            lb.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(lbl_MouseDoubleClick);
-            pictureBox1.Controls.Add(lb);
-            ControlExtension.Draggable(lb, true);
-            
-        }
-
-        private void lbl_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Middle)
-            pictureBox1.Controls.Remove((Label)sender);
-        }
-        private void lbl_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            Label activeLabel = (Label)sender;
-            //начальная инициализация параметров
-            ChangeLBL.lbl_Text = activeLabel.Text;
-            ChangeLBL.lbl_Font = activeLabel.Font;
-            ChangeLBL.lbl_Color = activeLabel.ForeColor;    
-
-            ChangeLBL changeLBL = new ChangeLBL();
-            changeLBL.textBox1.Text = activeLabel.Text;
-            changeLBL.ShowDialog();
-
-            activeLabel.Text = ChangeLBL.lbl_Text;
-            activeLabel.Font = ChangeLBL.lbl_Font;
-            activeLabel.ForeColor = ChangeLBL.lbl_Color;
-        }
+        
 
         
 

@@ -17,33 +17,49 @@ namespace GraphicBuilder
         PointF Begin, End;
         Color LineColor;
         bool IsArrow;
-        PictureBox LinePictureBox;
+        string Name;
+        //public Panel LinePictureBox;
 
-        public Line(PointF begin, PointF end, Color lineColor, bool arrow, int width = 1)
+        public Line(PointF begin, PointF end, Color lineColor, bool arrow, string name, int width = 5)
         {
             Begin = begin;
             End = end;
             LineColor = lineColor;
             IsArrow = arrow;
+            Name = name;
             Width = width;
 
-            LinePictureBox = new PictureBox()
-            {
-                Location = new Point(0, 0),
-                BackColor = Color.Transparent,
-                Size = new Size((int)Math.Abs(End.X - Begin.Y) + 10, (int)Math.Abs(End.Y - Begin.Y) + 10),
-                Cursor = Cursors.SizeAll
-            };
-            ControlExtension.Draggable(LinePictureBox, true);
-            Graphics g = LinePictureBox.CreateGraphics();
-            g.DrawLine(new Pen(LineColor, Width), Begin, End);
+            //LinePictureBox = new Panel()
+            //{
+            //    Location = new Point((int)Begin.X, (int)Begin.Y),
+            //    BackColor = Color.Transparent,
+            //    Size = new Size((int)Math.Abs(Begin.X - End.X) + 10, (int)Math.Abs(Begin.Y - End.Y) + 10),
+            //    Cursor = Cursors.SizeAll
+
+            //};
+            //ControlExtension.Draggable(LinePictureBox, true);
+            //LinePictureBox.MouseClick += new MouseEventHandler(LinesPictureBox_MouseClick);
+            //LinePictureBox.Paint += new PaintEventHandler(DrawLine);
+            //Figure.placeToDraw.Controls.Add(LinePictureBox);
+            //LinePictureBox.Refresh();
+            Graphics g = Figure.placeToDraw.CreateGraphics();
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            g.DrawLine(new Pen(Color.Red, Width), Begin, End);
             g.Dispose();
-            Figure.placeToDraw.Controls.Add(LinePictureBox);
         }
 
-        //public void DrawLine()
+        //private void LinesPictureBox_MouseClick(object sender, MouseEventArgs e)
         //{
-            
+        //    if (e.Button == MouseButtons.Middle)
+        //        Figure.placeToDraw.Controls.Remove(LinePictureBox);
+           
+        //}
+        //public void DrawLine(object sender, PaintEventArgs e)
+        //{
+        //    Graphics g = LinePictureBox.CreateGraphics();
+        //    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+        //    g.DrawLine(new Pen(Color.Red), Begin.X, Begin.Y, End.X - Begin.X, End.Y - Begin.Y);
+        //    g.Dispose();
         //}
     }
 }

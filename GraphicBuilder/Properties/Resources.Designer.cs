@@ -143,6 +143,16 @@ namespace GraphicBuilder.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap figures_25px {
+            get {
+                object obj = ResourceManager.GetObject("figures_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap file_25px {
             get {
                 object obj = ResourceManager.GetObject("file_25px", resourceCulture);
@@ -196,6 +206,16 @@ namespace GraphicBuilder.Properties {
         internal static System.Drawing.Bitmap letterA_25px {
             get {
                 object obj = ResourceManager.GetObject("letterA_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap line_25px {
+            get {
+                object obj = ResourceManager.GetObject("line_25px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
