@@ -255,5 +255,8 @@
   <ItemGroup>
     <None Include="Resources\line_25px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_25.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

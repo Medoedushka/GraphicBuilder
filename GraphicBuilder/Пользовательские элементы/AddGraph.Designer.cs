@@ -41,15 +41,16 @@
             this.txb_RightLim = new System.Windows.Forms.TextBox();
             this.txb_LeftLim = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.btn_Info = new System.Windows.Forms.Button();
-            this.btn_ChangePlotColor = new System.Windows.Forms.Button();
-            this.pcb_PlotColor = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lst_CreatedFigures = new System.Windows.Forms.ListBox();
-            this.btn_ShowLines = new System.Windows.Forms.Button();
-            this.btn_ShowAllFigures = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btn_RefreshListBox = new System.Windows.Forms.Button();
+            this.btn_ShowAllFigures = new System.Windows.Forms.Button();
+            this.btn_ShowLines = new System.Windows.Forms.Button();
+            this.btn_ChangePlotColor = new System.Windows.Forms.Button();
+            this.pcb_PlotColor = new System.Windows.Forms.PictureBox();
+            this.btn_Info = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_PlotColor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,40 +166,6 @@
             this.label12.TabIndex = 40;
             this.label12.Text = "Интервал построения:";
             // 
-            // btn_Info
-            // 
-            this.btn_Info.FlatAppearance.BorderSize = 0;
-            this.btn_Info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Info.Image = global::GraphicBuilder.Properties.Resources.newInfo_25px;
-            this.btn_Info.Location = new System.Drawing.Point(397, 227);
-            this.btn_Info.Name = "btn_Info";
-            this.btn_Info.Size = new System.Drawing.Size(33, 32);
-            this.btn_Info.TabIndex = 49;
-            this.btn_Info.UseVisualStyleBackColor = true;
-            this.btn_Info.Click += new System.EventHandler(this.btn_Info_Click);
-            // 
-            // btn_ChangePlotColor
-            // 
-            this.btn_ChangePlotColor.Image = global::GraphicBuilder.Properties.Resources.palette_25px;
-            this.btn_ChangePlotColor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ChangePlotColor.Location = new System.Drawing.Point(154, 273);
-            this.btn_ChangePlotColor.Name = "btn_ChangePlotColor";
-            this.btn_ChangePlotColor.Size = new System.Drawing.Size(98, 35);
-            this.btn_ChangePlotColor.TabIndex = 52;
-            this.btn_ChangePlotColor.Text = "Изменить";
-            this.btn_ChangePlotColor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_ChangePlotColor.UseVisualStyleBackColor = true;
-            this.btn_ChangePlotColor.Click += new System.EventHandler(this.Change_Colour_Click);
-            // 
-            // pcb_PlotColor
-            // 
-            this.pcb_PlotColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcb_PlotColor.Location = new System.Drawing.Point(123, 278);
-            this.pcb_PlotColor.Name = "pcb_PlotColor";
-            this.pcb_PlotColor.Size = new System.Drawing.Size(25, 25);
-            this.pcb_PlotColor.TabIndex = 51;
-            this.pcb_PlotColor.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -226,19 +193,20 @@
             this.lst_CreatedFigures.Name = "lst_CreatedFigures";
             this.lst_CreatedFigures.Size = new System.Drawing.Size(302, 134);
             this.lst_CreatedFigures.TabIndex = 54;
+            this.lst_CreatedFigures.DoubleClick += new System.EventHandler(this.lst_CreatedFigures_DoubleClick);
             // 
-            // btn_ShowLines
+            // btn_RefreshListBox
             // 
-            this.btn_ShowLines.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_ShowLines.FlatAppearance.BorderSize = 0;
-            this.btn_ShowLines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ShowLines.Image = global::GraphicBuilder.Properties.Resources.line_25px;
-            this.btn_ShowLines.Location = new System.Drawing.Point(308, 356);
-            this.btn_ShowLines.Name = "btn_ShowLines";
-            this.btn_ShowLines.Size = new System.Drawing.Size(25, 25);
-            this.btn_ShowLines.TabIndex = 55;
-            this.toolTip1.SetToolTip(this.btn_ShowLines, "Показать только прямые линии");
-            this.btn_ShowLines.UseVisualStyleBackColor = false;
+            this.btn_RefreshListBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_RefreshListBox.FlatAppearance.BorderSize = 0;
+            this.btn_RefreshListBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_RefreshListBox.Image = global::GraphicBuilder.Properties.Resources.refresh_25;
+            this.btn_RefreshListBox.Location = new System.Drawing.Point(308, 418);
+            this.btn_RefreshListBox.Name = "btn_RefreshListBox";
+            this.btn_RefreshListBox.Size = new System.Drawing.Size(25, 25);
+            this.btn_RefreshListBox.TabIndex = 56;
+            this.btn_RefreshListBox.UseVisualStyleBackColor = false;
+            this.btn_RefreshListBox.Click += new System.EventHandler(this.btn_RefreshListBox_Click);
             // 
             // btn_ShowAllFigures
             // 
@@ -254,12 +222,60 @@
             this.toolTip1.SetToolTip(this.btn_ShowAllFigures, "Показать все фигуры");
             this.btn_ShowAllFigures.UseVisualStyleBackColor = false;
             // 
+            // btn_ShowLines
+            // 
+            this.btn_ShowLines.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_ShowLines.FlatAppearance.BorderSize = 0;
+            this.btn_ShowLines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ShowLines.Image = global::GraphicBuilder.Properties.Resources.line_25px;
+            this.btn_ShowLines.Location = new System.Drawing.Point(308, 356);
+            this.btn_ShowLines.Name = "btn_ShowLines";
+            this.btn_ShowLines.Size = new System.Drawing.Size(25, 25);
+            this.btn_ShowLines.TabIndex = 55;
+            this.toolTip1.SetToolTip(this.btn_ShowLines, "Показать только прямые линии");
+            this.btn_ShowLines.UseVisualStyleBackColor = false;
+            // 
+            // btn_ChangePlotColor
+            // 
+            this.btn_ChangePlotColor.Image = global::GraphicBuilder.Properties.Resources.palette_25px;
+            this.btn_ChangePlotColor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ChangePlotColor.Location = new System.Drawing.Point(154, 273);
+            this.btn_ChangePlotColor.Name = "btn_ChangePlotColor";
+            this.btn_ChangePlotColor.Size = new System.Drawing.Size(98, 35);
+            this.btn_ChangePlotColor.TabIndex = 52;
+            this.btn_ChangePlotColor.Text = "Изменить";
+            this.btn_ChangePlotColor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_ChangePlotColor.UseVisualStyleBackColor = true;
+            this.btn_ChangePlotColor.Click += new System.EventHandler(this.Change_Colour_Click);
+            // 
+            // pcb_PlotColor
+            // 
+            this.pcb_PlotColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcb_PlotColor.Location = new System.Drawing.Point(123, 278);
+            this.pcb_PlotColor.Name = "pcb_PlotColor";
+            this.pcb_PlotColor.Size = new System.Drawing.Size(25, 25);
+            this.pcb_PlotColor.TabIndex = 51;
+            this.pcb_PlotColor.TabStop = false;
+            // 
+            // btn_Info
+            // 
+            this.btn_Info.FlatAppearance.BorderSize = 0;
+            this.btn_Info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Info.Image = global::GraphicBuilder.Properties.Resources.newInfo_25px;
+            this.btn_Info.Location = new System.Drawing.Point(397, 227);
+            this.btn_Info.Name = "btn_Info";
+            this.btn_Info.Size = new System.Drawing.Size(33, 32);
+            this.btn_Info.TabIndex = 49;
+            this.btn_Info.UseVisualStyleBackColor = true;
+            this.btn_Info.Click += new System.EventHandler(this.btn_Info_Click);
+            // 
             // AddGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.btn_RefreshListBox);
             this.Controls.Add(this.btn_ShowAllFigures);
             this.Controls.Add(this.btn_ShowLines);
             this.Controls.Add(this.lst_CreatedFigures);
@@ -310,5 +326,6 @@
         private System.Windows.Forms.Button btn_ShowLines;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btn_ShowAllFigures;
+        private System.Windows.Forms.Button btn_RefreshListBox;
     }
 }

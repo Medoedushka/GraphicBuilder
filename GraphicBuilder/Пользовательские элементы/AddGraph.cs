@@ -280,9 +280,23 @@ namespace GraphicBuilder
             }
         }
 
-        private void btn_ChangePlotColor_Click(object sender, EventArgs e)
+        private void lst_CreatedFigures_DoubleClick(object sender, EventArgs e)
         {
+            foreach(Line ln in MainForm.Figures.Lines)
+            {
+                if (ln.Name == lst_CreatedFigures.SelectedItem.ToString()) ln.DrawLine();
+            }
+        }
 
+        private void btn_RefreshListBox_Click(object sender, EventArgs e)
+        {
+            lst_CreatedFigures.Items.Clear();
+            
+                foreach (Line ln in MainForm.Figures.Lines)
+                {
+                    lst_CreatedFigures.Items.Add(ln.Name);
+                }
+            
         }
 
         public AddGraph()
