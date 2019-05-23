@@ -72,6 +72,7 @@
             this.вырезатьОбластьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmb_CutCurveLeg = new System.Windows.Forms.ToolStripComboBox();
             this.рассчитатьПлощадьПодКривойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.работаСТочкамиКривойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ControlNote = new System.Windows.Forms.ToolTip(this.components);
             this.tmr_ChangeMainParams = new System.Windows.Forms.Timer(this.components);
             this.pnl_Windows.SuspendLayout();
@@ -96,7 +97,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(130, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(328, 52);
+            this.label6.Size = new System.Drawing.Size(262, 39);
             this.label6.TabIndex = 2;
             this.label6.Text = "Главное меню";
             // 
@@ -178,21 +179,21 @@
             this.toolStripDropDownButton1.Image = global::GraphicBuilder.Properties.Resources.file_25px;
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(34, 22);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(33, 22);
             this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
             // 
             // сохранитьPngкартинкуToolStripMenuItem
             // 
             this.сохранитьPngкартинкуToolStripMenuItem.Name = "сохранитьPngкартинкуToolStripMenuItem";
-            this.сохранитьPngкартинкуToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
+            this.сохранитьPngкартинкуToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.сохранитьPngкартинкуToolStripMenuItem.Text = "Сохранить png-картинку ";
             this.сохранитьPngкартинкуToolStripMenuItem.Click += new System.EventHandler(this.сохранитьPngкартинкуToolStripMenuItem_Click);
             // 
             // открытьRTпостроениеToolStripMenuItem
             // 
             this.открытьRTпостроениеToolStripMenuItem.Name = "открытьRTпостроениеToolStripMenuItem";
-            this.открытьRTпостроениеToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
+            this.открытьRTпостроениеToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.открытьRTпостроениеToolStripMenuItem.Text = "Открыть RT-построение";
             this.открытьRTпостроениеToolStripMenuItem.Click += new System.EventHandler(this.btn_OpenRTGraph_Click);
             // 
@@ -203,14 +204,14 @@
             this.toolStripDropDownButton2.Image = global::GraphicBuilder.Properties.Resources.insert_25px;
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(100, 22);
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(85, 22);
             this.toolStripDropDownButton2.Text = "Вставка";
             // 
             // текстToolStripMenuItem
             // 
             this.текстToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.letterA_25px;
             this.текстToolStripMenuItem.Name = "текстToolStripMenuItem";
-            this.текстToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.текстToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.текстToolStripMenuItem.Text = "Текст";
             this.текстToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.текстToolStripMenuItem.Click += new System.EventHandler(this.текстToolStripMenuItem_Click);
@@ -220,7 +221,7 @@
             this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStripLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(68, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(53, 22);
             this.toolStripLabel1.Text = "Камера:";
             // 
             // btn_CenterUP
@@ -283,7 +284,7 @@
             this.toolStripLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStripLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(18, 22);
             this.toolStripLabel2.Text = "X:";
             // 
             // btn_IncreaseOX
@@ -318,7 +319,7 @@
             "6",
             "10"});
             this.cmb_PriceOX.Name = "cmb_PriceOX";
-            this.cmb_PriceOX.Size = new System.Drawing.Size(50, 28);
+            this.cmb_PriceOX.Size = new System.Drawing.Size(50, 23);
             this.cmb_PriceOX.Leave += new System.EventHandler(this.cmb_PriceOX_Leave);
             // 
             // toolStripSeparator2
@@ -331,7 +332,7 @@
             this.toolStripLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStripLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(22, 22);
+            this.toolStripLabel3.Size = new System.Drawing.Size(17, 22);
             this.toolStripLabel3.Text = "Y:";
             // 
             // btn_IncreaseOY
@@ -366,7 +367,7 @@
             "6",
             "10"});
             this.cmb_PriceOY.Name = "cmb_PriceOY";
-            this.cmb_PriceOY.Size = new System.Drawing.Size(50, 28);
+            this.cmb_PriceOY.Size = new System.Drawing.Size(50, 23);
             this.cmb_PriceOY.Leave += new System.EventHandler(this.cmb_PriceOY_Leave);
             // 
             // toolStripSeparator6
@@ -397,7 +398,7 @@
             this.btn_BuildGraph.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btn_BuildGraph.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_BuildGraph.Name = "btn_BuildGraph";
-            this.btn_BuildGraph.Size = new System.Drawing.Size(89, 22);
+            this.btn_BuildGraph.Size = new System.Drawing.Size(72, 22);
             this.btn_BuildGraph.Tag = "";
             this.btn_BuildGraph.Text = "Построить";
             this.btn_BuildGraph.Click += new System.EventHandler(this.btn_BuildGraph_Click);
@@ -412,7 +413,7 @@
             this.toolStripLabel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStripLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(90, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(72, 22);
             this.toolStripLabel4.Text = "RT-график:";
             // 
             // btn_BuildRTGraph
@@ -467,7 +468,7 @@
             this.btn_DeleteCurves.Image = global::GraphicBuilder.Properties.Resources.dustBin_25px;
             this.btn_DeleteCurves.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_DeleteCurves.Name = "btn_DeleteCurves";
-            this.btn_DeleteCurves.Size = new System.Drawing.Size(24, 24);
+            this.btn_DeleteCurves.Size = new System.Drawing.Size(24, 22);
             this.btn_DeleteCurves.Text = "toolStripButton3";
             this.btn_DeleteCurves.Click += new System.EventHandler(this.btn_DeleteCurves_Click);
             // 
@@ -480,11 +481,12 @@
             // 
             this.toolStripButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.вырезатьОбластьToolStripMenuItem,
-            this.рассчитатьПлощадьПодКривойToolStripMenuItem});
+            this.рассчитатьПлощадьПодКривойToolStripMenuItem,
+            this.работаСТочкамиКривойToolStripMenuItem});
             this.toolStripButton1.Image = global::GraphicBuilder.Properties.Resources.imgonline_com_ua_Resize_3cqMF2tBQMS31Cs;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(143, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(118, 24);
             this.toolStripButton1.Text = "Инструменты";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -494,22 +496,28 @@
             this.cmb_CutCurveLeg});
             this.вырезатьОбластьToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.carpenter;
             this.вырезатьОбластьToolStripMenuItem.Name = "вырезатьОбластьToolStripMenuItem";
-            this.вырезатьОбластьToolStripMenuItem.Size = new System.Drawing.Size(321, 26);
+            this.вырезатьОбластьToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
             this.вырезатьОбластьToolStripMenuItem.Text = "Вырезать область";
             this.вырезатьОбластьToolStripMenuItem.Click += new System.EventHandler(this.вырезатьОбластьToolStripMenuItem_Click);
             // 
             // cmb_CutCurveLeg
             // 
             this.cmb_CutCurveLeg.Name = "cmb_CutCurveLeg";
-            this.cmb_CutCurveLeg.Size = new System.Drawing.Size(121, 28);
+            this.cmb_CutCurveLeg.Size = new System.Drawing.Size(121, 23);
             // 
             // рассчитатьПлощадьПодКривойToolStripMenuItem
             // 
             this.рассчитатьПлощадьПодКривойToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.area_25px;
             this.рассчитатьПлощадьПодКривойToolStripMenuItem.Name = "рассчитатьПлощадьПодКривойToolStripMenuItem";
-            this.рассчитатьПлощадьПодКривойToolStripMenuItem.Size = new System.Drawing.Size(321, 26);
+            this.рассчитатьПлощадьПодКривойToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
             this.рассчитатьПлощадьПодКривойToolStripMenuItem.Text = "Рассчитать площадь под кривой";
             this.рассчитатьПлощадьПодКривойToolStripMenuItem.Click += new System.EventHandler(this.рассчитатьПлощадьПодКривойToolStripMenuItem_Click);
+            // 
+            // работаСТочкамиКривойToolStripMenuItem
+            // 
+            this.работаСТочкамиКривойToolStripMenuItem.Name = "работаСТочкамиКривойToolStripMenuItem";
+            this.работаСТочкамиКривойToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
+            this.работаСТочкамиКривойToolStripMenuItem.Text = "Работа с точками кривой";
             // 
             // tmr_ChangeMainParams
             // 
@@ -518,7 +526,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1335, 561);
             this.Controls.Add(this.panel3);
@@ -588,8 +596,9 @@
         private System.Windows.Forms.ToolStripComboBox cmb_CutCurveLeg;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem текстToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem рассчитатьПлощадьПодКривойToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem работаСТочкамиКривойToolStripMenuItem;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

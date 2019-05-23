@@ -65,10 +65,12 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddGraph.cs">
+    <Compile Include="Figure.cs" />
+    <Compile Include="Line.cs" />
+    <Compile Include="Пользовательские элементы\AddGraph.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AddGraph.Designer.cs">
+    <Compile Include="Пользовательские элементы\AddGraph.Designer.cs">
       <DependentUpon>AddGraph.cs</DependentUpon>
     </Compile>
     <Compile Include="ChangeLBL.cs">
@@ -83,10 +85,10 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainSettings.cs">
+    <Compile Include="Пользовательские элементы\MainSettings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainSettings.Designer.cs">
+    <Compile Include="Пользовательские элементы\MainSettings.Designer.cs">
       <DependentUpon>MainSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -100,7 +102,7 @@
     <Compile Include="TextLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="AddGraph.resx">
+    <EmbeddedResource Include="Пользовательские элементы\AddGraph.resx">
       <DependentUpon>AddGraph.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeLBL.resx">
@@ -109,7 +111,7 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainSettings.resx">
+    <EmbeddedResource Include="Пользовательские элементы\MainSettings.resx">
       <DependentUpon>MainSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
