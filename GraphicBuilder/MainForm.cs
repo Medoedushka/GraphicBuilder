@@ -33,7 +33,7 @@ namespace GraphicBuilder
         private void MainForm_Load(object sender, EventArgs e)
         {
             graph = new PointsGraphic(pictureBox1, AxesMode.Static, AxesPosition.AllQuarters);
-            Figures = new Figure(pictureBox1);
+            
             addGraph = new AddGraph()
             {
                 Location = new Point(0, 0),
@@ -46,6 +46,7 @@ namespace GraphicBuilder
             graph.Config.SmoothAngles = true;
             //hello, honey budger
             pnl_Windows.Width =(int) (this.Width / 3.5);
+            
         }
 
         #region StaticCameraMoving
@@ -309,8 +310,8 @@ namespace GraphicBuilder
                 }
                 if (numPt == 2)
                 {
-                    Line line = new Line(First, Second, Color.Black, false, "line" + (1 + Figures.Lines.Count).ToString(), 1);
-                    Figures.Lines.Add(line);
+                    Line line = new Line(First, Second, Color.Black, pictureBox1, false, "line" + Figure.Lines.Count);
+                    Figure.Lines.Add(line);
                     drawingLine = false;
                     numPt = 0;
                     линияToolStripMenuItem.Checked = false;
@@ -562,10 +563,10 @@ namespace GraphicBuilder
 
             double x = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).X;
             double y = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).Y;
-            //MessageBox.Show(x.ToString() + " " + y.ToString());
-            foreach(Line ln in Figures.Lines)
+            
+            foreach(Line ln in Figure.Lines)
             {
-                if (ln.BelongsToSegment(x, y, ln)) MessageBox.Show(ln.Name);
+                if (ln.BelongsToFigure(x, y)) MessageBox.Show(ln.Name);
             }
         }
 

@@ -11,16 +11,18 @@ using System.Threading;
 
 namespace GraphicBuilder
 {
-    public class Figure
+    public abstract class Figure
     {
-        public List<Line> Lines = new List<Line>();
+        public PictureBox placeToDraw { get; set; }  //контрол для отрисовки фигуры
+        public Color FigureColor { get; set; }     // цвет создаваемой фигуры
+        public string Name { get; set; }    //рабочие имя фигуры
+        public int Width { get; set; }             //толщина фигуры
 
-        public static PictureBox placeToDraw;
-
-        public Figure(PictureBox place)
-        {
-            placeToDraw = place;
-        }
+        public static List<Line> Lines = new List<Line>(); //коллекция созданных прямых
         
+        //Нарисовать фигуру
+        public abstract void DrawFigure();
+        //Находится ли курсор мыши поблизости от фигуры или на ней
+        public abstract bool BelongsToFigure(double x, double y);
     }
 }

@@ -254,7 +254,7 @@ namespace GraphicBuilder
             this.Width = Parent.Width;
 
             //вывод список созданных фигур
-            foreach(Line ln in MainForm.Figures.Lines)
+            foreach(Line ln in Figure.Lines)
             {
                 lst_CreatedFigures.Items.Add(ln.Name);
             }
@@ -282,9 +282,9 @@ namespace GraphicBuilder
 
         private void lst_CreatedFigures_DoubleClick(object sender, EventArgs e)
         {
-            foreach(Line ln in MainForm.Figures.Lines)
+            foreach(Line ln in Figure.Lines)
             {
-                if (ln.Name == lst_CreatedFigures.SelectedItem.ToString()) ln.DrawLine();
+                if (ln.Name == lst_CreatedFigures.SelectedItem.ToString()) ln.DrawFigure();
             }
         }
 
@@ -292,7 +292,7 @@ namespace GraphicBuilder
         {
             lst_CreatedFigures.Items.Clear();
             
-                foreach (Line ln in MainForm.Figures.Lines)
+                foreach (Line ln in Figure.Lines)
                 {
                     lst_CreatedFigures.Items.Add(ln.Name);
                 }
