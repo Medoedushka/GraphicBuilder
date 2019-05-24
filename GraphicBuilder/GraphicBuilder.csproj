@@ -65,8 +65,8 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Figure.cs" />
-    <Compile Include="Line.cs" />
+    <Compile Include="Фигуры\Figure.cs" />
+    <Compile Include="Фигуры\Line.cs" />
     <Compile Include="Пользовательские элементы\AddGraph.cs">
       <SubType>UserControl</SubType>
     </Compile>

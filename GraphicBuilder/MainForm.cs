@@ -561,12 +561,15 @@ namespace GraphicBuilder
 
             }
 
-            double x = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).X;
-            double y = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).Y;
-            
-            foreach(Line ln in Figure.Lines)
+            if (e.Button == MouseButtons.Left)
             {
-                if (ln.BelongsToFigure(x, y)) MessageBox.Show(ln.Name);
+                double x = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).X;
+                double y = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).Y;
+
+                foreach (Line ln in Figure.Lines)
+                {
+                    if (ln.BelongsToFigure(x, y)) MessageBox.Show(ln.Name);
+                }
             }
         }
 
