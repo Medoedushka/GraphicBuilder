@@ -314,6 +314,7 @@ namespace GraphicBuilder
                     drawingLine = false;
                     numPt = 0;
                     линияToolStripMenuItem.Checked = false;
+                    return;
                 }
                 
             }
@@ -445,7 +446,7 @@ namespace GraphicBuilder
                             рассчитатьПлощадьПодКривойToolStripMenuItem.Checked = false;
                             CountSquare = false;
                             graph.DrawDiagram();
-                        
+                        return;
                     }
                     else if (result == DialogResult.No)
                     {
@@ -454,6 +455,7 @@ namespace GraphicBuilder
                         рассчитатьПлощадьПодКривойToolStripMenuItem.Checked = false;
                         CountSquare = false;
                         graph.DrawDiagram();
+                        return;
                     }
                 }
             }
@@ -543,7 +545,7 @@ namespace GraphicBuilder
                             }
                             
                         }
-                        
+                        return;
                         
                     }
                     else
@@ -552,11 +554,19 @@ namespace GraphicBuilder
                         numLines = 0;
                         CutMode = false;
                         graph.DrawDiagram();
+                        return;
                     }
                 }
 
             }
 
+            double x = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).X;
+            double y = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).Y;
+            //MessageBox.Show(x.ToString() + " " + y.ToString());
+            foreach(Line ln in Figures.Lines)
+            {
+                if (ln.BelongsToSegment(x, y, ln)) MessageBox.Show(ln.Name);
+            }
         }
 
         public class CountSquare_AskingForm : System.Windows.Forms.Form
@@ -855,6 +865,16 @@ namespace GraphicBuilder
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double x = double.Parse(textBox1.Text);
+            double y = double.Parse(textBox2.Text);
+            foreach(Line ln in Figures.Lines)
+            {
+                if (ln.BelongsToSegment(Math.Round(x, 1), Math.Round(y, 1), ln)) MessageBox.Show(ln.Name);
+            }
+        }
+
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             cmb_CutCurveLeg.Items.Clear();
@@ -865,14 +885,6 @@ namespace GraphicBuilder
             
         }
 
-        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-        
 
         private static Bitmap DrawControlToBitMap(Control control)
         {

@@ -11,18 +11,17 @@ using System.Threading;
 
 namespace GraphicBuilder
 {
-    public struct Line
+    public class Line
     {
-        int Width;
-        
-        PointF Begin, End;
-        Color LineColor;
-        bool IsArrow;
-        public string Name;
-        
+        PointF Begin, End;  // начало и конец отрезка
+        Color LineColor;    //цвета отрезка
+        bool IsArrow;       //является ли стрелкой
+        public string Name; // название 
+        int Width;          //толщина
 
-        public Line(PointF mouse_begin, PointF mouse_end, Color lineColor, bool arrow, string name, int width = 5)
+        public Line(PointF mouse_begin, PointF mouse_end, Color lineColor, bool arrow, string name, int width = 1)
         {
+            //Получение координат в прямоугольной системе
             float x = MainForm.graph.ConvertValues(mouse_begin.X, mouse_begin.Y, CoordType.GetRectangleCoord).X;
             float y = MainForm.graph.ConvertValues(mouse_begin.X, mouse_begin.Y, CoordType.GetRectangleCoord).Y;
             Begin = new PointF(x, y);
@@ -30,7 +29,7 @@ namespace GraphicBuilder
             x = MainForm.graph.ConvertValues(mouse_end.X, mouse_end.Y, CoordType.GetRectangleCoord).X;
             y = MainForm.graph.ConvertValues(mouse_end.X, mouse_end.Y, CoordType.GetRectangleCoord).Y;
             End = new PointF(x, y);
-
+                        
             LineColor = lineColor;
             IsArrow = arrow;
             Name = name;
@@ -53,7 +52,16 @@ namespace GraphicBuilder
             pt2.Y = MainForm.graph.ConvertValues(End.X, End.Y, CoordType.GetControlCoord).Y;
            
             g.DrawLine(new Pen(Color.Red, Width), pt1, pt2);
+           
             g.Dispose();
+        }
+
+        public bool BelongsToSegment(double x, double y, Line line)
+        {
+            bool result = false;
+            if (Math.Abs(y - Begin.Y - (x - Begin.X) * (End.Y - Begin.Y) / (End.X - Begin.X)) < 0.5) result = true;
+            if (Math.Abs(x - Begin.X - (y - Begin.Y) * (End.X - Begin.X) / (End.Y - Begin.Y)) < 0.5) result = true;
+            return result;
         }
     }
 }
