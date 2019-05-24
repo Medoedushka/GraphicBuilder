@@ -40,20 +40,27 @@ namespace GraphicBuilder
 
         public void DrawLine()
         {
-            Graphics g = Figure.placeToDraw.CreateGraphics();
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            //преобразование в координаты пикчербокса
-            PointF pt1 = new PointF(0,0), pt2 = new PointF(0,0);
 
-            pt1.X = MainForm.graph.ConvertValues(Begin.X, Begin.Y, CoordType.GetControlCoord).X;
-            pt1.Y = MainForm.graph.ConvertValues(Begin.X, Begin.Y, CoordType.GetControlCoord).Y;
-            
-            pt2.X = MainForm.graph.ConvertValues(End.X, End.Y, CoordType.GetControlCoord).X;
-            pt2.Y = MainForm.graph.ConvertValues(End.X, End.Y, CoordType.GetControlCoord).Y;
-           
-            g.DrawLine(new Pen(Color.Red, Width), pt1, pt2);
-           
-            g.Dispose();
+            Graphics g;
+            Bitmap bm = (Bitmap)Figure.placeToDraw.Image;
+            using (g = Graphics.FromImage(bm))
+            {
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+                
+                PointF pt1 = new PointF(0, 0), pt2 = new PointF(0, 0);
+
+                pt1.X = MainForm.graph.ConvertValues(Begin.X, Begin.Y, CoordType.GetControlCoord).X;
+                pt1.Y = MainForm.graph.ConvertValues(Begin.X, Begin.Y, CoordType.GetControlCoord).Y;
+
+                pt2.X = MainForm.graph.ConvertValues(End.X, End.Y, CoordType.GetControlCoord).X;
+                pt2.Y = MainForm.graph.ConvertValues(End.X, End.Y, CoordType.GetControlCoord).Y;
+
+                g.DrawLine(new Pen(Color.Red, Width), pt1, pt2);
+                
+            }
+            Figure.placeToDraw.Image = bm;
+            //MainForm.graph.DrawDiagram();
         }
 
         public bool BelongsToSegment(double x, double y, Line line)

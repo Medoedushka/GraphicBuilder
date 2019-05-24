@@ -865,16 +865,6 @@ namespace GraphicBuilder
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            double x = double.Parse(textBox1.Text);
-            double y = double.Parse(textBox2.Text);
-            foreach(Line ln in Figures.Lines)
-            {
-                if (ln.BelongsToSegment(Math.Round(x, 1), Math.Round(y, 1), ln)) MessageBox.Show(ln.Name);
-            }
-        }
-
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             cmb_CutCurveLeg.Items.Clear();
@@ -884,7 +874,6 @@ namespace GraphicBuilder
             }
             
         }
-
 
         private static Bitmap DrawControlToBitMap(Control control)
         {
