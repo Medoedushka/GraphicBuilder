@@ -11,6 +11,10 @@ using System.Threading;
 
 namespace GraphicBuilder
 {
+    public enum Collection
+    {
+        Lines
+    }
     public abstract class Figure
     {
         public PictureBox placeToDraw { get; set; }  //контрол для отрисовки фигуры
@@ -24,5 +28,15 @@ namespace GraphicBuilder
         public abstract void DrawFigure();
         //Находится ли курсор мыши поблизости от фигуры или на ней
         public abstract bool BelongsToFigure(double x, double y);
+        //выделение фигуры
+        public abstract void SelectedFigure();
+        //рисует все фигуры коллекции
+        public static void DrawAllFigures(Collection col)
+        {
+            if (col == Collection.Lines)
+            {
+                foreach (Line ln in Lines) ln.DrawFigure();
+            }
+        }
     }
 }

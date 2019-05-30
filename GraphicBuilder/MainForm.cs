@@ -16,6 +16,7 @@ namespace GraphicBuilder
         public static PointsGraphic graph;
         AddGraph addGraph;
         MainSettings mainSettings;
+        Figure CurrentFigure;
         public static Figure Figures;
 
         int ShiftOX; //результирующее смещение центра по оси ОХ
@@ -568,9 +569,23 @@ namespace GraphicBuilder
 
                 foreach (Line ln in Figure.Lines)
                 {
-                    if (ln.BelongsToFigure(x, y)) MessageBox.Show(ln.Name);
+                    if (ln.BelongsToFigure(x, y))
+                    {
+                       
+                        ln.SelectedFigure();
+                        CurrentFigure = ln;
+                        return;
+                    }
+                    else
+                    {
+                        graph.DrawDiagram();
+                        Figure.DrawAllFigures(Collection.Lines);
+                        CurrentFigure = null;
+                        
+                    }
                 }
             }
+            
         }
 
         public class CountSquare_AskingForm : System.Windows.Forms.Form

@@ -63,10 +63,28 @@ namespace GraphicBuilder
         public override bool BelongsToFigure(double x, double y)
         {
             bool result = false;
-            if (Math.Abs(y - Begin.Y - (x - Begin.X) * (End.Y - Begin.Y) / (End.X - Begin.X)) < 0.5) result = true;
-            if (Math.Abs(x - Begin.X - (y - Begin.Y) * (End.X - Begin.X) / (End.Y - Begin.Y)) < 0.5) result = true;
+            if (Math.Abs(y - Begin.Y - (x - Begin.X) * (End.Y - Begin.Y) / (End.X - Begin.X)) < 0.1) result = true;
+            if (Math.Abs(x - Begin.X - (y - Begin.Y) * (End.X - Begin.X) / (End.Y - Begin.Y)) < 0.1) result = true;
             return result;
         }
-       
+        public override void SelectedFigure()
+        {
+            Graphics g; int r = 3;
+            Bitmap bm = (Bitmap)placeToDraw.Image;
+            using (g = Graphics.FromImage(bm))
+            {
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+
+                PointF pt1 = new PointF(0, 0), pt2 = new PointF(0, 0);
+
+                pt1 = MainForm.graph.ConvertValues(Begin.X, Begin.Y, CoordType.GetControlCoord);
+                pt2 = MainForm.graph.ConvertValues(End.X, End.Y, CoordType.GetControlCoord);
+                g.FillEllipse(new SolidBrush(Color.Black), pt1.X - r, pt1.Y - r, 2*r, 2*r);
+                g.FillEllipse(new SolidBrush(Color.Black), pt2.X - r, pt2.Y - r, 2*r, 2*r);
+
+            }
+            placeToDraw.Image = bm;
+        }
     }
 }
