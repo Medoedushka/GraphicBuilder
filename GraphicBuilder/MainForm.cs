@@ -18,7 +18,7 @@ namespace GraphicBuilder
         MainSettings mainSettings;
         Figure CurrentFigure;
         public static Figure Figures;
-
+        bool Pushed = false;
         int ShiftOX; //результирующее смещение центра по оси ОХ
         int ShiftOY; //результирующее смещение центра по оси ОY
 
@@ -882,6 +882,40 @@ namespace GraphicBuilder
                     System.Diagnostics.Process.Start(filePath);
                 }
             }
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            
+            if (CurrentFigure != null && e.Button == MouseButtons.Left)
+            {
+                
+                double x = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).X;
+                double y = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).Y;
+                if (CurrentFigure.BelongsToFigure(x, y))
+                {
+                    Pushed = true;
+                }
+            }
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Pushed)
+            {
+                double dx = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord).X;
+                double dy = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord).Y;
+               // CurrentFigure.Begin = new PointF((float)(CurrentFigure.Begin.X + dx), (float)(CurrentFigure.Begin.Y + dy));
+                CurrentFigure.End = new PointF((float)(dx), (float)(dy));
+                graph.DrawDiagram();
+                Figure.DrawAllFigures(Collection.Lines);
+            }
+            
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            Pushed = false;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

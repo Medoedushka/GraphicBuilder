@@ -13,11 +13,8 @@ namespace GraphicBuilder
 {
     public class Line : Figure
     {
-        PointF Begin, End;  // начало и конец отрезка
         bool IsArrow;       //является ли стрелкой
         
-        
-
         public Line(PointF mouse_begin, PointF mouse_end, Color lineColor, PictureBox place,  bool arrow, string name, int width = 1)
         {
             //Получение координат в прямоугольной системе

@@ -19,6 +19,8 @@ namespace GraphicBuilder
     {
         public PictureBox placeToDraw { get; set; }  //контрол для отрисовки фигуры
         public Color FigureColor { get; set; }     // цвет создаваемой фигуры
+        public PointF Begin { get; set; }
+        public PointF End { get; set; }
         public string Name { get; set; }    //рабочие имя фигуры
         public int Width { get; set; }             //толщина фигуры
 
