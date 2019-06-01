@@ -258,5 +258,8 @@
   <ItemGroup>
     <None Include="Resources\refresh_25.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgonline-com-ua-Resize-3x0tnT1zNXYT0ntl.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

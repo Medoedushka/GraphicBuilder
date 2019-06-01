@@ -249,7 +249,7 @@ namespace GraphicBuilder
             {
                 drawingLine = true;
                 линияToolStripMenuItem.Checked = true;
-                
+                pictureBox1.Cursor = Cursors.Cross;
             }
             numPt = 0;
         }
@@ -311,11 +311,12 @@ namespace GraphicBuilder
                 }
                 if (numPt == 2)
                 {
-                    Line line = new Line(First, Second, Color.Black, pictureBox1, false, "line" + Figure.Lines.Count);
+                    Line line = new Line(First, Second, Color.Black, pictureBox1, true, "line" + Figure.Lines.Count);
                     Figure.Lines.Add(line);
                     drawingLine = false;
                     numPt = 0;
                     линияToolStripMenuItem.Checked = false;
+                    pictureBox1.Cursor = Cursors.Default;
                     return;
                 }
                 
