@@ -903,10 +903,16 @@ namespace GraphicBuilder
         {
             if (Pushed)
             {
-                double dx = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord).X;
-                double dy = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord).Y;
-               // CurrentFigure.Begin = new PointF((float)(CurrentFigure.Begin.X + dx), (float)(CurrentFigure.Begin.Y + dy));
-                CurrentFigure.End = new PointF((float)(dx), (float)(dy));
+                PointF MouseCoord = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord);
+                if (Math.Sqrt(Math.Pow(CurrentFigure.Begin.X - MouseCoord.X, 2) + Math.Pow(CurrentFigure.Begin.Y - MouseCoord.Y, 2)) <= 3)
+                {
+                    CurrentFigure.Begin = new PointF((float)(MouseCoord.X), (float)(MouseCoord.Y));
+                }
+                else if (Math.Sqrt(Math.Pow(CurrentFigure.End.X - MouseCoord.X, 2) + Math.Pow(CurrentFigure.End.Y - MouseCoord.Y, 2)) <= 3)
+                {
+                    CurrentFigure.End = new PointF((float)(MouseCoord.X), (float)(MouseCoord.Y));
+                }
+                
                 graph.DrawDiagram();
                 Figure.DrawAllFigures(Collection.Lines);
             }
