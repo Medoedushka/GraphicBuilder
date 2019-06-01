@@ -567,7 +567,7 @@ namespace GraphicBuilder
                 double x = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).X;
                 double y = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).Y;
 
-                foreach (Line ln in Figure.Lines)
+                foreach (Figure ln in Figure.Lines)
                 {
                     if (ln.BelongsToFigure(x, y))
                     {
@@ -583,6 +583,24 @@ namespace GraphicBuilder
                         CurrentFigure = null;
                         
                     }
+                }
+                return;
+            }
+            if (e.Button == MouseButtons.Middle)
+            {
+                double x = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).X;
+                double y = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).Y;
+                foreach (Line ln in Figure.Lines)
+                {
+                    if (ln.BelongsToFigure(x, y))
+                    {
+
+                        Figure.Lines.Remove(ln);
+                        graph.DrawDiagram();
+                        Figure.DrawAllFigures(Collection.Lines);
+                        return;
+                    }
+                    
                 }
             }
             

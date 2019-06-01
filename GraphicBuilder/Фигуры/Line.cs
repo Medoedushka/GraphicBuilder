@@ -77,8 +77,10 @@ namespace GraphicBuilder
 
                 pt1 = MainForm.graph.ConvertValues(Begin.X, Begin.Y, CoordType.GetControlCoord);
                 pt2 = MainForm.graph.ConvertValues(End.X, End.Y, CoordType.GetControlCoord);
+                
                 g.FillEllipse(new SolidBrush(Color.Black), pt1.X - r, pt1.Y - r, 2*r, 2*r);
                 g.FillEllipse(new SolidBrush(Color.Black), pt2.X - r, pt2.Y - r, 2*r, 2*r);
+                
 
             }
             placeToDraw.Image = bm;
