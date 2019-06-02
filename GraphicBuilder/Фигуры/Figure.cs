@@ -23,6 +23,7 @@ namespace GraphicBuilder
         public Color FigureInterior { get; set; } //цвет заливки фигуры
         public PointF Begin { get; set; }
         public PointF End { get; set; }
+        public PointF Center { get; set; }
 
         public string Name { get; set; }           //рабочие имя фигуры
         public int Width { get; set; }             //толщина фигуры

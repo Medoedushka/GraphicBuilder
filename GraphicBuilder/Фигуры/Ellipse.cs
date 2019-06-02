@@ -11,16 +11,13 @@ namespace GraphicBuilder
 {
     public class Ellipse : Figure
     {
-        PointF Center;
+        
         float A, B; //полуоси эллипса
        
 
         public Ellipse(PointF mouseBegin, PointF mouseEnd, Color color, PictureBox place, string name, int width = 1)
             : base(mouseBegin, mouseEnd, color, place, name, width)
         {
-            A = (End.X - Begin.X) / 2;
-            B = (End.Y - Begin.Y) / 2;
-            Center = new PointF(Begin.X + A, Begin.Y + B);
             
             DrawFigure();
         }
@@ -33,6 +30,9 @@ namespace GraphicBuilder
             {
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
                 g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+                A = (End.X - Begin.X) / 2;
+                B = (End.Y - Begin.Y) / 2;
+                Center = new PointF(Begin.X + A, Begin.Y + B);
 
                 PointF pt1 = MainForm.graph.ConvertValues(Begin, CoordType.GetControlCoord);
                 PointF pt2 = MainForm.graph.ConvertValues(End, CoordType.GetControlCoord);
@@ -52,7 +52,22 @@ namespace GraphicBuilder
 
         public override void SelectedFigure()
         {
-            
+            Graphics g; int r = 3;
+            Bitmap bm = (Bitmap)placeToDraw.Image;
+            using (g = Graphics.FromImage(bm))
+            {
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+
+                PointF pt1 = MainForm.graph.ConvertValues(Begin, CoordType.GetControlCoord);
+                PointF pt2 = MainForm.graph.ConvertValues(End, CoordType.GetControlCoord);
+                PointF pt3 = MainForm.graph.ConvertValues(Center, CoordType.GetControlCoord);
+                g.DrawRectangle(new Pen(Color.Gray), pt1.X, pt1.Y, pt2.X - pt1.X, pt2.Y - pt1.Y);
+                g.FillEllipse(new SolidBrush(Color.Black), pt1.X - r, pt1.Y - r, 2 * r, 2 * r);
+                g.FillEllipse(new SolidBrush(Color.Black), pt2.X - r, pt2.Y - r, 2 * r, 2 * r);
+                g.FillEllipse(new SolidBrush(Color.Black), pt3.X - r, pt3.Y - r, 2 * r, 2 * r);
+            }
+            placeToDraw.Image = bm;
         }
     }
 }

@@ -659,7 +659,15 @@ namespace GraphicBuilder
                 {
                     if (el.BelongsToFigure(x, y))
                     {
-                        MessageBox.Show("Сосать!");
+                        el.SelectedFigure();
+                        CurrentFigure = el;
+                        return;
+                    }
+                    else
+                    {
+                        graph.DrawDiagram();
+                        Figure.DrawAllFigures();
+                        CurrentFigure = null;
                     }
                 }
                 return;
@@ -1002,13 +1010,20 @@ namespace GraphicBuilder
                 PointF MouseCoord = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord);
                 if (Math.Sqrt(Math.Pow(CurrentFigure.Begin.X - MouseCoord.X, 2) + Math.Pow(CurrentFigure.Begin.Y - MouseCoord.Y, 2)) <= 3)
                 {
-                    CurrentFigure.Begin = new PointF((float)(MouseCoord.X), (float)(MouseCoord.Y));
+                    CurrentFigure.Begin = new PointF(MouseCoord.X, MouseCoord.Y);
+                    
                 }
                 else if (Math.Sqrt(Math.Pow(CurrentFigure.End.X - MouseCoord.X, 2) + Math.Pow(CurrentFigure.End.Y - MouseCoord.Y, 2)) <= 3)
                 {
-                    CurrentFigure.End = new PointF((float)(MouseCoord.X), (float)(MouseCoord.Y));
+                    CurrentFigure.End = new PointF(MouseCoord.X, MouseCoord.Y);
                 }
-                
+                else 
+                {
+                    PointF vector = new PointF(MouseCoord.X - CurrentFigure.Center.X, MouseCoord.Y - CurrentFigure.Center.Y);
+                    CurrentFigure.Begin = new PointF(CurrentFigure.Begin.X + vector.X, CurrentFigure.Begin.Y + vector.Y);
+                    CurrentFigure.End = new PointF(CurrentFigure.End.X + vector.X, CurrentFigure.End.Y + vector.Y);
+                }
+
                 graph.DrawDiagram();
                 Figure.DrawAllFigures();
             }
