@@ -193,6 +193,36 @@ namespace GraphicBuilder.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imgonline_com_ua_Resize_AaJhafHChjBOu8D8 {
+            get {
+                object obj = ResourceManager.GetObject("imgonline-com-ua-Resize-AaJhafHChjBOu8D8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgonline_com_ua_Resize_bWRdxpzxI5QDg {
+            get {
+                object obj = ResourceManager.GetObject("imgonline-com-ua-Resize-bWRdxpzxI5QDg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgonline_com_ua_Resize_mhvBSp8imZSI {
+            get {
+                object obj = ResourceManager.GetObject("imgonline-com-ua-Resize-mhvBSp8imZSI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap insert_25px {
             get {
                 object obj = ResourceManager.GetObject("insert_25px", resourceCulture);

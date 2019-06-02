@@ -13,18 +13,33 @@ namespace GraphicBuilder
 {
     public enum Collection
     {
-        Lines
+        Lines,
+        Ellipses
     }
     public abstract class Figure
     {
         public PictureBox placeToDraw { get; set; }  //контрол для отрисовки фигуры
         public Color FigureColor { get; set; }     // цвет создаваемой фигуры
+        public Color FigureInterior { get; set; } //цвет заливки фигуры
         public PointF Begin { get; set; }
         public PointF End { get; set; }
-        public string Name { get; set; }    //рабочие имя фигуры
+
+        public string Name { get; set; }           //рабочие имя фигуры
         public int Width { get; set; }             //толщина фигуры
 
         public static List<Line> Lines = new List<Line>(); //коллекция созданных прямых
+        public static List<Ellipse> Ellipses = new List<Ellipse>(); //коллекция созданных эллипсов
+
+        public Figure(PointF mouseBegin, PointF mouseEnd, Color color,  PictureBox place, string name, int width = 1)
+        {
+            Begin = MainForm.graph.ConvertValues(mouseBegin, CoordType.GetRectangleCoord);
+            End = MainForm.graph.ConvertValues(mouseEnd, CoordType.GetRectangleCoord);
+            placeToDraw = place;
+            FigureColor = color;
+            FigureInterior = Color.FromArgb(91, 155, 213);
+            Name = name;
+            Width = width;
+        }
         
         //Нарисовать фигуру
         public abstract void DrawFigure();
@@ -33,12 +48,10 @@ namespace GraphicBuilder
         //выделение фигуры
         public abstract void SelectedFigure();
         //рисует все фигуры коллекции
-        public static void DrawAllFigures(Collection col)
+        public static void DrawAllFigures()
         {
-            if (col == Collection.Lines)
-            {
-                foreach (Line ln in Lines) ln.DrawFigure();
-            }
+            foreach (Line ln in Lines) ln.DrawFigure();
+            foreach (Ellipse el in Ellipses) el.DrawFigure();
         }
     }
 }

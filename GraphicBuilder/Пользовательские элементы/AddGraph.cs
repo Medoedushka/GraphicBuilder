@@ -258,6 +258,10 @@ namespace GraphicBuilder
             {
                 lst_CreatedFigures.Items.Add(ln.Name);
             }
+            foreach(Ellipse el in Figure.Ellipses)
+            {
+                lst_CreatedFigures.Items.Add(el.Name);
+            }
         }
 
         // hello, honey budger
@@ -284,7 +288,11 @@ namespace GraphicBuilder
         {
             foreach(Line ln in Figure.Lines)
             {
-                if (ln.Name == lst_CreatedFigures.SelectedItem.ToString()) ln.DrawFigure();
+                if (ln.Name == lst_CreatedFigures.SelectedItem.ToString())
+                {
+                    ln.DrawFigure();
+                    break;
+                }
             }
         }
 

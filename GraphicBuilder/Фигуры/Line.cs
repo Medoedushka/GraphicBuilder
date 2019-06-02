@@ -16,19 +16,9 @@ namespace GraphicBuilder
         bool IsArrow;       //является ли стрелкой
         
         public Line(PointF mouse_begin, PointF mouse_end, Color lineColor, PictureBox place,  bool arrow, string name, int width = 1)
+            : base(mouse_begin, mouse_end, lineColor, place, name, width)
         {
-            //Получение координат в прямоугольной системе
-
-            Begin = MainForm.graph.ConvertValues(mouse_begin.X, mouse_begin.Y, CoordType.GetRectangleCoord);
-            
-            End = MainForm.graph.ConvertValues(mouse_end.X, mouse_end.Y, CoordType.GetRectangleCoord);
-
-            placeToDraw = place;
-            FigureColor = lineColor;
             IsArrow = arrow;
-            Name = name;
-            Width = width;
-
             DrawFigure();
         }
 

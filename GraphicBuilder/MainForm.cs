@@ -252,16 +252,47 @@ namespace GraphicBuilder
                 линияToolStripMenuItem.Checked = true;
                 pictureBox1.Cursor = Cursors.Cross;
             }
+            else
+            {
+                drawingLine = false;
+                линияToolStripMenuItem.Checked = false;
+                pictureBox1.Cursor = Cursors.Default;
+            }
             numPt = 0;
         }
         private void стрелкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!drawingArrow)
             {
-                drawingArrow = true;
                 drawingLine = true;
+                drawingArrow = true;
                 стрелкаToolStripMenuItem.Checked = true;
                 pictureBox1.Cursor = Cursors.Cross;
+            }
+            else
+            {
+                drawingArrow = false;
+                стрелкаToolStripMenuItem.Checked = false;
+                pictureBox1.Cursor = Cursors.Default;
+            }
+            numPt = 0;
+        }
+
+        //вставка эллипса
+        bool drawingEllipse = false;
+        private void эллипсToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!drawingEllipse)
+            {
+                drawingEllipse = true;
+                эллипсToolStripMenuItem.Checked = true;
+                pictureBox1.Cursor = Cursors.Cross;
+            }
+            else
+            {
+                drawingEllipse = false;
+                эллипсToolStripMenuItem.Checked = false;
+                pictureBox1.Cursor = Cursors.Default;
             }
             numPt = 0;
         }
@@ -313,8 +344,8 @@ namespace GraphicBuilder
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            //Рисование линии
-            if (drawingLine)
+            //Рисование фигуры
+            if (drawingLine || drawingEllipse)
             {
                 if (numPt < 2)
                 {
@@ -324,24 +355,39 @@ namespace GraphicBuilder
                 }
                 if (numPt == 2)
                 {
-                    Line line;
-                    if (drawingArrow)
+                    if (drawingLine)
                     {
-                        line = new Line(First, Second, Color.Black, pictureBox1, true, "lineArrow" + Figure.Lines.Count);
-                        drawingArrow = false;
-                        стрелкаToolStripMenuItem.Checked = false;
-                    }
-                    else
-                    {
-                        line = new Line(First, Second, Color.Black, pictureBox1, false, "line" + Figure.Lines.Count);
-                        drawingLine = false;
-                        линияToolStripMenuItem.Checked = false;
-                    }
+                        Line line;
+                        if (drawingArrow)
+                        {
+                            line = new Line(First, Second, Color.Black, pictureBox1, true, "lineArrow" + Figure.Lines.Count);
+                            drawingArrow = false;
+                            drawingLine = false;
+                            стрелкаToolStripMenuItem.Checked = false;
+                        }
+                        else
+                        {
+                            line = new Line(First, Second, Color.Black, pictureBox1, false, "line" + Figure.Lines.Count);
+                            drawingLine = false;
+                            линияToolStripMenuItem.Checked = false;
+                        }
 
-                    Figure.Lines.Add(line);
-                    numPt = 0;
-                    pictureBox1.Cursor = Cursors.Default;
-                    return;
+                        Figure.Lines.Add(line);
+                        numPt = 0;
+                        pictureBox1.Cursor = Cursors.Default;
+                        return;
+                    }
+                    else if (drawingEllipse)
+                    {
+                        Ellipse ellipse = new Ellipse(First, Second, Color.Red, pictureBox1, "ellipse" + Figure.Ellipses.Count);
+                        Figure.Ellipses.Add(ellipse);
+                        numPt = 0;
+                        эллипсToolStripMenuItem.Checked = false;
+                        drawingEllipse = false;
+                        pictureBox1.Cursor = Cursors.Default;
+                        return;
+                    }
+                    
                 }
                 
             }
@@ -596,7 +642,7 @@ namespace GraphicBuilder
                 {
                     if (ln.BelongsToFigure(x, y))
                     {
-                       
+
                         ln.SelectedFigure();
                         CurrentFigure = ln;
                         return;
@@ -604,9 +650,16 @@ namespace GraphicBuilder
                     else
                     {
                         graph.DrawDiagram();
-                        Figure.DrawAllFigures(Collection.Lines);
+                        Figure.DrawAllFigures();
                         CurrentFigure = null;
-                        
+
+                    }
+                }
+                foreach (Figure el in Figure.Ellipses)
+                {
+                    if (el.BelongsToFigure(x, y))
+                    {
+                        MessageBox.Show("Сосать!");
                     }
                 }
                 return;
@@ -622,7 +675,7 @@ namespace GraphicBuilder
 
                         Figure.Lines.Remove(ln);
                         graph.DrawDiagram();
-                        Figure.DrawAllFigures(Collection.Lines);
+                        Figure.DrawAllFigures();
                         return;
                     }
                     
@@ -957,7 +1010,7 @@ namespace GraphicBuilder
                 }
                 
                 graph.DrawDiagram();
-                Figure.DrawAllFigures(Collection.Lines);
+                Figure.DrawAllFigures();
             }
             
         }

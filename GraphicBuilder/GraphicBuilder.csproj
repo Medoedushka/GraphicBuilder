@@ -65,6 +65,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Фигуры\Ellipse.cs" />
     <Compile Include="Фигуры\Figure.cs" />
     <Compile Include="Фигуры\Line.cs" />
     <Compile Include="Пользовательские элементы\AddGraph.cs">
@@ -260,6 +261,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imgonline-com-ua-Resize-3x0tnT1zNXYT0ntl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgonline-com-ua-Resize-bWRdxpzxI5QDg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgonline-com-ua-Resize-mhvBSp8imZSI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgonline-com-ua-Resize-AaJhafHChjBOu8D8.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
