@@ -294,6 +294,14 @@ namespace GraphicBuilder
                     break;
                 }
             }
+            foreach(Ellipse el in Figure.Ellipses)
+            {
+                if (el.Name == lst_CreatedFigures.SelectedItem.ToString())
+                {
+                    el.DrawFigure();
+                    break;
+                }
+            }
         }
 
         private void btn_RefreshListBox_Click(object sender, EventArgs e)

@@ -688,6 +688,18 @@ namespace GraphicBuilder
                     }
                     
                 }
+                foreach (Ellipse el in Figure.Ellipses)
+                {
+                    if (el.BelongsToFigure(x, y))
+                    {
+
+                        Figure.Ellipses.Remove(el);
+                        graph.DrawDiagram();
+                        Figure.DrawAllFigures();
+                        return;
+                    }
+
+                }
                 return;
             }
             
@@ -1008,12 +1020,12 @@ namespace GraphicBuilder
             if (Pushed)
             {
                 PointF MouseCoord = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord);
-                if (Math.Sqrt(Math.Pow(CurrentFigure.Begin.X - MouseCoord.X, 2) + Math.Pow(CurrentFigure.Begin.Y - MouseCoord.Y, 2)) <= 3)
+                if (Math.Sqrt(Math.Pow(CurrentFigure.Begin.X - MouseCoord.X, 2) + Math.Pow(CurrentFigure.Begin.Y - MouseCoord.Y, 2)) <= 0.5)
                 {
                     CurrentFigure.Begin = new PointF(MouseCoord.X, MouseCoord.Y);
                     
                 }
-                else if (Math.Sqrt(Math.Pow(CurrentFigure.End.X - MouseCoord.X, 2) + Math.Pow(CurrentFigure.End.Y - MouseCoord.Y, 2)) <= 3)
+                else if (Math.Sqrt(Math.Pow(CurrentFigure.End.X - MouseCoord.X, 2) + Math.Pow(CurrentFigure.End.Y - MouseCoord.Y, 2)) <= 0.5)
                 {
                     CurrentFigure.End = new PointF(MouseCoord.X, MouseCoord.Y);
                 }
