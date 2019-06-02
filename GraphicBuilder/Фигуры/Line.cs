@@ -54,7 +54,7 @@ namespace GraphicBuilder
                 if (IsArrow)
                 {
                     double angle = 15 * Math.PI / 180;
-                    double ArrowLength = 1;
+                    double ArrowLength = 0.5;
                     double LineLength = Math.Sqrt(Math.Pow(End.X - Begin.X, 2) + Math.Pow(End.Y - Begin.Y, 2));
                     double k = ArrowLength / LineLength;
                     

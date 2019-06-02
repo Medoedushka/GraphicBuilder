@@ -241,6 +241,7 @@ namespace GraphicBuilder
 
         //Вставка линии
         bool drawingLine = false; //режим рисования прямой
+        bool drawingArrow = false; //режим рисования стрелки
         PointF First, Second;
         byte numPt;
         private void линияToolStripMenuItem_Click(object sender, EventArgs e)
@@ -249,6 +250,17 @@ namespace GraphicBuilder
             {
                 drawingLine = true;
                 линияToolStripMenuItem.Checked = true;
+                pictureBox1.Cursor = Cursors.Cross;
+            }
+            numPt = 0;
+        }
+        private void стрелкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!drawingArrow)
+            {
+                drawingArrow = true;
+                drawingLine = true;
+                стрелкаToolStripMenuItem.Checked = true;
                 pictureBox1.Cursor = Cursors.Cross;
             }
             numPt = 0;
@@ -298,6 +310,7 @@ namespace GraphicBuilder
             }
         }
 
+
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
             //Рисование линии
@@ -311,11 +324,22 @@ namespace GraphicBuilder
                 }
                 if (numPt == 2)
                 {
-                    Line line = new Line(First, Second, Color.Black, pictureBox1, true, "line" + Figure.Lines.Count);
+                    Line line;
+                    if (drawingArrow)
+                    {
+                        line = new Line(First, Second, Color.Black, pictureBox1, true, "lineArrow" + Figure.Lines.Count);
+                        drawingArrow = false;
+                        стрелкаToolStripMenuItem.Checked = false;
+                    }
+                    else
+                    {
+                        line = new Line(First, Second, Color.Black, pictureBox1, false, "line" + Figure.Lines.Count);
+                        drawingLine = false;
+                        линияToolStripMenuItem.Checked = false;
+                    }
+
                     Figure.Lines.Add(line);
-                    drawingLine = false;
                     numPt = 0;
-                    линияToolStripMenuItem.Checked = false;
                     pictureBox1.Cursor = Cursors.Default;
                     return;
                 }
@@ -603,6 +627,7 @@ namespace GraphicBuilder
                     }
                     
                 }
+                return;
             }
             
         }
@@ -803,7 +828,6 @@ namespace GraphicBuilder
             RT_Graphic rT_Graphic = new RT_Graphic();
             rT_Graphic.Show();
         }
-
         
         private void btn_OpenRTGraph_Click(object sender, EventArgs e)
         {
@@ -942,6 +966,8 @@ namespace GraphicBuilder
         {
             Pushed = false;
         }
+
+        
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
