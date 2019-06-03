@@ -113,6 +113,16 @@ namespace GraphicBuilder.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap artist {
+            get {
+                object obj = ResourceManager.GetObject("artist", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap carpenter {
             get {
                 object obj = ResourceManager.GetObject("carpenter", resourceCulture);
@@ -136,6 +146,16 @@ namespace GraphicBuilder.Properties {
         internal static System.Drawing.Bitmap dustBin_25px {
             get {
                 object obj = ResourceManager.GetObject("dustBin_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enlarge {
+            get {
+                object obj = ResourceManager.GetObject("enlarge", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

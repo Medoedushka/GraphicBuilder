@@ -31,13 +31,13 @@ namespace GraphicBuilder
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
                 g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 
-                PointF pt1 = new PointF(0, 0), pt2 = new PointF(0, 0);
+                Center = new PointF((End.X + Begin.X) / 2, (End.Y + Begin.Y) / 2);
 
-                pt1.X = MainForm.graph.ConvertValues(Begin.X, Begin.Y, CoordType.GetControlCoord).X;
-                pt1.Y = MainForm.graph.ConvertValues(Begin.X, Begin.Y, CoordType.GetControlCoord).Y;
+                PointF pt1, pt2;
 
-                pt2.X = MainForm.graph.ConvertValues(End.X, End.Y, CoordType.GetControlCoord).X;
-                pt2.Y = MainForm.graph.ConvertValues(End.X, End.Y, CoordType.GetControlCoord).Y;
+                pt1 = MainForm.graph.ConvertValues(Begin, CoordType.GetControlCoord);
+                pt2 = MainForm.graph.ConvertValues(End, CoordType.GetControlCoord);
+                
 
                 g.DrawLine(new Pen(FigureColor, Width), pt1, pt2);
 
@@ -91,14 +91,15 @@ namespace GraphicBuilder
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
                 g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 
-                PointF pt1 = new PointF(0, 0), pt2 = new PointF(0, 0);
+                PointF pt1, pt2, pt3;
 
                 pt1 = MainForm.graph.ConvertValues(Begin.X, Begin.Y, CoordType.GetControlCoord);
                 pt2 = MainForm.graph.ConvertValues(End.X, End.Y, CoordType.GetControlCoord);
-                
+                pt3 = MainForm.graph.ConvertValues(Center, CoordType.GetControlCoord);
+
                 g.FillEllipse(new SolidBrush(Color.Black), pt1.X - r, pt1.Y - r, 2*r, 2*r);
                 g.FillEllipse(new SolidBrush(Color.Black), pt2.X - r, pt2.Y - r, 2*r, 2*r);
-              
+                g.FillEllipse(new SolidBrush(Color.Black), pt3.X - r, pt3.Y - r, 2 * r, 2 * r);
             }
             placeToDraw.Image = bm;
         }

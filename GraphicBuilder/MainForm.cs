@@ -1038,6 +1038,34 @@ namespace GraphicBuilder
             Figure.DrawAllFigures();
         }
 
+        private void tsm_InteriorColor_Click(object sender, EventArgs e)
+        {
+            DialogResult res; ColorDialog color;
+            using (color = new ColorDialog())
+            {
+                color.Color = CurrentFigure.FigureInterior;
+                res = color.ShowDialog();
+            }
+            if (res == DialogResult.OK)
+            {
+                CurrentFigure.FigureInterior = color.Color;
+            }
+        }
+
+        private void tsm_BorderColor_Click(object sender, EventArgs e)
+        {
+            DialogResult res; ColorDialog color;
+            using (color = new ColorDialog())
+            {
+                color.Color = CurrentFigure.FigureInterior;
+                res = color.ShowDialog();
+            }
+            if (res == DialogResult.OK)
+            {
+                CurrentFigure.FigureColor = color.Color;
+            }
+        }
+
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             cmb_CutCurveLeg.Items.Clear();
