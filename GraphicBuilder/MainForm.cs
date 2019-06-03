@@ -672,36 +672,7 @@ namespace GraphicBuilder
                 }
                 return;
             }
-            if (e.Button == MouseButtons.Middle)
-            {
-                double x = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).X;
-                double y = graph.ConvertValues(e.Location.X, e.Location.Y, CoordType.GetRectangleCoord).Y;
-                foreach (Line ln in Figure.Lines)
-                {
-                    if (ln.BelongsToFigure(x, y))
-                    {
-
-                        Figure.Lines.Remove(ln);
-                        graph.DrawDiagram();
-                        Figure.DrawAllFigures();
-                        return;
-                    }
-                    
-                }
-                foreach (Ellipse el in Figure.Ellipses)
-                {
-                    if (el.BelongsToFigure(x, y))
-                    {
-
-                        Figure.Ellipses.Remove(el);
-                        graph.DrawDiagram();
-                        Figure.DrawAllFigures();
-                        return;
-                    }
-
-                }
-                return;
-            }
+            
             
         }
 
@@ -1045,9 +1016,27 @@ namespace GraphicBuilder
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             Pushed = false;
+            PointF MouseCoord = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord);
+            if (e.Button == MouseButtons.Right && CurrentFigure != null)
+            {
+                if (CurrentFigure.BelongsToFigure(MouseCoord.X, MouseCoord.Y))
+                {
+                    cms_Figures.Show(MousePosition, ToolStripDropDownDirection.Right);
+                    
+                }
+                
+
+            }
         }
 
-        
+        private void tsm_DeleteFigure_Click(object sender, EventArgs e)
+        {
+
+            if (CurrentFigure is Line) Figure.Lines.Remove((Line)CurrentFigure);
+            if (CurrentFigure is Ellipse) Figure.Ellipses.Remove((Ellipse)CurrentFigure);
+            graph.DrawDiagram();
+            Figure.DrawAllFigures();
+        }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
