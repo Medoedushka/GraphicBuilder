@@ -14,67 +14,23 @@ namespace GraphicBuilder
     {
         Figure figure;
 
-        PointF CenterLoction;
-        double Length;
+        public PointF CenterLoction;
+        public PointF BeginCoord, EndCoord;
+
 
         public SelectFigureParams(Figure f)
         {
             figure = f;
             InitializeComponent();
         }
-
-        //private void CreateControls()
-        //{
-        //    panel2.Controls.Clear();
-
-        //    if (figure is Line)
-        //    {
-        //        Label lb_coord = new Label()
-        //        {
-        //            Location = new Point(0, 5),
-        //            AutoSize = true,
-        //            Text = "Координата центра(X;Y): ",
-        //            Font = this.Font
-        //        };
-        //        this.panel2.Controls.Add(lb_coord);
-        //        TextBox txbCoord = new TextBox()
-        //        {
-        //            Location = new Point(lb_coord.Size.Width + 5, 3),
-        //            Font = this.Font,
-        //            BackColor = Color.White,
-        //            Size = new Size(50, 20),
-        //            BorderStyle = BorderStyle.FixedSingle,
-
-        //        };
-        //        this.panel2.Controls.Add(txbCoord);
-        //        Label lb_length = new Label()
-        //        {
-        //            Location = new Point(0, txbCoord.Size.Height + 5),
-        //            Text = "Длинна: ",
-        //            Font = this.Font,
-        //            AutoSize = true
-        //        };
-        //        this.panel2.Controls.Add(lb_length);
-        //        TextBox txbLength = new TextBox()
-        //        {
-        //            Name = "af",
-        //            Location = new Point(lb_length.Size.Width + 5, lb_length.Location.Y),
-        //            Font = this.Font,
-        //            BackColor = Color.White,
-        //            Size = new Size(50, 20),
-        //            BorderStyle = BorderStyle.FixedSingle,
-
-        //        };
-                
-        //        this.panel2.Controls.Add(txbLength);
-                
-
-        //    }
-        //}
-
-        private void SelectLine()
+        
+        private void InitParams()
         {
-            
+            if (figure is Line)
+            {
+                txb_Begin.Text = Math.Round(figure.Begin.X, 2) + " " + Math.Round(figure.Begin.Y, 2);
+                txb_End.Text = Math.Round(figure.End.X, 2) + " " + Math.Round(figure.End.Y, 2);
+            }
         }
 
         private void btn_CloseForm_Click(object sender, EventArgs e)
@@ -84,7 +40,24 @@ namespace GraphicBuilder
 
         private void SelectFigureParams_Load(object sender, EventArgs e)
         {
-            
+            InitParams();
         }
+
+        private void btn_ApplyChanges_Click(object sender, EventArgs e)
+        {
+            if (figure is Line)
+            {
+                
+                string[] el = txb_Begin.Text.Split(' ');
+                if (el[0] != "" && el[1] != "")
+                    BeginCoord = new PointF(float.Parse(el[0]), float.Parse(el[1]));
+
+                el = txb_End.Text.Split(' ');
+                if (el[0] != "" && el[1] != "")
+                    EndCoord = new PointF(float.Parse(el[0]), float.Parse(el[1]));
+            }
+            this.Close();
+        }
+        
     }
 }

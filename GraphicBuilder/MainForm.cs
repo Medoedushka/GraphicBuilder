@@ -1073,7 +1073,14 @@ namespace GraphicBuilder
         {
             SelectFigureParams confForm = new SelectFigureParams(CurrentFigure);
             confForm.ShowDialog();
-            
+            if (CurrentFigure is Line)
+            {
+                
+                CurrentFigure.Begin = confForm.BeginCoord;
+                CurrentFigure.End = confForm.EndCoord;
+                graph.DrawDiagram();
+                Figure.DrawAllFigures();
+            }
         }
 
         //
