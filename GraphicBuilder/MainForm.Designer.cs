@@ -32,27 +32,15 @@
             this.pnl_Windows = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.cmb_PriceOX = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.cmb_PriceOY = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btn_BuildGraph = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.ControlNote = new System.Windows.Forms.ToolTip(this.components);
-            this.tmr_ChangeMainParams = new System.Windows.Forms.Timer(this.components);
-            this.cms_Figures = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.lbl_MouseX = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
+            this.lbl_MouseY = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel9 = new System.Windows.Forms.ToolStripSeparator();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.сохранитьPngкартинкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьRTпостроениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,33 +51,53 @@
             this.стрелкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.эллипсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.прямоугольникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.btn_CenterUP = new System.Windows.Forms.ToolStripButton();
             this.btn_CenterDOWN = new System.Windows.Forms.ToolStripButton();
             this.btn_CenterLEFT = new System.Windows.Forms.ToolStripButton();
             this.btn_CenterRIGHT = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.btn_IncreaseOX = new System.Windows.Forms.ToolStripButton();
             this.btn_DecreaseOX = new System.Windows.Forms.ToolStripButton();
+            this.cmb_PriceOX = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.btn_IncreaseOY = new System.Windows.Forms.ToolStripButton();
             this.btn_DecreaseOY = new System.Windows.Forms.ToolStripButton();
+            this.cmb_PriceOY = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_HideSettings = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_BuildGraph = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.btn_BuildRTGraph = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_AddNewGraph = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_MainSettings = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_DeleteCurves = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.вырезатьОбластьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmb_CutCurveLeg = new System.Windows.Forms.ToolStripComboBox();
             this.рассчитатьПлощадьПодКривойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.работаСТочкамиКривойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ControlNote = new System.Windows.Forms.ToolTip(this.components);
+            this.tmr_ChangeMainParams = new System.Windows.Forms.Timer(this.components);
+            this.cms_Figures = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsm_DeleteFigure = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_InteriorColor = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_BorderColor = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьЗаливкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_Windows.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.cms_Figures.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_Windows
@@ -115,6 +123,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.Controls.Add(this.toolStrip2);
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.toolStrip1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -122,6 +131,78 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(886, 561);
             this.panel3.TabIndex = 2;
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.AutoSize = false;
+            this.toolStrip2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(220)))), ((int)(((byte)(130)))));
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel5,
+            this.lbl_MouseX,
+            this.toolStripSeparator10,
+            this.toolStripLabel7,
+            this.lbl_MouseY,
+            this.toolStripLabel9});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 541);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(886, 20);
+            this.toolStrip2.TabIndex = 3;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripLabel5
+            // 
+            this.toolStripLabel5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toolStripLabel5.Name = "toolStripLabel5";
+            this.toolStripLabel5.Size = new System.Drawing.Size(20, 12);
+            this.toolStripLabel5.Text = "X :";
+            // 
+            // lbl_MouseX
+            // 
+            this.lbl_MouseX.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_MouseX.Name = "lbl_MouseX";
+            this.lbl_MouseX.Size = new System.Drawing.Size(29, 12);
+            this.lbl_MouseX.Text = "ValX";
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 15);
+            // 
+            // toolStripLabel7
+            // 
+            this.toolStripLabel7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toolStripLabel7.Name = "toolStripLabel7";
+            this.toolStripLabel7.Size = new System.Drawing.Size(21, 12);
+            this.toolStripLabel7.Text = "Y :";
+            // 
+            // lbl_MouseY
+            // 
+            this.lbl_MouseY.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_MouseY.Name = "lbl_MouseY";
+            this.lbl_MouseY.Size = new System.Drawing.Size(30, 12);
+            this.lbl_MouseY.Text = "ValY";
+            // 
+            // toolStripLabel9
+            // 
+            this.toolStripLabel9.Name = "toolStripLabel9";
+            this.toolStripLabel9.Size = new System.Drawing.Size(6, 15);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(190)))));
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(886, 536);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // toolStrip1
             // 
@@ -169,151 +250,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(886, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(53, 22);
-            this.toolStripLabel1.Text = "Камера:";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(18, 22);
-            this.toolStripLabel2.Text = "X:";
-            // 
-            // cmb_PriceOX
-            // 
-            this.cmb_PriceOX.AutoSize = false;
-            this.cmb_PriceOX.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "5",
-            "6",
-            "10"});
-            this.cmb_PriceOX.Name = "cmb_PriceOX";
-            this.cmb_PriceOX.Size = new System.Drawing.Size(50, 23);
-            this.cmb_PriceOX.Leave += new System.EventHandler(this.cmb_PriceOX_Leave);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel3
-            // 
-            this.toolStripLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(17, 22);
-            this.toolStripLabel3.Text = "Y:";
-            // 
-            // cmb_PriceOY
-            // 
-            this.cmb_PriceOY.AutoSize = false;
-            this.cmb_PriceOY.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "5",
-            "6",
-            "10"});
-            this.cmb_PriceOY.Name = "cmb_PriceOY";
-            this.cmb_PriceOY.Size = new System.Drawing.Size(50, 23);
-            this.cmb_PriceOY.Leave += new System.EventHandler(this.cmb_PriceOY_Leave);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btn_BuildGraph
-            // 
-            this.btn_BuildGraph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btn_BuildGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btn_BuildGraph.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_BuildGraph.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_BuildGraph.Name = "btn_BuildGraph";
-            this.btn_BuildGraph.Size = new System.Drawing.Size(72, 22);
-            this.btn_BuildGraph.Tag = "";
-            this.btn_BuildGraph.Text = "Построить";
-            this.btn_BuildGraph.Click += new System.EventHandler(this.btn_BuildGraph_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel4
-            // 
-            this.toolStripLabel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
-            this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(72, 22);
-            this.toolStripLabel4.Text = "RT-график:";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tmr_ChangeMainParams
-            // 
-            this.tmr_ChangeMainParams.Interval = 40;
-            this.tmr_ChangeMainParams.Tick += new System.EventHandler(this.tmr_ChangeMainParams_Tick);
-            // 
-            // cms_Figures
-            // 
-            this.cms_Figures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(0)))));
-            this.cms_Figures.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsm_DeleteFigure,
-            this.tsm_InteriorColor,
-            this.tsm_BorderColor,
-            this.удалитьЗаливкуToolStripMenuItem});
-            this.cms_Figures.Name = "cms_Figures";
-            this.cms_Figures.Size = new System.Drawing.Size(181, 114);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(190)))));
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(886, 536);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // toolStripDropDownButton1
             // 
@@ -404,6 +340,14 @@
             this.прямоугольникToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
             this.прямоугольникToolStripMenuItem.Text = "Прямоугольник";
             // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(53, 22);
+            this.toolStripLabel1.Text = "Камера:";
+            // 
             // btn_CenterUP
             // 
             this.btn_CenterUP.AutoSize = false;
@@ -454,6 +398,19 @@
             this.btn_CenterRIGHT.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_CenterRIGHT_MouseDown);
             this.btn_CenterRIGHT.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_CenterLEFT_MouseUp);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(18, 22);
+            this.toolStripLabel2.Text = "X:";
+            // 
             // btn_IncreaseOX
             // 
             this.btn_IncreaseOX.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -475,6 +432,32 @@
             this.btn_DecreaseOX.Text = "toolStripButton6";
             this.btn_DecreaseOX.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_DecreaseOX_MouseDown);
             this.btn_DecreaseOX.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_DecreaseOX_MouseUp);
+            // 
+            // cmb_PriceOX
+            // 
+            this.cmb_PriceOX.AutoSize = false;
+            this.cmb_PriceOX.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "5",
+            "6",
+            "10"});
+            this.cmb_PriceOX.Name = "cmb_PriceOX";
+            this.cmb_PriceOX.Size = new System.Drawing.Size(50, 23);
+            this.cmb_PriceOX.Leave += new System.EventHandler(this.cmb_PriceOX_Leave);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(17, 22);
+            this.toolStripLabel3.Text = "Y:";
             // 
             // btn_IncreaseOY
             // 
@@ -498,6 +481,24 @@
             this.btn_DecreaseOY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_DecreaseOY_MouseDown);
             this.btn_DecreaseOY.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_DecreaseOY_MouseUp);
             // 
+            // cmb_PriceOY
+            // 
+            this.cmb_PriceOY.AutoSize = false;
+            this.cmb_PriceOY.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "5",
+            "6",
+            "10"});
+            this.cmb_PriceOY.Name = "cmb_PriceOY";
+            this.cmb_PriceOY.Size = new System.Drawing.Size(50, 23);
+            this.cmb_PriceOY.Leave += new System.EventHandler(this.cmb_PriceOY_Leave);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
             // btn_HideSettings
             // 
             this.btn_HideSettings.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -509,6 +510,36 @@
             this.btn_HideSettings.Text = "toolStripButton1";
             this.btn_HideSettings.Click += new System.EventHandler(this.btn_HideSettings_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btn_BuildGraph
+            // 
+            this.btn_BuildGraph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_BuildGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btn_BuildGraph.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_BuildGraph.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_BuildGraph.Name = "btn_BuildGraph";
+            this.btn_BuildGraph.Size = new System.Drawing.Size(72, 22);
+            this.btn_BuildGraph.Tag = "";
+            this.btn_BuildGraph.Text = "Построить";
+            this.btn_BuildGraph.Click += new System.EventHandler(this.btn_BuildGraph_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(72, 22);
+            this.toolStripLabel4.Text = "RT-график:";
+            // 
             // btn_BuildRTGraph
             // 
             this.btn_BuildRTGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -518,6 +549,11 @@
             this.btn_BuildRTGraph.Size = new System.Drawing.Size(24, 22);
             this.btn_BuildRTGraph.Text = "toolStripButton1";
             this.btn_BuildRTGraph.Click += new System.EventHandler(this.btn_BuildRTGraph_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
             // btn_AddNewGraph
             // 
@@ -529,6 +565,11 @@
             this.btn_AddNewGraph.Text = "toolStripButton1";
             this.btn_AddNewGraph.Click += new System.EventHandler(this.btn_AddNewGraph_Click);
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
             // btn_MainSettings
             // 
             this.btn_MainSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -538,6 +579,11 @@
             this.btn_MainSettings.Size = new System.Drawing.Size(24, 22);
             this.btn_MainSettings.Text = "toolStripButton2";
             this.btn_MainSettings.Click += new System.EventHandler(this.btn_MainSettings_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
             // 
             // btn_DeleteCurves
             // 
@@ -549,6 +595,11 @@
             this.btn_DeleteCurves.Size = new System.Drawing.Size(24, 22);
             this.btn_DeleteCurves.Text = "toolStripButton3";
             this.btn_DeleteCurves.Click += new System.EventHandler(this.btn_DeleteCurves_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripButton1
             // 
@@ -592,13 +643,29 @@
             this.работаСТочкамиКривойToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
             this.работаСТочкамиКривойToolStripMenuItem.Text = "Работа с точками кривой";
             // 
+            // tmr_ChangeMainParams
+            // 
+            this.tmr_ChangeMainParams.Interval = 40;
+            this.tmr_ChangeMainParams.Tick += new System.EventHandler(this.tmr_ChangeMainParams_Tick);
+            // 
+            // cms_Figures
+            // 
+            this.cms_Figures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(0)))));
+            this.cms_Figures.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsm_DeleteFigure,
+            this.tsm_InteriorColor,
+            this.tsm_BorderColor,
+            this.удалитьЗаливкуToolStripMenuItem});
+            this.cms_Figures.Name = "cms_Figures";
+            this.cms_Figures.Size = new System.Drawing.Size(173, 92);
+            // 
             // tsm_DeleteFigure
             // 
             this.tsm_DeleteFigure.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tsm_DeleteFigure.Image = global::GraphicBuilder.Properties.Resources.remove;
             this.tsm_DeleteFigure.Name = "tsm_DeleteFigure";
             this.tsm_DeleteFigure.ShowShortcutKeys = false;
-            this.tsm_DeleteFigure.Size = new System.Drawing.Size(180, 22);
+            this.tsm_DeleteFigure.Size = new System.Drawing.Size(172, 22);
             this.tsm_DeleteFigure.Text = "Удалить";
             this.tsm_DeleteFigure.Click += new System.EventHandler(this.tsm_DeleteFigure_Click);
             // 
@@ -607,7 +674,7 @@
             this.tsm_InteriorColor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tsm_InteriorColor.Image = global::GraphicBuilder.Properties.Resources.artist;
             this.tsm_InteriorColor.Name = "tsm_InteriorColor";
-            this.tsm_InteriorColor.Size = new System.Drawing.Size(180, 22);
+            this.tsm_InteriorColor.Size = new System.Drawing.Size(172, 22);
             this.tsm_InteriorColor.Text = "Цвет заливки";
             this.tsm_InteriorColor.Click += new System.EventHandler(this.tsm_InteriorColor_Click);
             // 
@@ -616,7 +683,7 @@
             this.tsm_BorderColor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tsm_BorderColor.Image = global::GraphicBuilder.Properties.Resources.enlarge;
             this.tsm_BorderColor.Name = "tsm_BorderColor";
-            this.tsm_BorderColor.Size = new System.Drawing.Size(180, 22);
+            this.tsm_BorderColor.Size = new System.Drawing.Size(172, 22);
             this.tsm_BorderColor.Text = "Цвет контура";
             this.tsm_BorderColor.Click += new System.EventHandler(this.tsm_BorderColor_Click);
             // 
@@ -648,10 +715,12 @@
             this.pnl_Windows.ResumeLayout(false);
             this.pnl_Windows.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.cms_Figures.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -713,6 +782,13 @@
         private System.Windows.Forms.ToolStripMenuItem tsm_DeleteFigure;
         private System.Windows.Forms.ToolStripMenuItem tsm_BorderColor;
         private System.Windows.Forms.ToolStripMenuItem удалитьЗаливкуToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel5;
+        private System.Windows.Forms.ToolStripLabel lbl_MouseX;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel7;
+        private System.Windows.Forms.ToolStripLabel lbl_MouseY;
+        private System.Windows.Forms.ToolStripSeparator toolStripLabel9;
     }
 }
 

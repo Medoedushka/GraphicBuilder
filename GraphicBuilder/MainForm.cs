@@ -988,9 +988,12 @@ namespace GraphicBuilder
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
+            PointF MouseCoord = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord);
+            lbl_MouseX.Text = Math.Round(MouseCoord.X, 2).ToString();
+            lbl_MouseY.Text = Math.Round(MouseCoord.Y, 2).ToString();
             if (Pushed)
             {
-                PointF MouseCoord = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord);
+                
                 if (Math.Sqrt(Math.Pow(CurrentFigure.Begin.X - MouseCoord.X, 2) + Math.Pow(CurrentFigure.Begin.Y - MouseCoord.Y, 2)) <= 0.5)
                 {
                     CurrentFigure.Begin = new PointF(MouseCoord.X, MouseCoord.Y);
@@ -1065,6 +1068,8 @@ namespace GraphicBuilder
                 CurrentFigure.FigureColor = color.Color;
             }
         }
+
+        
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
