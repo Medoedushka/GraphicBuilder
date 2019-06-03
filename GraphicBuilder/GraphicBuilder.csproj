@@ -65,6 +65,12 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SelectFigureParams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectFigureParams.Designer.cs">
+      <DependentUpon>SelectFigureParams.cs</DependentUpon>
+    </Compile>
     <Compile Include="Фигуры\Ellipse.cs" />
     <Compile Include="Фигуры\Figure.cs" />
     <Compile Include="Фигуры\Line.cs" />
@@ -103,6 +109,9 @@
     <Compile Include="TextLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="SelectFigureParams.resx">
+      <DependentUpon>SelectFigureParams.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Пользовательские элементы\AddGraph.resx">
       <DependentUpon>AddGraph.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,6 +288,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\enlarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgonline-com-ua-Resize-zLjqIUp4nGC.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1031,7 +1031,9 @@ namespace GraphicBuilder
 
             }
         }
-
+        //
+        //обработка событий нажатия кнопок в контекстном меню редактированию фигуры
+        //
         private void tsm_DeleteFigure_Click(object sender, EventArgs e)
         {
 
@@ -1040,7 +1042,6 @@ namespace GraphicBuilder
             graph.DrawDiagram();
             Figure.DrawAllFigures();
         }
-
         private void tsm_InteriorColor_Click(object sender, EventArgs e)
         {
             DialogResult res; ColorDialog color;
@@ -1054,7 +1055,6 @@ namespace GraphicBuilder
                 CurrentFigure.FigureInterior = color.Color;
             }
         }
-
         private void tsm_BorderColor_Click(object sender, EventArgs e)
         {
             DialogResult res; ColorDialog color;
@@ -1069,8 +1069,16 @@ namespace GraphicBuilder
             }
         }
 
-        
+        private void задатьПараметрыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SelectFigureParams confForm = new SelectFigureParams(CurrentFigure);
+            confForm.ShowDialog();
+            
+        }
 
+        //
+        //
+        //
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             cmb_CutCurveLeg.Items.Clear();
