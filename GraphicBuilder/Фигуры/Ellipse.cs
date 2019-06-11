@@ -12,13 +12,13 @@ namespace GraphicBuilder
     public class Ellipse : Figure
     {
         
-        float A, B; //полуоси эллипса
-       
+        float A, B; //полуоси эллипса или ширина и высота для прямоугольника
+        bool isRect; //является ли объект прямоугольником
 
-        public Ellipse(PointF mouseBegin, PointF mouseEnd, Color color, PictureBox place, string name, int width = 1)
+        public Ellipse(PointF mouseBegin, PointF mouseEnd, Color color, PictureBox place, string name, bool isRect, int width = 1)
             : base(mouseBegin, mouseEnd, color, place, name, width)
         {
-            
+            this.isRect = isRect;
             DrawFigure();
         }
 
@@ -30,15 +30,27 @@ namespace GraphicBuilder
             {
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
                 g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-                A = (End.X - Begin.X) / 2;
-                B = (End.Y - Begin.Y) / 2;
-                Center = new PointF(Begin.X + A, Begin.Y + B);
-
                 PointF pt1 = MainForm.graph.ConvertValues(Begin, CoordType.GetControlCoord);
                 PointF pt2 = MainForm.graph.ConvertValues(End, CoordType.GetControlCoord);
-                g.FillEllipse(new SolidBrush(FigureInterior), pt1.X, pt1.Y, pt2.X - pt1.X, pt2.Y - pt1.Y);
-                g.DrawEllipse(new Pen(FigureColor), pt1.X, pt1.Y, pt2.X - pt1.X, pt2.Y - pt1.Y);
-                
+
+                if (!isRect)
+                {
+                    A = (End.X - Begin.X) / 2;
+                    B = (End.Y - Begin.Y) / 2;
+                    Center = new PointF(Begin.X + A, Begin.Y + B);
+
+                    
+                    g.FillEllipse(new SolidBrush(FigureInterior), pt1.X, pt1.Y, pt2.X - pt1.X, pt2.Y - pt1.Y);
+                    g.DrawEllipse(new Pen(FigureColor), pt1.X, pt1.Y, pt2.X - pt1.X, pt2.Y - pt1.Y);
+                }
+                else
+                {
+                    A = End.X - Begin.X;
+                    B = End.Y - Begin.Y;
+                    Center = new PointF(Begin.X + A / 2, Begin.Y + B / 2);
+                    g.FillRectangle(new SolidBrush(FigureInterior), pt1.X, pt1.Y, A, B);
+                    g.DrawRectangle(new Pen(FigureColor), pt1.X, pt1.Y, A, B);
+                }
                 
             }
             placeToDraw.Image = bm;
@@ -62,7 +74,12 @@ namespace GraphicBuilder
                 PointF pt1 = MainForm.graph.ConvertValues(Begin, CoordType.GetControlCoord);
                 PointF pt2 = MainForm.graph.ConvertValues(End, CoordType.GetControlCoord);
                 PointF pt3 = MainForm.graph.ConvertValues(Center, CoordType.GetControlCoord);
-                g.DrawRectangle(new Pen(Color.Gray), pt1.X, pt1.Y, pt2.X - pt1.X, pt2.Y - pt1.Y);
+                if (!isRect)
+                {
+                    g.DrawRectangle(new Pen(Color.Gray), pt1.X, pt1.Y, pt2.X - pt1.X, pt2.Y - pt1.Y);
+                    
+                }
+                
                 g.FillEllipse(new SolidBrush(Color.Black), pt1.X - r, pt1.Y - r, 2 * r, 2 * r);
                 g.FillEllipse(new SolidBrush(Color.Black), pt2.X - r, pt2.Y - r, 2 * r, 2 * r);
                 g.FillEllipse(new SolidBrush(Color.Black), pt3.X - r, pt3.Y - r, 2 * r, 2 * r);

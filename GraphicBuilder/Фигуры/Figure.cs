@@ -14,7 +14,8 @@ namespace GraphicBuilder
     public enum Collection
     {
         Lines,
-        Ellipses
+        Ellipses,
+        Rectangles
     }
     public abstract class Figure
     {
@@ -30,6 +31,7 @@ namespace GraphicBuilder
 
         public static List<Line> Lines = new List<Line>(); //коллекция созданных прямых
         public static List<Ellipse> Ellipses = new List<Ellipse>(); //коллекция созданных эллипсов
+        public static List<Rectangle> Rectangles = new List<Rectangle>(); //коллекция созданных прямоугольников
 
         public Figure(PointF mouseBegin, PointF mouseEnd, Color color,  PictureBox place, string name, int width = 1)
         {

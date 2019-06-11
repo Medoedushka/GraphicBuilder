@@ -378,7 +378,7 @@ namespace GraphicBuilder
                     }
                     else if (drawingEllipse)
                     {
-                        Ellipse ellipse = new Ellipse(First, Second, Color.Red, pictureBox1, "ellipse" + Figure.Ellipses.Count);
+                        Ellipse ellipse = new Ellipse(First, Second, Color.Red, pictureBox1, "ellipse" + Figure.Ellipses.Count, false);
                         Figure.Ellipses.Add(ellipse);
                         numPt = 0;
                         эллипсToolStripMenuItem.Checked = false;
