@@ -33,7 +33,7 @@ namespace GraphicBuilder
         private void MainForm_Load(object sender, EventArgs e)
         {
             graph = new PointsGraphic(pictureBox1, AxesMode.Static, AxesPosition.AllQuarters);
-            
+
             addGraph = new AddGraph()
             {
                 Location = new Point(0, 0),
@@ -45,8 +45,8 @@ namespace GraphicBuilder
             graph.Config.Grid = true;
             graph.Config.SmoothAngles = true;
             //hello, honey budger
-            pnl_Windows.Width =(int) (this.Width / 3.5);
-            
+            pnl_Windows.Width = (int)(this.Width / 3.5);
+
         }
 
         #region StaticCameraMoving
@@ -70,13 +70,13 @@ namespace GraphicBuilder
                 graph.RealCenter = new Point(graph.RealCenter.X + value, graph.RealCenter.Y);
                 ShiftOX += value;
             }
-           
+
             if (param == Param.RCenterPosY)
             {
                 graph.RealCenter = new Point(graph.RealCenter.X, graph.RealCenter.Y + value);
                 ShiftOY += value;
             }
-                
+
             graph.DrawDiagram();
         }
 
@@ -276,9 +276,27 @@ namespace GraphicBuilder
             }
             numPt = 0;
         }
-
+        private void прямоугольникToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!drawingRect)
+            {
+                drawingEllipse = true;
+                drawingRect = true;
+                прямоугольникToolStripMenuItem.Checked = true;
+                pictureBox1.Cursor = Cursors.Cross;
+            }
+            else
+            {
+                drawingEllipse = false;
+                drawingRect = false;
+                прямоугольникToolStripMenuItem.Checked = false;
+                pictureBox1.Cursor = Cursors.Default;
+            }
+            numPt = 0;
+        }
         //вставка эллипса
         bool drawingEllipse = false;
+        bool drawingRect = false;
         private void эллипсToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!drawingEllipse)
@@ -378,17 +396,27 @@ namespace GraphicBuilder
                     }
                     else if (drawingEllipse)
                     {
-                        Ellipse ellipse = new Ellipse(First, Second, Color.Red, pictureBox1, "ellipse" + Figure.Ellipses.Count, false);
+                        Ellipse ellipse;
+                        if (drawingRect)
+                        {
+                            ellipse = new Ellipse(First, Second, Color.Red, pictureBox1, "ellipse" + Figure.Ellipses.Count, true);
+                            drawingRect = false;
+                            прямоугольникToolStripMenuItem.Checked = false;
+                        }
+                        else
+                        {
+                            ellipse = new Ellipse(First, Second, Color.Red, pictureBox1, "ellipse" + Figure.Ellipses.Count, false);
+                            эллипсToolStripMenuItem.Checked = false;
+                        }
                         Figure.Ellipses.Add(ellipse);
                         numPt = 0;
-                        эллипсToolStripMenuItem.Checked = false;
                         drawingEllipse = false;
                         pictureBox1.Cursor = Cursors.Default;
                         return;
                     }
                     
                 }
-                
+                return;
             }
 
             //Рассчёт площади под графиком
@@ -1024,8 +1052,12 @@ namespace GraphicBuilder
         }
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            Pushed = false;
-            pictureBox1.Cursor = Cursors.Default;
+            if (Pushed)
+            {
+                Pushed = false;
+                pictureBox1.Cursor = Cursors.Default;
+            }
+            
             PointF MouseCoord = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord);
 
             //вызов контекстного меню для редактирования фигуры
@@ -1081,6 +1113,8 @@ namespace GraphicBuilder
         {
             CurrentFigure.FigureInterior = Color.Transparent;
         }
+
+        
 
         //
         //

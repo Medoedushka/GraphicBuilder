@@ -366,7 +366,7 @@
             this.tsm_DeleteFigure,
             this.btn_EditFigureColor});
             this.cms_Figures.Name = "cms_Figures";
-            this.cms_Figures.Size = new System.Drawing.Size(181, 70);
+            this.cms_Figures.Size = new System.Drawing.Size(159, 48);
             // 
             // pictureBox1
             // 
@@ -468,8 +468,9 @@
             // 
             this.прямоугольникToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.imgonline_com_ua_Resize_AaJhafHChjBOu8D8;
             this.прямоугольникToolStripMenuItem.Name = "прямоугольникToolStripMenuItem";
-            this.прямоугольникToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.прямоугольникToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.прямоугольникToolStripMenuItem.Text = "Прямоугольник";
+            this.прямоугольникToolStripMenuItem.Click += new System.EventHandler(this.прямоугольникToolStripMenuItem_Click);
             // 
             // btn_CenterUP
             // 

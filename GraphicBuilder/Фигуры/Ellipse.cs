@@ -39,7 +39,6 @@ namespace GraphicBuilder
                     B = (End.Y - Begin.Y) / 2;
                     Center = new PointF(Begin.X + A, Begin.Y + B);
 
-                    
                     g.FillEllipse(new SolidBrush(FigureInterior), pt1.X, pt1.Y, pt2.X - pt1.X, pt2.Y - pt1.Y);
                     g.DrawEllipse(new Pen(FigureColor), pt1.X, pt1.Y, pt2.X - pt1.X, pt2.Y - pt1.Y);
                 }
@@ -48,8 +47,8 @@ namespace GraphicBuilder
                     A = End.X - Begin.X;
                     B = End.Y - Begin.Y;
                     Center = new PointF(Begin.X + A / 2, Begin.Y + B / 2);
-                    g.FillRectangle(new SolidBrush(FigureInterior), pt1.X, pt1.Y, A, B);
-                    g.DrawRectangle(new Pen(FigureColor), pt1.X, pt1.Y, A, B);
+                    g.FillRectangle(new SolidBrush(FigureInterior), pt1.X, pt1.Y, pt2.X - pt1.X, pt2.Y - pt1.Y);
+                    g.DrawRectangle(new Pen(FigureColor), pt1.X, pt1.Y, pt2.X - pt1.X, pt2.Y - pt1.Y);
                 }
                 
             }

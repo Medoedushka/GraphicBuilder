@@ -65,7 +65,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Фигуры\Rectangle.cs" />
     <Compile Include="Фигуры\Ellipse.cs" />
     <Compile Include="Фигуры\Figure.cs" />
     <Compile Include="Фигуры\Line.cs" />
