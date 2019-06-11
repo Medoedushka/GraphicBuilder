@@ -1077,7 +1077,6 @@ namespace GraphicBuilder
                 CurrentFigure.FigureInterior = color.Color;
             }
         }
-
         private void btn_ClearInterior_Click(object sender, EventArgs e)
         {
             CurrentFigure.FigureInterior = Color.Transparent;

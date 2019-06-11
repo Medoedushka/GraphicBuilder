@@ -65,12 +65,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SelectFigureParams.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SelectFigureParams.Designer.cs">
-      <DependentUpon>SelectFigureParams.cs</DependentUpon>
-    </Compile>
     <Compile Include="Фигуры\Ellipse.cs" />
     <Compile Include="Фигуры\Figure.cs" />
     <Compile Include="Фигуры\Line.cs" />
@@ -109,9 +103,6 @@
     <Compile Include="TextLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="SelectFigureParams.resx">
-      <DependentUpon>SelectFigureParams.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Пользовательские элементы\AddGraph.resx">
       <DependentUpon>AddGraph.cs</DependentUpon>
     </EmbeddedResource>
