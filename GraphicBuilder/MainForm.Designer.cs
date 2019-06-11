@@ -73,6 +73,10 @@
             this.cmb_CutCurveLeg = new System.Windows.Forms.ToolStripComboBox();
             this.ControlNote = new System.Windows.Forms.ToolTip(this.components);
             this.tmr_ChangeMainParams = new System.Windows.Forms.Timer(this.components);
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.печатьГрафикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.печатьГрафикаИзФайлаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_Windows.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -172,7 +176,9 @@
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.сохранитьPngкартинкуToolStripMenuItem,
-            this.открытьRTпостроениеToolStripMenuItem});
+            this.открытьRTпостроениеToolStripMenuItem,
+            this.печатьГрафикаToolStripMenuItem,
+            this.печатьГрафикаИзФайлаToolStripMenuItem});
             this.toolStripDropDownButton1.Image = global::GraphicBuilder.Properties.Resources.file_25px;
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -504,6 +510,28 @@
             this.tmr_ChangeMainParams.Interval = 40;
             this.tmr_ChangeMainParams.Tick += new System.EventHandler(this.tmr_ChangeMainParams_Tick);
             // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // печатьГрафикаToolStripMenuItem
+            // 
+            this.печатьГрафикаToolStripMenuItem.Name = "печатьГрафикаToolStripMenuItem";
+            this.печатьГрафикаToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.печатьГрафикаToolStripMenuItem.Text = "Печать графика";
+            this.печатьГрафикаToolStripMenuItem.Click += new System.EventHandler(this.печатьГрафикаToolStripMenuItem_Click);
+            // 
+            // печатьГрафикаИзФайлаToolStripMenuItem
+            // 
+            this.печатьГрафикаИзФайлаToolStripMenuItem.Name = "печатьГрафикаИзФайлаToolStripMenuItem";
+            this.печатьГрафикаИзФайлаToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.печатьГрафикаИзФайлаToolStripMenuItem.Text = "Печать графика из файла";
+            this.печатьГрафикаИзФайлаToolStripMenuItem.Click += new System.EventHandler(this.печатьГрафикаИзФайлаToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -577,6 +605,10 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem текстToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.ToolStripMenuItem печатьГрафикаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem печатьГрафикаИзФайлаToolStripMenuItem;
     }
 }
 

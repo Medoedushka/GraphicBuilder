@@ -192,7 +192,7 @@ namespace GraphicBuilder
         }
         #endregion
 
-        #region Tools
+                #region Tools
 
         bool CutMode { get; set; } = true;
         byte numLines = 0;
@@ -254,6 +254,7 @@ namespace GraphicBuilder
                     }
                     g.FillRectangle(new SolidBrush(Color.FromArgb(100, 255, 0, 0)),
                         new RectangleF(x1, 0, Math.Abs(firstX - secondX), pictureBox1.Height));
+
 
                     double ValueX1 = Math.Round((x1 - graph.RealCenter.X) * graph.Config.PriceForPointOX / graph.Config.StepOX, 1);
                     double ValueX2 = Math.Round((x2 - graph.RealCenter.X) * graph.Config.PriceForPointOX / graph.Config.StepOX, 1);
@@ -728,6 +729,61 @@ namespace GraphicBuilder
             activeLabel.Text = TextValue;
         }
 
+        private void печатьГрафикаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ImagePath = null;
+            printDialog1.Document = printDocument1;
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+
+        private void печатьГрафикаИзФайлаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog a = new OpenFileDialog();
+            a.Filter = "PNG images (.png)|*.png";
+            a.ShowDialog();
+            this.ImagePath =  a.FileName;
+            
+            printDialog1.Document = printDocument1;
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+        string ImagePath;
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            if (this.ImagePath != null)
+            {
+
+                if (File.Exists(this.ImagePath))
+                {
+                    System.Drawing.Image img = System.Drawing.Image.FromFile(ImagePath);
+                    PrintImage(img, e);
+                }
+                else MessageBox.Show("Файл не найден");
+            }
+            else PrintImage( pictureBox1.Image, e );
+
+        }
+        private void PrintImage(System.Drawing.Image pic, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Rectangle m = e.MarginBounds;
+
+            if ((double)pic.Width / (double)pic.Height > (double)m.Width / (double)m.Height) // image is wider 
+            {
+                m.Height = (int)((double)pic.Height / (double)pic.Width * (double)m.Width);
+            }
+            else
+            {
+                m.Width = (int)((double)pic.Width / (double)pic.Height * (double)m.Height);
+            }
+            e.Graphics.DrawImage(pic, m);
+        }
         private static Bitmap DrawControlToBitMap(Control control)
         {
             Bitmap bitmap = new Bitmap(control.Width, control.Height);
