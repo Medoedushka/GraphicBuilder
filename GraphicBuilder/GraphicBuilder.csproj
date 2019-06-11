@@ -295,5 +295,8 @@
   <ItemGroup>
     <None Include="Resources\imgonline-com-ua-Resize-zLjqIUp4nGC.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rgb.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,12 +13,11 @@ namespace GraphicBuilder
 {
     public partial class MainForm : Form
     {
-        public static PointsGraphic graph;
-        AddGraph addGraph;
-        MainSettings mainSettings;
-        Figure CurrentFigure;
-        public static Figure Figures;
-        bool Pushed = false;
+        public static PointsGraphic graph; //объект класса, для рисования графиков
+        AddGraph addGraph; //контрол для добавления нового построения
+        MainSettings mainSettings; //контрол для настроек графика и области построения
+        Figure CurrentFigure; //содержит ссылку на фигуру, которая в данный момент является выделеной
+        bool Pushed = false; //является ли нажатой левая кнопка мыши
         int ShiftOX; //результирующее смещение центра по оси ОХ
         int ShiftOY; //результирующее смещение центра по оси ОY
 
@@ -808,8 +807,7 @@ namespace GraphicBuilder
         }
 
         #endregion
-
-
+        
         private void btn_AddNewGraph_Click(object sender, EventArgs e)
         {
             pnl_Windows.Controls.Clear();
@@ -836,6 +834,7 @@ namespace GraphicBuilder
             graph.DrawDiagram();
         }
 
+        //очистить все добавленые кривые 
         private void btn_DeleteCurves_Click(object sender, EventArgs e)
         {
             graph.GraphCurves.Clear();
@@ -852,6 +851,7 @@ namespace GraphicBuilder
             graph.Config.PriceForPointOX = graph.Config.PriceForPointOY = 1;
         }
 
+        
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
             if (graph != null)
@@ -867,12 +867,14 @@ namespace GraphicBuilder
             }
         }
 
+        //открытие формы для построения рт-графика
         private void btn_BuildRTGraph_Click(object sender, EventArgs e)
         {
             RT_Graphic rT_Graphic = new RT_Graphic();
             rT_Graphic.Show();
         }
         
+        //открытие json-файла с построенным рт-графиком
         private void btn_OpenRTGraph_Click(object sender, EventArgs e)
         {
             string filePath; DialogResult result;
@@ -904,6 +906,7 @@ namespace GraphicBuilder
             }
         }
 
+        //скрытие/ открытие меню с окнами
         private void btn_HideSettings_Click(object sender, EventArgs e)
         {
             if (Hidden == false)
@@ -933,13 +936,13 @@ namespace GraphicBuilder
                 }
             }
         }
-
+        
+        //выход из комбобокса цены деления осей
         private void cmb_PriceOX_Leave(object sender, EventArgs e)
         {
             graph.Config.PriceForPointOX = double.Parse(cmb_PriceOX.Text);
             graph.DrawDiagram();
         }
-
         private void cmb_PriceOY_Leave(object sender, EventArgs e)
         {
             graph.Config.PriceForPointOY = double.Parse(cmb_PriceOY.Text);
@@ -970,7 +973,9 @@ namespace GraphicBuilder
                 }
             }
         }
-
+        //
+        //обработка события нажатия и отпускания клавиш мыши для работы с фигурами
+        //
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             
@@ -985,7 +990,6 @@ namespace GraphicBuilder
                 }
             }
         }
-
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             PointF MouseCoord = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord);
@@ -1018,12 +1022,13 @@ namespace GraphicBuilder
             }
             
         }
-
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             Pushed = false;
             pictureBox1.Cursor = Cursors.Default;
             PointF MouseCoord = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord);
+
+            //вызов контекстного меню для редактирования фигуры
             if (e.Button == MouseButtons.Right && CurrentFigure != null)
             {
                 if (CurrentFigure.BelongsToFigure(MouseCoord.X, MouseCoord.Y))
@@ -1046,20 +1051,7 @@ namespace GraphicBuilder
             graph.DrawDiagram();
             Figure.DrawAllFigures();
         }
-        private void tsm_InteriorColor_Click(object sender, EventArgs e)
-        {
-            DialogResult res; ColorDialog color;
-            using (color = new ColorDialog())
-            {
-                color.Color = CurrentFigure.FigureInterior;
-                res = color.ShowDialog();
-            }
-            if (res == DialogResult.OK)
-            {
-                CurrentFigure.FigureInterior = color.Color;
-            }
-        }
-        private void tsm_BorderColor_Click(object sender, EventArgs e)
+        private void btn_FigureBorderColor_Click(object sender, EventArgs e)
         {
             DialogResult res; ColorDialog color;
             using (color = new ColorDialog())
@@ -1072,20 +1064,20 @@ namespace GraphicBuilder
                 CurrentFigure.FigureColor = color.Color;
             }
         }
-
-        private void задатьПараметрыToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btn_FigureInteriorColor_Click(object sender, EventArgs e)
         {
-            SelectFigureParams confForm = new SelectFigureParams(CurrentFigure);
-            confForm.ShowDialog();
-            if (CurrentFigure is Line)
+            DialogResult res; ColorDialog color;
+            using (color = new ColorDialog())
             {
-                
-                CurrentFigure.Begin = confForm.BeginCoord;
-                CurrentFigure.End = confForm.EndCoord;
-                graph.DrawDiagram();
-                Figure.DrawAllFigures();
+                color.Color = CurrentFigure.FigureInterior;
+                res = color.ShowDialog();
+            }
+            if (res == DialogResult.OK)
+            {
+                CurrentFigure.FigureInterior = color.Color;
             }
         }
+
 
         //
         //

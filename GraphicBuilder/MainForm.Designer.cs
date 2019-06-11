@@ -59,7 +59,6 @@
             this.ControlNote = new System.Windows.Forms.ToolTip(this.components);
             this.tmr_ChangeMainParams = new System.Windows.Forms.Timer(this.components);
             this.cms_Figures = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.удалитьЗаливкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.сохранитьPngкартинкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,9 +89,9 @@
             this.рассчитатьПлощадьПодКривойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.работаСТочкамиКривойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_DeleteFigure = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsm_InteriorColor = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsm_BorderColor = new System.Windows.Forms.ToolStripMenuItem();
-            this.задатьПараметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_EditFigureColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_FigureBorderColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_FigureInteriorColor = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_Windows.SuspendLayout();
             this.panel3.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -360,23 +359,13 @@
             // 
             // cms_Figures
             // 
-            this.cms_Figures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(0)))));
+            this.cms_Figures.BackColor = System.Drawing.SystemColors.Control;
             this.cms_Figures.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cms_Figures.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsm_DeleteFigure,
-            this.tsm_InteriorColor,
-            this.tsm_BorderColor,
-            this.удалитьЗаливкуToolStripMenuItem,
-            this.задатьПараметрыToolStripMenuItem});
+            this.btn_EditFigureColor});
             this.cms_Figures.Name = "cms_Figures";
-            this.cms_Figures.Size = new System.Drawing.Size(185, 136);
-            // 
-            // удалитьЗаливкуToolStripMenuItem
-            // 
-            this.удалитьЗаливкуToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.удалитьЗаливкуToolStripMenuItem.Name = "удалитьЗаливкуToolStripMenuItem";
-            this.удалитьЗаливкуToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.удалитьЗаливкуToolStripMenuItem.Text = "Удалить заливку";
+            this.cms_Figures.Size = new System.Drawing.Size(181, 70);
             // 
             // pictureBox1
             // 
@@ -433,7 +422,7 @@
             // 
             this.текстToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.letterA_25px;
             this.текстToolStripMenuItem.Name = "текстToolStripMenuItem";
-            this.текстToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
+            this.текстToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.текстToolStripMenuItem.Text = "Текст";
             this.текстToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.текстToolStripMenuItem.Click += new System.EventHandler(this.текстToolStripMenuItem_Click);
@@ -447,7 +436,7 @@
             this.прямоугольникToolStripMenuItem});
             this.фигурыToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.figures_25px;
             this.фигурыToolStripMenuItem.Name = "фигурыToolStripMenuItem";
-            this.фигурыToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
+            this.фигурыToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.фигурыToolStripMenuItem.Text = "Фигуры";
             // 
             // линияToolStripMenuItem
@@ -671,39 +660,44 @@
             // 
             // tsm_DeleteFigure
             // 
+            this.tsm_DeleteFigure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(0)))));
             this.tsm_DeleteFigure.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tsm_DeleteFigure.Image = global::GraphicBuilder.Properties.Resources.remove;
             this.tsm_DeleteFigure.Name = "tsm_DeleteFigure";
             this.tsm_DeleteFigure.ShowShortcutKeys = false;
-            this.tsm_DeleteFigure.Size = new System.Drawing.Size(184, 22);
+            this.tsm_DeleteFigure.Size = new System.Drawing.Size(180, 22);
             this.tsm_DeleteFigure.Text = "Удалить";
             this.tsm_DeleteFigure.Click += new System.EventHandler(this.tsm_DeleteFigure_Click);
             // 
-            // tsm_InteriorColor
+            // btn_EditFigureColor
             // 
-            this.tsm_InteriorColor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tsm_InteriorColor.Image = global::GraphicBuilder.Properties.Resources.artist;
-            this.tsm_InteriorColor.Name = "tsm_InteriorColor";
-            this.tsm_InteriorColor.Size = new System.Drawing.Size(184, 22);
-            this.tsm_InteriorColor.Text = "Цвет заливки";
-            this.tsm_InteriorColor.Click += new System.EventHandler(this.tsm_InteriorColor_Click);
+            this.btn_EditFigureColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(0)))));
+            this.btn_EditFigureColor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_FigureBorderColor,
+            this.btn_FigureInteriorColor});
+            this.btn_EditFigureColor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_EditFigureColor.Image = global::GraphicBuilder.Properties.Resources.rgb;
+            this.btn_EditFigureColor.Name = "btn_EditFigureColor";
+            this.btn_EditFigureColor.Size = new System.Drawing.Size(180, 22);
+            this.btn_EditFigureColor.Text = "Изменить цвет";
             // 
-            // tsm_BorderColor
+            // btn_FigureBorderColor
             // 
-            this.tsm_BorderColor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tsm_BorderColor.Image = global::GraphicBuilder.Properties.Resources.enlarge;
-            this.tsm_BorderColor.Name = "tsm_BorderColor";
-            this.tsm_BorderColor.Size = new System.Drawing.Size(184, 22);
-            this.tsm_BorderColor.Text = "Цвет контура";
-            this.tsm_BorderColor.Click += new System.EventHandler(this.tsm_BorderColor_Click);
+            this.btn_FigureBorderColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(0)))));
+            this.btn_FigureBorderColor.Image = global::GraphicBuilder.Properties.Resources.enlarge;
+            this.btn_FigureBorderColor.Name = "btn_FigureBorderColor";
+            this.btn_FigureBorderColor.Size = new System.Drawing.Size(180, 22);
+            this.btn_FigureBorderColor.Text = "Цвет контура";
+            this.btn_FigureBorderColor.Click += new System.EventHandler(this.btn_FigureBorderColor_Click);
             // 
-            // задатьПараметрыToolStripMenuItem
+            // btn_FigureInteriorColor
             // 
-            this.задатьПараметрыToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.clipboard;
-            this.задатьПараметрыToolStripMenuItem.Name = "задатьПараметрыToolStripMenuItem";
-            this.задатьПараметрыToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.задатьПараметрыToolStripMenuItem.Text = "Задать параметры";
-            this.задатьПараметрыToolStripMenuItem.Click += new System.EventHandler(this.задатьПараметрыToolStripMenuItem_Click);
+            this.btn_FigureInteriorColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(0)))));
+            this.btn_FigureInteriorColor.Image = global::GraphicBuilder.Properties.Resources.palette_25px;
+            this.btn_FigureInteriorColor.Name = "btn_FigureInteriorColor";
+            this.btn_FigureInteriorColor.Size = new System.Drawing.Size(180, 22);
+            this.btn_FigureInteriorColor.Text = "Цвет заливки";
+            this.btn_FigureInteriorColor.Click += new System.EventHandler(this.btn_FigureInteriorColor_Click);
             // 
             // MainForm
             // 
@@ -789,10 +783,8 @@
         private System.Windows.Forms.ToolStripMenuItem эллипсToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem прямоугольникToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip cms_Figures;
-        private System.Windows.Forms.ToolStripMenuItem tsm_InteriorColor;
         private System.Windows.Forms.ToolStripMenuItem tsm_DeleteFigure;
-        private System.Windows.Forms.ToolStripMenuItem tsm_BorderColor;
-        private System.Windows.Forms.ToolStripMenuItem удалитьЗаливкуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btn_EditFigureColor;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
         private System.Windows.Forms.ToolStripLabel lbl_MouseX;
@@ -800,7 +792,8 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel7;
         private System.Windows.Forms.ToolStripLabel lbl_MouseY;
         private System.Windows.Forms.ToolStripSeparator toolStripLabel9;
-        private System.Windows.Forms.ToolStripMenuItem задатьПараметрыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btn_FigureBorderColor;
+        private System.Windows.Forms.ToolStripMenuItem btn_FigureInteriorColor;
     }
 }
 
