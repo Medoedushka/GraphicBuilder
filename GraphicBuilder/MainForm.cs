@@ -996,15 +996,18 @@ namespace GraphicBuilder
                 
                 if (Math.Sqrt(Math.Pow(CurrentFigure.Begin.X - MouseCoord.X, 2) + Math.Pow(CurrentFigure.Begin.Y - MouseCoord.Y, 2)) <= 0.5)
                 {
+                    pictureBox1.Cursor = Cursors.SizeNWSE;
                     CurrentFigure.Begin = new PointF(MouseCoord.X, MouseCoord.Y);
                     
                 }
                 else if (Math.Sqrt(Math.Pow(CurrentFigure.End.X - MouseCoord.X, 2) + Math.Pow(CurrentFigure.End.Y - MouseCoord.Y, 2)) <= 0.5)
                 {
+                    pictureBox1.Cursor = Cursors.SizeNWSE;
                     CurrentFigure.End = new PointF(MouseCoord.X, MouseCoord.Y);
                 }
                 else 
                 {
+                    pictureBox1.Cursor = Cursors.SizeAll;
                     PointF vector = new PointF(MouseCoord.X - CurrentFigure.Center.X, MouseCoord.Y - CurrentFigure.Center.Y);
                     CurrentFigure.Begin = new PointF(CurrentFigure.Begin.X + vector.X, CurrentFigure.Begin.Y + vector.Y);
                     CurrentFigure.End = new PointF(CurrentFigure.End.X + vector.X, CurrentFigure.End.Y + vector.Y);
@@ -1019,6 +1022,7 @@ namespace GraphicBuilder
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             Pushed = false;
+            pictureBox1.Cursor = Cursors.Default;
             PointF MouseCoord = graph.ConvertValues(e.X, e.Y, CoordType.GetRectangleCoord);
             if (e.Button == MouseButtons.Right && CurrentFigure != null)
             {
