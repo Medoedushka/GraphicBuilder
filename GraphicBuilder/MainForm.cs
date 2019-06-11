@@ -1114,8 +1114,6 @@ namespace GraphicBuilder
             CurrentFigure.FigureInterior = Color.Transparent;
         }
 
-        
-
         //
         //
         //
