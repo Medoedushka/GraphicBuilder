@@ -92,6 +92,7 @@
             this.btn_EditFigureColor = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_FigureBorderColor = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_FigureInteriorColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_ClearInterior = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_Windows.SuspendLayout();
             this.panel3.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -665,7 +666,7 @@
             this.tsm_DeleteFigure.Image = global::GraphicBuilder.Properties.Resources.remove;
             this.tsm_DeleteFigure.Name = "tsm_DeleteFigure";
             this.tsm_DeleteFigure.ShowShortcutKeys = false;
-            this.tsm_DeleteFigure.Size = new System.Drawing.Size(180, 22);
+            this.tsm_DeleteFigure.Size = new System.Drawing.Size(158, 22);
             this.tsm_DeleteFigure.Text = "Удалить";
             this.tsm_DeleteFigure.Click += new System.EventHandler(this.tsm_DeleteFigure_Click);
             // 
@@ -674,7 +675,8 @@
             this.btn_EditFigureColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(0)))));
             this.btn_EditFigureColor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btn_FigureBorderColor,
-            this.btn_FigureInteriorColor});
+            this.btn_FigureInteriorColor,
+            this.btn_ClearInterior});
             this.btn_EditFigureColor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_EditFigureColor.Image = global::GraphicBuilder.Properties.Resources.rgb;
             this.btn_EditFigureColor.Name = "btn_EditFigureColor";
@@ -698,6 +700,15 @@
             this.btn_FigureInteriorColor.Size = new System.Drawing.Size(180, 22);
             this.btn_FigureInteriorColor.Text = "Цвет заливки";
             this.btn_FigureInteriorColor.Click += new System.EventHandler(this.btn_FigureInteriorColor_Click);
+            // 
+            // btn_ClearInterior
+            // 
+            this.btn_ClearInterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(0)))));
+            this.btn_ClearInterior.Image = global::GraphicBuilder.Properties.Resources.newCross_25px;
+            this.btn_ClearInterior.Name = "btn_ClearInterior";
+            this.btn_ClearInterior.Size = new System.Drawing.Size(180, 22);
+            this.btn_ClearInterior.Text = "Убрать заливку";
+            this.btn_ClearInterior.Click += new System.EventHandler(this.btn_ClearInterior_Click);
             // 
             // MainForm
             // 
@@ -794,6 +805,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripLabel9;
         private System.Windows.Forms.ToolStripMenuItem btn_FigureBorderColor;
         private System.Windows.Forms.ToolStripMenuItem btn_FigureInteriorColor;
+        private System.Windows.Forms.ToolStripMenuItem btn_ClearInterior;
     }
 }
 
