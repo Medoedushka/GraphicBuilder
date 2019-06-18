@@ -146,13 +146,14 @@
             // 
             // btn_ChangePlotColor
             // 
-            this.btn_ChangePlotColor.Image = global::GraphicBuilder.Properties.Resources.palette_25px;
+            this.btn_ChangePlotColor.FlatAppearance.BorderSize = 0;
+            this.btn_ChangePlotColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ChangePlotColor.Image = global::GraphicBuilder.Properties.Resources.imgonline_com_ua_Resize_fS0FFiRVBrr6x88Q;
             this.btn_ChangePlotColor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ChangePlotColor.Location = new System.Drawing.Point(227, 210);
+            this.btn_ChangePlotColor.Location = new System.Drawing.Point(222, 211);
             this.btn_ChangePlotColor.Name = "btn_ChangePlotColor";
-            this.btn_ChangePlotColor.Size = new System.Drawing.Size(98, 35);
+            this.btn_ChangePlotColor.Size = new System.Drawing.Size(36, 34);
             this.btn_ChangePlotColor.TabIndex = 7;
-            this.btn_ChangePlotColor.Text = "Изменить";
             this.btn_ChangePlotColor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_ChangePlotColor.UseVisualStyleBackColor = true;
             this.btn_ChangePlotColor.Click += new System.EventHandler(this.btn_ChangePlotColor_Click);

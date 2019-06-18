@@ -39,27 +39,8 @@
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.lbl_MouseY = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel9 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.cmb_PriceOX = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.cmb_PriceOY = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btn_BuildGraph = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.ControlNote = new System.Windows.Forms.ToolTip(this.components);
-            this.tmr_ChangeMainParams = new System.Windows.Forms.Timer(this.components);
-            this.cms_Figures = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.сохранитьPngкартинкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьRTпостроениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,24 +51,42 @@
             this.стрелкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.эллипсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.прямоугольникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.btn_CenterUP = new System.Windows.Forms.ToolStripButton();
             this.btn_CenterDOWN = new System.Windows.Forms.ToolStripButton();
             this.btn_CenterLEFT = new System.Windows.Forms.ToolStripButton();
             this.btn_CenterRIGHT = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.btn_IncreaseOX = new System.Windows.Forms.ToolStripButton();
             this.btn_DecreaseOX = new System.Windows.Forms.ToolStripButton();
+            this.cmb_PriceOX = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.btn_IncreaseOY = new System.Windows.Forms.ToolStripButton();
             this.btn_DecreaseOY = new System.Windows.Forms.ToolStripButton();
+            this.cmb_PriceOY = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_HideSettings = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_BuildGraph = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.btn_BuildRTGraph = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_AddNewGraph = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_MainSettings = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_DeleteCurves = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.вырезатьОбластьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmb_CutCurveLeg = new System.Windows.Forms.ToolStripComboBox();
             this.рассчитатьПлощадьПодКривойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.работаСТочкамиКривойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ControlNote = new System.Windows.Forms.ToolTip(this.components);
+            this.tmr_ChangeMainParams = new System.Windows.Forms.Timer(this.components);
+            this.cms_Figures = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsm_DeleteFigure = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_EditFigureColor = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_FigureBorderColor = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,9 +95,9 @@
             this.pnl_Windows.SuspendLayout();
             this.panel3.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.cms_Figures.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_Windows
@@ -106,9 +105,9 @@
             this.pnl_Windows.BackColor = System.Drawing.Color.LightSkyBlue;
             this.pnl_Windows.Controls.Add(this.label6);
             this.pnl_Windows.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnl_Windows.Location = new System.Drawing.Point(886, 0);
+            this.pnl_Windows.Location = new System.Drawing.Point(875, 0);
             this.pnl_Windows.Name = "pnl_Windows";
-            this.pnl_Windows.Size = new System.Drawing.Size(449, 561);
+            this.pnl_Windows.Size = new System.Drawing.Size(460, 561);
             this.pnl_Windows.TabIndex = 1;
             // 
             // label6
@@ -130,7 +129,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(886, 561);
+            this.panel3.Size = new System.Drawing.Size(875, 561);
             this.panel3.TabIndex = 2;
             // 
             // toolStrip2
@@ -149,7 +148,7 @@
             this.toolStripLabel9});
             this.toolStrip2.Location = new System.Drawing.Point(0, 541);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(886, 20);
+            this.toolStrip2.Size = new System.Drawing.Size(875, 20);
             this.toolStrip2.TabIndex = 3;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -190,6 +189,20 @@
             // 
             this.toolStripLabel9.Name = "toolStripLabel9";
             this.toolStripLabel9.Size = new System.Drawing.Size(6, 20);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(190)))));
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(875, 536);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // toolStrip1
             // 
@@ -234,153 +247,9 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.ShowItemToolTips = false;
-            this.toolStrip1.Size = new System.Drawing.Size(886, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(875, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(53, 22);
-            this.toolStripLabel1.Text = "Камера:";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(18, 22);
-            this.toolStripLabel2.Text = "X:";
-            // 
-            // cmb_PriceOX
-            // 
-            this.cmb_PriceOX.AutoSize = false;
-            this.cmb_PriceOX.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "5",
-            "6",
-            "10"});
-            this.cmb_PriceOX.Name = "cmb_PriceOX";
-            this.cmb_PriceOX.Size = new System.Drawing.Size(50, 23);
-            this.cmb_PriceOX.Leave += new System.EventHandler(this.cmb_PriceOX_Leave);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel3
-            // 
-            this.toolStripLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(17, 22);
-            this.toolStripLabel3.Text = "Y:";
-            // 
-            // cmb_PriceOY
-            // 
-            this.cmb_PriceOY.AutoSize = false;
-            this.cmb_PriceOY.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "5",
-            "6",
-            "10"});
-            this.cmb_PriceOY.Name = "cmb_PriceOY";
-            this.cmb_PriceOY.Size = new System.Drawing.Size(50, 23);
-            this.cmb_PriceOY.Leave += new System.EventHandler(this.cmb_PriceOY_Leave);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btn_BuildGraph
-            // 
-            this.btn_BuildGraph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btn_BuildGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btn_BuildGraph.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_BuildGraph.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_BuildGraph.Name = "btn_BuildGraph";
-            this.btn_BuildGraph.Size = new System.Drawing.Size(72, 22);
-            this.btn_BuildGraph.Tag = "";
-            this.btn_BuildGraph.Text = "Построить";
-            this.btn_BuildGraph.Click += new System.EventHandler(this.btn_BuildGraph_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel4
-            // 
-            this.toolStripLabel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
-            this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(72, 22);
-            this.toolStripLabel4.Text = "RT-график:";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tmr_ChangeMainParams
-            // 
-            this.tmr_ChangeMainParams.Interval = 40;
-            this.tmr_ChangeMainParams.Tick += new System.EventHandler(this.tmr_ChangeMainParams_Tick);
-            // 
-            // cms_Figures
-            // 
-            this.cms_Figures.BackColor = System.Drawing.SystemColors.Control;
-            this.cms_Figures.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cms_Figures.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsm_DeleteFigure,
-            this.btn_EditFigureColor});
-            this.cms_Figures.Name = "cms_Figures";
-            this.cms_Figures.Size = new System.Drawing.Size(159, 48);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(240)))), ((int)(((byte)(190)))));
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(886, 536);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // toolStripDropDownButton1
             // 
@@ -423,7 +292,7 @@
             // 
             this.текстToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.letterA_25px;
             this.текстToolStripMenuItem.Name = "текстToolStripMenuItem";
-            this.текстToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.текстToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
             this.текстToolStripMenuItem.Text = "Текст";
             this.текстToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.текстToolStripMenuItem.Click += new System.EventHandler(this.текстToolStripMenuItem_Click);
@@ -437,7 +306,7 @@
             this.прямоугольникToolStripMenuItem});
             this.фигурыToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.figures_25px;
             this.фигурыToolStripMenuItem.Name = "фигурыToolStripMenuItem";
-            this.фигурыToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.фигурыToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
             this.фигурыToolStripMenuItem.Text = "Фигуры";
             // 
             // линияToolStripMenuItem
@@ -468,9 +337,17 @@
             // 
             this.прямоугольникToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.imgonline_com_ua_Resize_AaJhafHChjBOu8D8;
             this.прямоугольникToolStripMenuItem.Name = "прямоугольникToolStripMenuItem";
-            this.прямоугольникToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.прямоугольникToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
             this.прямоугольникToolStripMenuItem.Text = "Прямоугольник";
             this.прямоугольникToolStripMenuItem.Click += new System.EventHandler(this.прямоугольникToolStripMenuItem_Click);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(53, 22);
+            this.toolStripLabel1.Text = "Камера:";
             // 
             // btn_CenterUP
             // 
@@ -522,6 +399,19 @@
             this.btn_CenterRIGHT.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_CenterRIGHT_MouseDown);
             this.btn_CenterRIGHT.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_CenterLEFT_MouseUp);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(18, 22);
+            this.toolStripLabel2.Text = "X:";
+            // 
             // btn_IncreaseOX
             // 
             this.btn_IncreaseOX.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -543,6 +433,32 @@
             this.btn_DecreaseOX.Text = "toolStripButton6";
             this.btn_DecreaseOX.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_DecreaseOX_MouseDown);
             this.btn_DecreaseOX.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_DecreaseOX_MouseUp);
+            // 
+            // cmb_PriceOX
+            // 
+            this.cmb_PriceOX.AutoSize = false;
+            this.cmb_PriceOX.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "5",
+            "6",
+            "10"});
+            this.cmb_PriceOX.Name = "cmb_PriceOX";
+            this.cmb_PriceOX.Size = new System.Drawing.Size(50, 23);
+            this.cmb_PriceOX.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmb_PriceOX_KeyPress);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(17, 22);
+            this.toolStripLabel3.Text = "Y:";
             // 
             // btn_IncreaseOY
             // 
@@ -566,6 +482,24 @@
             this.btn_DecreaseOY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_DecreaseOY_MouseDown);
             this.btn_DecreaseOY.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_DecreaseOY_MouseUp);
             // 
+            // cmb_PriceOY
+            // 
+            this.cmb_PriceOY.AutoSize = false;
+            this.cmb_PriceOY.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "5",
+            "6",
+            "10"});
+            this.cmb_PriceOY.Name = "cmb_PriceOY";
+            this.cmb_PriceOY.Size = new System.Drawing.Size(50, 23);
+            this.cmb_PriceOY.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmb_PriceOY_KeyPress);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
             // btn_HideSettings
             // 
             this.btn_HideSettings.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -577,6 +511,36 @@
             this.btn_HideSettings.Text = "toolStripButton1";
             this.btn_HideSettings.Click += new System.EventHandler(this.btn_HideSettings_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btn_BuildGraph
+            // 
+            this.btn_BuildGraph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_BuildGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btn_BuildGraph.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_BuildGraph.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_BuildGraph.Name = "btn_BuildGraph";
+            this.btn_BuildGraph.Size = new System.Drawing.Size(72, 22);
+            this.btn_BuildGraph.Tag = "";
+            this.btn_BuildGraph.Text = "Построить";
+            this.btn_BuildGraph.Click += new System.EventHandler(this.btn_BuildGraph_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(237)))));
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(72, 22);
+            this.toolStripLabel4.Text = "RT-график:";
+            // 
             // btn_BuildRTGraph
             // 
             this.btn_BuildRTGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -586,6 +550,11 @@
             this.btn_BuildRTGraph.Size = new System.Drawing.Size(24, 22);
             this.btn_BuildRTGraph.Text = "toolStripButton1";
             this.btn_BuildRTGraph.Click += new System.EventHandler(this.btn_BuildRTGraph_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
             // btn_AddNewGraph
             // 
@@ -597,6 +566,11 @@
             this.btn_AddNewGraph.Text = "toolStripButton1";
             this.btn_AddNewGraph.Click += new System.EventHandler(this.btn_AddNewGraph_Click);
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
             // btn_MainSettings
             // 
             this.btn_MainSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -606,6 +580,11 @@
             this.btn_MainSettings.Size = new System.Drawing.Size(24, 22);
             this.btn_MainSettings.Text = "toolStripButton2";
             this.btn_MainSettings.Click += new System.EventHandler(this.btn_MainSettings_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
             // 
             // btn_DeleteCurves
             // 
@@ -618,12 +597,16 @@
             this.btn_DeleteCurves.Text = "toolStripButton3";
             this.btn_DeleteCurves.Click += new System.EventHandler(this.btn_DeleteCurves_Click);
             // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.вырезатьОбластьToolStripMenuItem,
-            this.рассчитатьПлощадьПодКривойToolStripMenuItem,
-            this.работаСТочкамиКривойToolStripMenuItem});
+            this.рассчитатьПлощадьПодКривойToolStripMenuItem});
             this.toolStripButton1.Image = global::GraphicBuilder.Properties.Resources.imgonline_com_ua_Resize_3cqMF2tBQMS31Cs;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
@@ -637,7 +620,7 @@
             this.cmb_CutCurveLeg});
             this.вырезатьОбластьToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.carpenter;
             this.вырезатьОбластьToolStripMenuItem.Name = "вырезатьОбластьToolStripMenuItem";
-            this.вырезатьОбластьToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
+            this.вырезатьОбластьToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
             this.вырезатьОбластьToolStripMenuItem.Text = "Вырезать область";
             this.вырезатьОбластьToolStripMenuItem.Click += new System.EventHandler(this.вырезатьОбластьToolStripMenuItem_Click);
             // 
@@ -650,15 +633,24 @@
             // 
             this.рассчитатьПлощадьПодКривойToolStripMenuItem.Image = global::GraphicBuilder.Properties.Resources.area_25px;
             this.рассчитатьПлощадьПодКривойToolStripMenuItem.Name = "рассчитатьПлощадьПодКривойToolStripMenuItem";
-            this.рассчитатьПлощадьПодКривойToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
+            this.рассчитатьПлощадьПодКривойToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
             this.рассчитатьПлощадьПодКривойToolStripMenuItem.Text = "Рассчитать площадь под кривой";
             this.рассчитатьПлощадьПодКривойToolStripMenuItem.Click += new System.EventHandler(this.рассчитатьПлощадьПодКривойToolStripMenuItem_Click);
             // 
-            // работаСТочкамиКривойToolStripMenuItem
+            // tmr_ChangeMainParams
             // 
-            this.работаСТочкамиКривойToolStripMenuItem.Name = "работаСТочкамиКривойToolStripMenuItem";
-            this.работаСТочкамиКривойToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
-            this.работаСТочкамиКривойToolStripMenuItem.Text = "Работа с точками кривой";
+            this.tmr_ChangeMainParams.Interval = 40;
+            this.tmr_ChangeMainParams.Tick += new System.EventHandler(this.tmr_ChangeMainParams_Tick);
+            // 
+            // cms_Figures
+            // 
+            this.cms_Figures.BackColor = System.Drawing.SystemColors.Control;
+            this.cms_Figures.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cms_Figures.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsm_DeleteFigure,
+            this.btn_EditFigureColor});
+            this.cms_Figures.Name = "cms_Figures";
+            this.cms_Figures.Size = new System.Drawing.Size(159, 48);
             // 
             // tsm_DeleteFigure
             // 
@@ -681,7 +673,7 @@
             this.btn_EditFigureColor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_EditFigureColor.Image = global::GraphicBuilder.Properties.Resources.rgb;
             this.btn_EditFigureColor.Name = "btn_EditFigureColor";
-            this.btn_EditFigureColor.Size = new System.Drawing.Size(180, 22);
+            this.btn_EditFigureColor.Size = new System.Drawing.Size(158, 22);
             this.btn_EditFigureColor.Text = "Изменить цвет";
             // 
             // btn_FigureBorderColor
@@ -689,7 +681,7 @@
             this.btn_FigureBorderColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(0)))));
             this.btn_FigureBorderColor.Image = global::GraphicBuilder.Properties.Resources.enlarge;
             this.btn_FigureBorderColor.Name = "btn_FigureBorderColor";
-            this.btn_FigureBorderColor.Size = new System.Drawing.Size(180, 22);
+            this.btn_FigureBorderColor.Size = new System.Drawing.Size(164, 22);
             this.btn_FigureBorderColor.Text = "Цвет контура";
             this.btn_FigureBorderColor.Click += new System.EventHandler(this.btn_FigureBorderColor_Click);
             // 
@@ -698,7 +690,7 @@
             this.btn_FigureInteriorColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(0)))));
             this.btn_FigureInteriorColor.Image = global::GraphicBuilder.Properties.Resources.palette_25px;
             this.btn_FigureInteriorColor.Name = "btn_FigureInteriorColor";
-            this.btn_FigureInteriorColor.Size = new System.Drawing.Size(180, 22);
+            this.btn_FigureInteriorColor.Size = new System.Drawing.Size(164, 22);
             this.btn_FigureInteriorColor.Text = "Цвет заливки";
             this.btn_FigureInteriorColor.Click += new System.EventHandler(this.btn_FigureInteriorColor_Click);
             // 
@@ -707,7 +699,7 @@
             this.btn_ClearInterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(0)))));
             this.btn_ClearInterior.Image = global::GraphicBuilder.Properties.Resources.newCross_25px;
             this.btn_ClearInterior.Name = "btn_ClearInterior";
-            this.btn_ClearInterior.Size = new System.Drawing.Size(180, 22);
+            this.btn_ClearInterior.Size = new System.Drawing.Size(164, 22);
             this.btn_ClearInterior.Text = "Убрать заливку";
             this.btn_ClearInterior.Click += new System.EventHandler(this.btn_ClearInterior_Click);
             // 
@@ -734,16 +726,15 @@
             this.panel3.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.cms_Figures.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel pnl_Windows;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolTip ControlNote;
@@ -787,7 +778,6 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem текстToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem рассчитатьПлощадьПодКривойToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem работаСТочкамиКривойToolStripMenuItem;
         public System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem фигурыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem линияToolStripMenuItem;
@@ -807,6 +797,7 @@
         private System.Windows.Forms.ToolStripMenuItem btn_FigureBorderColor;
         private System.Windows.Forms.ToolStripMenuItem btn_FigureInteriorColor;
         private System.Windows.Forms.ToolStripMenuItem btn_ClearInterior;
+        private System.Windows.Forms.Panel pnl_Windows;
     }
 }
 

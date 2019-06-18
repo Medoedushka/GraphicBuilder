@@ -243,6 +243,16 @@ namespace GraphicBuilder.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imgonline_com_ua_Resize_fS0FFiRVBrr6x88Q {
+            get {
+                object obj = ResourceManager.GetObject("imgonline-com-ua-Resize-fS0FFiRVBrr6x88Q", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imgonline_com_ua_Resize_mhvBSp8imZSI {
             get {
                 object obj = ResourceManager.GetObject("imgonline-com-ua-Resize-mhvBSp8imZSI", resourceCulture);
@@ -476,6 +486,16 @@ namespace GraphicBuilder.Properties {
         internal static System.Drawing.Bitmap rgb {
             get {
                 object obj = ResourceManager.GetObject("rgb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rgb1 {
+            get {
+                object obj = ResourceManager.GetObject("rgb1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -214,6 +214,12 @@
   <data name="palette_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\palette_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="rgb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rgb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rgb1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rgb1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="visible_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\visible_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -222,9 +228,6 @@
   </data>
   <data name="file_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\file_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="insert_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\insert_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -250,11 +253,14 @@
   <data name="stop_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stop_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="figures_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\figures_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="artist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\artist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="figures_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\figures_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="insert_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\insert_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ArrowTop_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArrowTop_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,7 +268,7 @@
   <data name="ArrowBottom_25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArrowBottom_25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rgb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rgb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="imgonline-com-ua-Resize-fS0FFiRVBrr6x88Q" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imgonline-com-ua-Resize-fS0FFiRVBrr6x88Q.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

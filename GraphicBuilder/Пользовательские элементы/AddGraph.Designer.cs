@@ -56,6 +56,8 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(129, 0);
@@ -66,6 +68,8 @@
             // 
             // pnl_CreatedCurves
             // 
+            this.pnl_CreatedCurves.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_CreatedCurves.AutoScroll = true;
             this.pnl_CreatedCurves.BackColor = System.Drawing.SystemColors.Control;
             this.pnl_CreatedCurves.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -86,6 +90,8 @@
             // 
             // txb_UsersFunc
             // 
+            this.txb_UsersFunc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txb_UsersFunc.BackColor = System.Drawing.SystemColors.Control;
             this.txb_UsersFunc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txb_UsersFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -96,8 +102,10 @@
             // 
             // btn_AddGraphic
             // 
+            this.btn_AddGraphic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_AddGraphic.AutoSize = true;
             this.btn_AddGraphic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_AddGraphic.Location = new System.Drawing.Point(313, 227);
+            this.btn_AddGraphic.Location = new System.Drawing.Point(317, 226);
             this.btn_AddGraphic.Name = "btn_AddGraphic";
             this.btn_AddGraphic.Size = new System.Drawing.Size(83, 30);
             this.btn_AddGraphic.TabIndex = 46;
@@ -127,7 +135,6 @@
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label13.Location = new System.Drawing.Point(173, 231);
             this.label13.Name = "label13";
@@ -158,6 +165,8 @@
             // 
             // label12
             // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label12.Location = new System.Drawing.Point(0, 231);
@@ -170,7 +179,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(8, 278);
+            this.label3.Location = new System.Drawing.Point(5, 273);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 17);
             this.label3.TabIndex = 50;
@@ -237,13 +246,15 @@
             // 
             // btn_ChangePlotColor
             // 
-            this.btn_ChangePlotColor.Image = global::GraphicBuilder.Properties.Resources.palette_25px;
+            this.btn_ChangePlotColor.FlatAppearance.BorderSize = 0;
+            this.btn_ChangePlotColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ChangePlotColor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ChangePlotColor.Image = global::GraphicBuilder.Properties.Resources.imgonline_com_ua_Resize_fS0FFiRVBrr6x88Q;
             this.btn_ChangePlotColor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ChangePlotColor.Location = new System.Drawing.Point(154, 273);
+            this.btn_ChangePlotColor.Location = new System.Drawing.Point(139, 265);
             this.btn_ChangePlotColor.Name = "btn_ChangePlotColor";
-            this.btn_ChangePlotColor.Size = new System.Drawing.Size(98, 35);
+            this.btn_ChangePlotColor.Size = new System.Drawing.Size(36, 34);
             this.btn_ChangePlotColor.TabIndex = 52;
-            this.btn_ChangePlotColor.Text = "Изменить";
             this.btn_ChangePlotColor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_ChangePlotColor.UseVisualStyleBackColor = true;
             this.btn_ChangePlotColor.Click += new System.EventHandler(this.Change_Colour_Click);
@@ -251,7 +262,7 @@
             // pcb_PlotColor
             // 
             this.pcb_PlotColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcb_PlotColor.Location = new System.Drawing.Point(123, 278);
+            this.pcb_PlotColor.Location = new System.Drawing.Point(113, 269);
             this.pcb_PlotColor.Name = "pcb_PlotColor";
             this.pcb_PlotColor.Size = new System.Drawing.Size(25, 25);
             this.pcb_PlotColor.TabIndex = 51;
@@ -259,10 +270,11 @@
             // 
             // btn_Info
             // 
+            this.btn_Info.AutoSize = true;
             this.btn_Info.FlatAppearance.BorderSize = 0;
             this.btn_Info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Info.Image = global::GraphicBuilder.Properties.Resources.newInfo_25px;
-            this.btn_Info.Location = new System.Drawing.Point(397, 227);
+            this.btn_Info.Location = new System.Drawing.Point(409, 226);
             this.btn_Info.Name = "btn_Info";
             this.btn_Info.Size = new System.Drawing.Size(33, 32);
             this.btn_Info.TabIndex = 49;
@@ -271,9 +283,7 @@
             // 
             // AddGraph
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.btn_RefreshListBox);
             this.Controls.Add(this.btn_ShowAllFigures);

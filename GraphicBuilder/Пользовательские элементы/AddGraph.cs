@@ -90,26 +90,7 @@ namespace GraphicBuilder
                 Curves curve1;
                 Color curveColor = CurveColor;
 
-                // sorry :(
-
-                //if (txb_CurveColor.Text != "")
-                //{
-                //    string[] el = txb_CurveColor.Text.Split(',');
-                //    try
-                //    {
-                //        curveColor = Color.FromArgb(Int32.Parse(el[0]), Int32.Parse(el[1]), Int32.Parse(el[2]));
-                //    }
-                //    catch (FormatException)
-                //    {
-                //        MessageBox.Show("Введён неверный формат цвета кривой: 'Р,Г,Б'.", "Ошибка ввода",
-                //        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    }
-
                 curve1 = new Curves(pt, curveColor, Legend: txb_UsersFunc.Text);
-
-                //}
-                //else curve1 = new Curves(pt, Color.Red, Legend: txb_UsersFunc.Text);
-
                 DialogResult result;
                 try
                 {
@@ -264,7 +245,7 @@ namespace GraphicBuilder
             }
         }
 
-        // hello, honey budger
+        
         private void Change_Colour_Click(object sender, EventArgs e)
         {
             DialogResult result; ColorDialog colorDialog;
@@ -276,10 +257,7 @@ namespace GraphicBuilder
             }
             if (result == DialogResult.OK)
             {
-                //sorry again  
-                //MainForm.graph.placeToDraw.BackColor = colorDialog.Color;
                 pcb_PlotColor.BackColor = colorDialog.Color;
-                //MainForm.graph.DrawDiagram();
                 CurveColor = colorDialog.Color;
             }
         }

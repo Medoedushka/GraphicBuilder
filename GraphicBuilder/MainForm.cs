@@ -33,19 +33,12 @@ namespace GraphicBuilder
         private void MainForm_Load(object sender, EventArgs e)
         {
             graph = new PointsGraphic(pictureBox1, AxesMode.Static, AxesPosition.AllQuarters);
-
-            addGraph = new AddGraph()
-            {
-                Location = new Point(0, 0),
-                Dock = DockStyle.Right
-            };
             Hidden = false;
             cmb_PriceOX.Text = graph.Config.PriceForPointOX.ToString();
             cmb_PriceOY.Text = graph.Config.PriceForPointOY.ToString();
             graph.Config.Grid = true;
             graph.Config.SmoothAngles = true;
-            //hello, honey budger
-            pnl_Windows.Width = (int)(this.Width / 3.5);
+            pnl_Windows.Width = this.Width / 3;
 
         }
 
@@ -839,6 +832,11 @@ namespace GraphicBuilder
         private void btn_AddNewGraph_Click(object sender, EventArgs e)
         {
             pnl_Windows.Controls.Clear();
+            addGraph = new AddGraph()
+            {
+                Location = new Point(0, 0),
+                Dock = DockStyle.Right
+            };
             pnl_Windows.Controls.Add(addGraph);
             addGraph.Parent = pnl_Windows;
         }
@@ -952,7 +950,7 @@ namespace GraphicBuilder
             }
             else if (Hidden == true)
             {
-                pnl_Windows.Width = this.Width / 3; // 449;
+                pnl_Windows.Width = this.Width / 3;
                 btn_HideSettings.Image = Properties.Resources.unvisibie_25px;
                 Hidden = false;
                 if (graph != null)
@@ -964,18 +962,26 @@ namespace GraphicBuilder
                 }
             }
         }
-        
+
         //выход из комбобокса цены деления осей
-        private void cmb_PriceOX_Leave(object sender, EventArgs e)
+        private void cmb_PriceOY_KeyPress(object sender, KeyPressEventArgs e)
         {
-            graph.Config.PriceForPointOX = double.Parse(cmb_PriceOX.Text);
-            graph.DrawDiagram();
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                graph.Config.PriceForPointOY = double.Parse(cmb_PriceOY.Text);
+                graph.DrawDiagram();
+                
+            }
         }
-        private void cmb_PriceOY_Leave(object sender, EventArgs e)
+        private void cmb_PriceOX_KeyPress(object sender, KeyPressEventArgs e)
         {
-            graph.Config.PriceForPointOY = double.Parse(cmb_PriceOY.Text);
-            graph.DrawDiagram();
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                graph.Config.PriceForPointOX = double.Parse(cmb_PriceOX.Text);
+                graph.DrawDiagram();
+            }
         }
+        
 
         private void сохранитьPngкартинкуToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1113,18 +1119,17 @@ namespace GraphicBuilder
         {
             CurrentFigure.FigureInterior = Color.Transparent;
         }
-
         //
         //
         //
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             cmb_CutCurveLeg.Items.Clear();
-            foreach(Curves curve in graph.GraphCurves)
+            foreach (Curves curve in graph.GraphCurves)
             {
                 cmb_CutCurveLeg.Items.Add(curve.Legend);
             }
-            
+
         }
 
         private static Bitmap DrawControlToBitMap(Control control)
